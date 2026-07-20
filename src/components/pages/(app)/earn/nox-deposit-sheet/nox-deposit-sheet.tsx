@@ -1,12 +1,12 @@
 "use client";
 
-import { FiCheck, FiLoader, FiAlertTriangle, FiX } from "react-icons/fi";
-import { HiLockClosed } from "react-icons/hi2";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { AnimatePresence, motion } from "motion/react";
-import { useConfig, useAccount, useChainId, useSwitchChain } from "wagmi";
+import { FiAlertTriangle, FiCheck, FiLoader, FiX } from "react-icons/fi";
+import { HiLockClosed } from "react-icons/hi2";
+import { useAccount, useChainId, useConfig, useSwitchChain } from "wagmi";
 import { useWalletReady } from "@/lib/wallet-ready";
 import { useNoxDepositStore } from "@/stores";
-import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 export function NoxDepositSheet() {
   const open = useNoxDepositStore((state) => state.open);
@@ -125,7 +125,9 @@ function NoxDepositFlow({ walletAddress }: { walletAddress: `0x${string}` }) {
           <FiCheck className="h-7 w-7 text-(--color-positive)" />
         </motion.div>
         <div>
-          <p className="text-base font-semibold text-main">Deposit successful</p>
+          <p className="text-base font-semibold text-main">
+            Deposit successful
+          </p>
           <p className="mt-1 text-xs text-muted">
             {amount} {underlyingSymbol} deposited into {vault.vaultName}
           </p>
@@ -159,7 +161,9 @@ function NoxDepositFlow({ walletAddress }: { walletAddress: `0x${string}` }) {
         <p className="mx-auto max-w-xs text-xs text-muted">{error}</p>
         <button
           type="button"
-          onClick={() => useNoxDepositStore.setState({ step: "idle", error: null })}
+          onClick={() =>
+            useNoxDepositStore.setState({ step: "idle", error: null })
+          }
           className="mt-2 rounded-full bg-brand px-4 py-2 text-xs font-semibold text-white cursor-pointer transition-colors hover-brand"
         >
           Try again
@@ -182,7 +186,9 @@ function NoxDepositFlow({ walletAddress }: { walletAddress: `0x${string}` }) {
       <div className="rounded-2xl border border-main bg-surface-raised px-4 py-3">
         <div className="flex items-center justify-between">
           <span className="text-xs text-muted">Vault</span>
-          <span className="text-sm font-semibold text-main">{vault.vaultName}</span>
+          <span className="text-sm font-semibold text-main">
+            {vault.vaultName}
+          </span>
         </div>
         <div className="mt-2 flex items-center justify-between">
           <span className="text-xs text-muted">Amount</span>
@@ -218,9 +224,7 @@ function NoxDepositFlow({ walletAddress }: { walletAddress: `0x${string}` }) {
           <p className="text-sm font-semibold text-main">
             {stepLabel[step] ?? "Processing…"}
           </p>
-          <p className="text-xs text-muted">
-            Please confirm in your wallet
-          </p>
+          <p className="text-xs text-muted">Please confirm in your wallet</p>
         </div>
       ) : isWrongChain ? (
         <button

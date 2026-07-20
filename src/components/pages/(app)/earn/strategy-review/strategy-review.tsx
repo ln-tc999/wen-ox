@@ -4,9 +4,9 @@ import { AnimatePresence } from "motion/react";
 import Image from "next/image";
 import { useMemo } from "react";
 import { useExpertStore, useMetaStore } from "@/stores";
-import { RISK_CLASS, RISK_LABEL } from "./strategy-review-utils";
-import { EmptyReview } from "./strategy-review-states";
 import { ActiveReview } from "./active-review";
+import { EmptyReview } from "./strategy-review-states";
+import { RISK_CLASS, RISK_LABEL } from "./strategy-review-utils";
 
 export function StrategyReview() {
   const vaults = useExpertStore((state) => state.vaults);

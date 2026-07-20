@@ -3,15 +3,15 @@
 import "@rainbow-me/rainbowkit/styles.css";
 
 import {
-  RainbowKitProvider,
   darkTheme,
   lightTheme,
+  RainbowKitProvider,
 } from "@rainbow-me/rainbowkit";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useEffect, useMemo, useState } from "react";
 import { type Config, WagmiProvider } from "wagmi";
-import { createWagmiConfig } from "@/lib/wagmi";
 import { ThemeProvider, useTheme } from "@/lib/theme-context";
+import { createWagmiConfig } from "@/lib/wagmi";
 import { WalletReadyContext } from "@/lib/wallet-ready";
 
 type ProvidersProps = {

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
+import dynamic from "next/dynamic";
 import { useEffect, useMemo, useState } from "react";
 import { useAccount, useConfig } from "wagmi";
 import { useWalletReady } from "@/lib/wallet-ready";
@@ -11,7 +12,6 @@ import { PortfolioHeader } from "./portfolio-header";
 import { PositionsSection } from "./positions-section";
 import { TokensSection } from "./tokens-section";
 import { TotalSummary } from "./total-summary";
-import dynamic from "next/dynamic";
 
 const ShareCard = dynamic(
   () => import("./share-card").then((m) => m.ShareCard),

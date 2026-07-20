@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { mockChains, mockTokens } from "@/data";
-import { fetchVaultsViaProxy, type NoxVault } from "@/lib/nox-vault";
 import { NOX_CONTRACTS, NOX_VAULTS } from "@/lib/nox-types";
+import { fetchVaultsViaProxy, type NoxVault } from "@/lib/nox-vault";
 import type {
   Chain,
   Token,

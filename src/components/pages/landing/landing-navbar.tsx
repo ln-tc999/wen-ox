@@ -34,7 +34,7 @@ export function LandingNavbar() {
             >
               <Image
                 src="/Assets/Images/Logo-Brand/logo-transparent.png"
-                alt="iEx AI"
+                alt="Wen-Ox"
                 fill
                 priority
                 sizes="36px"
@@ -42,7 +42,7 @@ export function LandingNavbar() {
               />
             </motion.div>
             <span className="hidden text-base font-semibold tracking-tight text-main sm:inline">
-              iEx AI
+              Wen-Ox
             </span>
           </Link>
         </div>

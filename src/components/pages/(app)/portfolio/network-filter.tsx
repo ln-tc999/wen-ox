@@ -1,9 +1,9 @@
 "use client";
 
-import { FiChevronDown, FiGlobe } from "react-icons/fi";
 import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { FiChevronDown, FiGlobe } from "react-icons/fi";
 import type { LifiChainMeta } from "@/lib/lifi-meta";
 import { usePortfolioStore } from "@/stores";
 

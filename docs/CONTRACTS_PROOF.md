@@ -1,4 +1,4 @@
-# Smart Contracts Proof - iEx AI
+# Smart Contracts Proof - Wen-Ox
 
 **Date**: 2026-07-20  
 **Network**: Arbitrum Sepolia (421614)  

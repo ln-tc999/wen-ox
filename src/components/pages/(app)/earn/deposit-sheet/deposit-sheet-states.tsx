@@ -1,7 +1,7 @@
 "use client";
 
-import { FiCheck, FiLoader, FiZap } from "react-icons/fi";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
+import { FiCheck, FiLoader, FiZap } from "react-icons/fi";
 import type { DepositStep } from "@/stores";
 
 export function LoadingState() {

@@ -1,11 +1,11 @@
 import type { Config } from "wagmi";
 import { create } from "zustand";
 import type { LifiChainMeta, LifiTokenMeta } from "@/lib/lifi-meta";
+import type { LifiPortfolioPosition } from "@/lib/lifi-portfolio";
 import {
   loadPortfolioSnapshot,
   type PortfolioHolding,
 } from "@/lib/portfolio-fetcher";
-import type { LifiPortfolioPosition } from "@/lib/lifi-portfolio";
 
 type PortfolioStatus = "idle" | "loading" | "ready" | "error";
 

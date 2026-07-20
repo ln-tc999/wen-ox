@@ -1,8 +1,8 @@
 import { create } from "zustand";
-import { fetchVaultsViaProxy } from "@/lib/nox-vault";
-import type { NoxVault } from "@/lib/nox-vault";
-import type { VaultStrategy } from "@/types";
 import { mockChains } from "@/data";
+import type { NoxVault } from "@/lib/nox-vault";
+import { fetchVaultsViaProxy } from "@/lib/nox-vault";
+import type { VaultStrategy } from "@/types";
 
 function mapNoxVault(vault: NoxVault): VaultStrategy {
   const tvlUsd = parseFloat(vault.tvl?.usd ?? "0");

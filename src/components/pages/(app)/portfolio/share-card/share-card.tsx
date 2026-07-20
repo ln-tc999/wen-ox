@@ -1,10 +1,10 @@
 "use client";
 
 import { toPng } from "html-to-image";
-import { useCallback, useRef, useState } from "react";
-import { FiDownload, FiX } from "react-icons/fi";
-import { FaXTwitter } from "react-icons/fa6";
 import { AnimatePresence, motion } from "motion/react";
+import { useCallback, useRef, useState } from "react";
+import { FaXTwitter } from "react-icons/fa6";
+import { FiDownload, FiX } from "react-icons/fi";
 import type { LifiChainMeta } from "@/lib/lifi-meta";
 import type { LifiPortfolioPosition } from "@/lib/lifi-portfolio";
 import { resolveProtocol } from "@/lib/protocol-registry";
@@ -69,7 +69,7 @@ export function ShareCard({
         backgroundColor: "#0d0e0f",
       });
       const link = document.createElement("a");
-      link.download = "iex-ai-earn.png";
+      link.download = "wen-ox-earn.png";
       link.href = dataUrl;
       link.click();
     } catch {
@@ -124,7 +124,7 @@ export function ShareCard({
                   <div className="flex items-center gap-2">
                     <img
                       src="/Assets/Images/Logo-Brand/logo-transparent.png"
-                      alt="iEx AI"
+                      alt="Wen-Ox"
                       width={28}
                       height={28}
                       style={{ width: 28, height: 28, objectFit: "contain" }}
@@ -137,7 +137,7 @@ export function ShareCard({
                         letterSpacing: "-0.01em",
                       }}
                     >
-                      iEx AI
+                      Wen-Ox
                     </span>
                   </div>
                   <span
@@ -354,11 +354,11 @@ export function ShareCard({
                         color: "#6b6b75",
                       }}
                     >
-                      Earn with iEx AI
+                      Earn with Wen-Ox
                     </span>
                     <img
                       src="/Assets/Images/Logo-Brand/logo-transparent.png"
-                      alt="iEx AI"
+                      alt="Wen-Ox"
                       width={14}
                       height={14}
                       style={{ width: 14, height: 14, objectFit: "contain" }}

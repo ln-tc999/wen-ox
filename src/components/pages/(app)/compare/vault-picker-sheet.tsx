@@ -5,12 +5,12 @@ import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 import { FiCheck, FiChevronDown, FiSearch, FiX } from "react-icons/fi";
 import {
-  COMPARE_MAX_SLOTS,
-  useCompareStore,
-  useMetaStore,
-  type VaultRiskFilter,
-} from "@/stores";
-import type { VaultRisk } from "@/types";
+  APY_PRESETS,
+  MinThresholdDropdown,
+  ProtocolFilterDropdown,
+  type ProtocolOption,
+  RiskFilterChips,
+} from "@/components/pages/(app)/earn/vault-list";
 import {
   formatApy,
   formatTvl,
@@ -18,12 +18,12 @@ import {
   RISK_LABEL,
 } from "@/components/pages/(app)/earn/vault-list/vault-list-utils";
 import {
-  APY_PRESETS,
-  MinThresholdDropdown,
-  ProtocolFilterDropdown,
-  type ProtocolOption,
-  RiskFilterChips,
-} from "@/components/pages/(app)/earn/vault-list";
+  COMPARE_MAX_SLOTS,
+  useCompareStore,
+  useMetaStore,
+  type VaultRiskFilter,
+} from "@/stores";
+import type { VaultRisk } from "@/types";
 
 type ChainOption = {
   id: number;

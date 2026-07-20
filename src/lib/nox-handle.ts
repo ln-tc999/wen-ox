@@ -2,9 +2,9 @@
 
 import type { HandleClient } from "@iexec-nox/handle";
 import { createViemHandleClient } from "@iexec-nox/handle";
-import type { Config } from "wagmi";
-import { http, createWalletClient, custom } from "viem";
+import { createWalletClient, custom, http } from "viem";
 import { arbitrumSepolia } from "viem/chains";
+import type { Config } from "wagmi";
 
 export type HandleClientState = {
   client: HandleClient | null;

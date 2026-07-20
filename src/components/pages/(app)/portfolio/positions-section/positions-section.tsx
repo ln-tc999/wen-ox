@@ -1,14 +1,14 @@
 "use client";
 
-import { FiArrowUpRight, FiExternalLink } from "react-icons/fi";
-import { HiOutlineSparkles } from "react-icons/hi2";
 import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
+import { FiArrowUpRight, FiExternalLink } from "react-icons/fi";
+import { HiOutlineSparkles } from "react-icons/hi2";
 import type { LifiChainMeta } from "@/lib/lifi-meta";
 import type { LifiPortfolioPosition } from "@/lib/lifi-portfolio";
 import { resolvePositionUrl, resolveProtocol } from "@/lib/protocol-registry";
-import { useWithdrawStore, useNoxWithdrawStore } from "@/stores";
+import { useNoxWithdrawStore, useWithdrawStore } from "@/stores";
 import {
   formatBalance,
   formatUsd,
@@ -188,9 +188,13 @@ export function PositionsSection({
                         <button
                           type="button"
                           onClick={() => {
-                            const isConfidential = position.protocolName?.toLowerCase().includes("nox");
+                            const isConfidential = position.protocolName
+                              ?.toLowerCase()
+                              .includes("nox");
                             if (isConfidential) {
-                              openNoxWithdrawSheet(position as unknown as import("@/lib/nox-types").NoxPortfolio);
+                              openNoxWithdrawSheet(
+                                position as unknown as import("@/lib/nox-types").NoxPortfolio,
+                              );
                               return;
                             }
                             openWithdrawSheet(position);

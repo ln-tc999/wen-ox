@@ -10,7 +10,7 @@ import {
 
 export type Theme = "dark" | "light";
 
-const STORAGE_KEY = "iex-ai-theme";
+const STORAGE_KEY = "wen-ox-theme";
 const DEFAULT_THEME: Theme = "dark";
 
 type ThemeContextValue = {

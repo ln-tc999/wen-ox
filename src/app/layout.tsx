@@ -11,9 +11,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "iEx AI — Find the best yield route",
+  title: "Wen-Ox — Find the best yield route",
   description:
-    "iEx AI discovers the best confidential vault opportunities using Nox Protocol and deposits in one click.",
+    "Wen-Ox discovers the best confidential vault opportunities using Nox Protocol and deposits in one click.",
 };
 
 export default function RootLayout({
@@ -33,7 +33,7 @@ export default function RootLayout({
           id="theme-init"
           strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem('iex-ai-theme');if(t==='light'||t==='dark'){document.documentElement.dataset.theme=t;}}catch(e){}})();`,
+            __html: `(function(){try{var t=localStorage.getItem('wen-ox-theme');if(t==='light'||t==='dark'){document.documentElement.dataset.theme=t;}}catch(e){}})();`,
           }}
         />
         <Providers>{children}</Providers>

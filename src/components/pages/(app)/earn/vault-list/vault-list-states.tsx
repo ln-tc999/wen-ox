@@ -1,7 +1,7 @@
 "use client";
 
-import { FiAlertTriangle, FiInbox } from "react-icons/fi";
 import { motion } from "motion/react";
+import { FiAlertTriangle, FiInbox } from "react-icons/fi";
 
 const SKELETON_ROWS = Array.from({ length: 5 }, (_, i) => i);
 

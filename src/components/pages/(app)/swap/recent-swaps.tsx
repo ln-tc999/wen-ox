@@ -83,9 +83,13 @@ export function RecentSwaps() {
               >
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center gap-2">
-                    <span className="font-medium text-main">{swap.fromToken}</span>
+                    <span className="font-medium text-main">
+                      {swap.fromToken}
+                    </span>
                     <FiArrowRight className="h-4 w-4 text-faint" />
-                    <span className="font-medium text-main">{swap.toToken}</span>
+                    <span className="font-medium text-main">
+                      {swap.toToken}
+                    </span>
                   </div>
                   <span
                     className={`text-xs px-2 py-1 rounded-full ${
@@ -128,9 +132,7 @@ export function RecentSwaps() {
 
       {/* Privacy Notice */}
       <div className="mt-3 rounded-xl bg-surface-raised p-2.5 text-xs text-muted mx-2">
-        <p>
-          🔒 Amounts are encrypted. Hashes visible for verification.
-        </p>
+        <p>🔒 Amounts are encrypted. Hashes visible for verification.</p>
       </div>
     </section>
   );

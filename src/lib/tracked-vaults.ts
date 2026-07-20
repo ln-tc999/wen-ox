@@ -1,4 +1,4 @@
-const STORAGE_KEY = "iex_ai_tracked_vaults";
+const STORAGE_KEY = "wen_ox_tracked_vaults";
 
 const KNOWN_VAULTS: Omit<TrackedVault, "depositedAt">[] = [
   {

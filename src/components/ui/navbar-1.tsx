@@ -1,11 +1,11 @@
 "use client";
 
 import { AnimatePresence, motion } from "motion/react";
-import { FiMenu, FiX } from "react-icons/fi";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { FiMenu, FiX } from "react-icons/fi";
 import { ThemeToggle } from "./theme-toggle";
 import { WalletButton } from "./wallet-button";
 
@@ -36,7 +36,7 @@ const Navbar1 = () => {
             >
               <Image
                 src="/Assets/Images/Logo-Brand/logo-transparent.png"
-                alt="iEx AI"
+                alt="Wen-Ox"
                 fill
                 priority
                 sizes="36px"
@@ -44,7 +44,7 @@ const Navbar1 = () => {
               />
             </motion.div>
             <span className="hidden text-base font-semibold tracking-tight text-main sm:inline">
-              iEx AI
+              Wen-Ox
             </span>
           </Link>
         </div>

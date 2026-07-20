@@ -6,14 +6,15 @@ import Image from "next/image";
 import { useEffect, useMemo } from "react";
 import { FiCheck, FiExternalLink, FiPlus, FiTrash2, FiX } from "react-icons/fi";
 
-const IEX_AI_LOGO = "/Assets/Images/Logo-Brand/logo-transparent.png";
+const WEN_OX_LOGO = "/Assets/Images/Logo-Brand/logo-transparent.png";
+
 import {
   formatApy,
   formatTimelock,
   formatTvl,
-  resolveVaultLink,
   RISK_CLASS,
   RISK_LABEL,
+  resolveVaultLink,
 } from "@/components/pages/(app)/earn/vault-list/vault-list-utils";
 import { mockChains } from "@/data";
 import {
@@ -83,8 +84,8 @@ export function CompareView() {
         <header className="flex flex-col gap-2">
           <span className="inline-flex items-center gap-2 self-start rounded-full bg-brand-soft px-3 py-1 text-[11px] font-semibold text-brand">
             <Image
-              src={IEX_AI_LOGO}
-              alt="iEx AI"
+              src={WEN_OX_LOGO}
+              alt="Wen-Ox"
               width={14}
               height={14}
               className="h-3.5 w-3.5 object-contain"
@@ -512,8 +513,8 @@ function EmptyState({ onAdd }: { onAdd: () => void }) {
     >
       <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-soft">
         <Image
-          src={IEX_AI_LOGO}
-          alt="iEx AI"
+          src={WEN_OX_LOGO}
+          alt="Wen-Ox"
           width={36}
           height={36}
           className="h-9 w-9 object-contain"

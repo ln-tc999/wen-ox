@@ -1,8 +1,8 @@
 <div align="center">
 
-<img src="./public/Assets/Images/Logo-Brand/logo-transparent.png" alt="iEx AI" width="120" height="120" />
+<img src="./public/Assets/Images/Logo-Brand/logo-transparent.png" alt="Wen-Ox" width="120" height="120" />
 
-# iEx AI — Confidential Yield Vault Aggregator
+# Wen-Ox — Confidential Yield Vault Aggregator
 
 *Confidential yield farming powered by iExec Nox & ERC-7984 Confidential Tokens, with AI-assisted vault routing.*
 
@@ -56,7 +56,7 @@ Existing solutions ( Tornado Cash, Railgun) are for transfers — not yield gene
 
 ## The Solution
 
-**iEx AI** is a confidential yield vault aggregator where:
+**Wen-Ox** is a confidential yield vault aggregator where:
 
 - ✅ **Anyone can deposit** USDC or RLC into confidential vaults.
 - ✅ **Depositors receive cUSDC/cRLC** — ERC-7984 confidential tokens wrapped from public tokens.
@@ -419,13 +419,12 @@ pnpm dev
 
 ## Threat Model
 
-| Adversary | Capability | What iEx AI Protects |
-| --- | --- | --- |
-| Public on-chain observer (chain analytics, scrapers) | Reads all events & storage. | ✅ Sees vault exists & total TVL. ❌ Cannot see per-depositor amounts or link depositor identities. |
-| Vault operator | Manages vault, sees withdrawal balance. | ✅ Sees aggregate TVL. ❌ Cannot link a depositor address to a specific deposit amount. |
-| Other depositors to the same vault | Read on-chain state. | ❌ Cannot infer other depositors' amounts. |
+| Adversary | Capability | What Wen-Ox Protects |
+|---|---|---|
+| On-chain analytics / Etherscan observers | Read public transactions and balances. | ❌ Cannot view user balances in vaults (stored in `euint64` / encrypted). |
+| MEV searchers & copy-traders | Monitor mempool for large yield deposits. | ❌ Cannot observe deposit amount (client-side encrypted before broadcast). |
 | iExec Nox node operator (TEE host) | Runs SGX/TDX enclave. | ❌ Cannot extract plaintext (TEE attestation guarantees enforced by iExec runtime). |
-| iEx AI developers | Operate the frontend. | ❌ Cannot decrypt private balances. No backend stores sensitive data. |
+| Wen-Ox developers | Operate the frontend. | ❌ Cannot decrypt private balances. No backend stores sensitive data. |
 
 **Honestly out of scope:**
 
@@ -533,7 +532,7 @@ pnpm dev
 
 ## License
 
-MIT © 2026 iEx AI contributors. See [LICENSE](LICENSE).
+MIT © 2026 Wen-Ox contributors. See [LICENSE](LICENSE).
 
 ---
 

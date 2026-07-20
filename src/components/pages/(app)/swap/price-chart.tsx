@@ -1,21 +1,21 @@
 "use client";
 
-import { useEffect, useMemo, useRef } from "react";
 import {
+  type CandlestickData,
+  CandlestickSeries,
+  ColorType,
   createChart,
   type IChartApi,
   type ISeriesApi,
-  ColorType,
-  CandlestickSeries,
-  type CandlestickData,
   type UTCTimestamp,
 } from "lightweight-charts";
+import { useEffect, useMemo, useRef } from "react";
 
 // Generate mock candlestick data based on token pair
 function generateMockCandles(
   seed: string,
   anchorPrice?: number,
-  count = 90
+  count = 90,
 ): CandlestickData[] {
   let s = 0;
   for (let i = 0; i < seed.length; i++) {
@@ -78,7 +78,7 @@ export function PriceChart({ tokenPair, currentPrice }: PriceChartProps) {
   // Generate candles based on token pair (deterministic per pair)
   const candles = useMemo(
     () => generateMockCandles(tokenPair, currentPrice ?? undefined),
-    [tokenPair, currentPrice]
+    [tokenPair, currentPrice],
   );
 
   // Initialize chart
@@ -86,7 +86,7 @@ export function PriceChart({ tokenPair, currentPrice }: PriceChartProps) {
     const container = containerRef.current;
     if (!container) return;
 
-    // iEx AI theme colors (matching existing design)
+    // Wen-Ox theme colors (matching existing design)
     const upColor = "#40b66b"; // text-positive
     const downColor = "#fa2b39"; // text-negative
     const textColor = "#9b9ba5"; // text-muted

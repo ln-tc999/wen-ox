@@ -1,11 +1,11 @@
 "use client";
 
-import { useWalletReady } from "@/lib/wallet-ready";
 import { BackgroundDecor } from "@/components/layout";
-import { SwapCard } from "./swap-card";
+import { useWalletReady } from "@/lib/wallet-ready";
+import { useSwapStore } from "@/stores/swap-store";
 import { PriceChart } from "./price-chart";
 import { RecentSwaps } from "./recent-swaps";
-import { useSwapStore } from "@/stores/swap-store";
+import { SwapCard } from "./swap-card";
 
 export function SwapView() {
   const walletReady = useWalletReady();
@@ -28,10 +28,13 @@ export function SwapView() {
   }
 
   // Generate token pair for chart
-  const tokenPair = tokenIn && tokenOut ? `${tokenIn.symbol}/${tokenOut.symbol}` : "cUSDC/cRLC";
-  const currentPrice = amountOut && tokenIn && tokenOut ?
-    parseFloat(amountOut) / (tokenIn.priceUSD ? parseFloat(tokenIn.priceUSD) : 1) :
-    null;
+  const tokenPair =
+    tokenIn && tokenOut ? `${tokenIn.symbol}/${tokenOut.symbol}` : "cUSDC/cRLC";
+  const currentPrice =
+    amountOut && tokenIn && tokenOut
+      ? parseFloat(amountOut) /
+        (tokenIn.priceUSD ? parseFloat(tokenIn.priceUSD) : 1)
+      : null;
 
   return (
     <>
@@ -44,7 +47,9 @@ export function SwapView() {
             <section className="rounded-3xl border border-main bg-surface p-4 flex-1 min-h-[400px]">
               <div className="flex items-center justify-between mb-4">
                 <div>
-                  <h2 className="text-xl font-semibold text-main">{tokenPair}</h2>
+                  <h2 className="text-xl font-semibold text-main">
+                    {tokenPair}
+                  </h2>
                   <p className="text-sm text-muted mt-1">
                     Price chart for confidential token pair
                   </p>

@@ -1,30 +1,42 @@
 "use client";
 
-import { FiX, FiArrowDown, FiCheck, FiExternalLink, FiLoader } from "react-icons/fi";
 import { AnimatePresence, motion } from "motion/react";
-import { formatUnits } from "viem";
 import {
-  useAccount,
-  useChainId,
-  useConfig,
-  useSwitchChain,
-} from "wagmi";
-import { useWalletReady } from "@/lib/wallet-ready";
-import { useWithdrawStore, useNoxWithdrawStore, useMetaStore } from "@/stores";
-import { ConnectPrompt, LoadingState } from "./withdraw-sheet-states";
+  FiArrowDown,
+  FiCheck,
+  FiExternalLink,
+  FiLoader,
+  FiX,
+} from "react-icons/fi";
+import { formatUnits } from "viem";
+import { useAccount, useChainId, useConfig, useSwitchChain } from "wagmi";
 import type { LifiPortfolioPosition } from "@/lib/lifi-portfolio";
 import type { NoxPortfolio } from "@/lib/nox-types";
+import { useWalletReady } from "@/lib/wallet-ready";
+import { useMetaStore, useNoxWithdrawStore, useWithdrawStore } from "@/stores";
+import { ConnectPrompt, LoadingState } from "./withdraw-sheet-states";
 
-function isNoxProtocol(pos: LifiPortfolioPosition | NoxPortfolio | null | undefined): boolean {
+function isNoxProtocol(
+  pos: LifiPortfolioPosition | NoxPortfolio | null | undefined,
+): boolean {
   if (!pos) return false;
-  const protocol = "protocolName" in pos ? (pos as unknown as { protocolName?: string }).protocolName?.toLowerCase() : "";
+  const protocol =
+    "protocolName" in pos
+      ? (
+          pos as unknown as { protocolName?: string }
+        ).protocolName?.toLowerCase()
+      : "";
   return protocol?.includes("nox") || false;
 }
 
 export function WithdrawSheet() {
   const lifiOpen = useWithdrawStore((state) => state.open);
   const lifiCloseSheet = useWithdrawStore((state) => state.closeSheet);
-  const lifiPosition = useWithdrawStore((state) => state.position) as unknown as LifiPortfolioPosition | NoxPortfolio | null | undefined;
+  const lifiPosition = useWithdrawStore((state) => state.position) as unknown as
+    | LifiPortfolioPosition
+    | NoxPortfolio
+    | null
+    | undefined;
 
   const noxOpen = useNoxWithdrawStore((state) => state.open);
   const noxCloseSheet = useNoxWithdrawStore((state) => state.closeSheet);
@@ -204,7 +216,9 @@ function NoxWithdrawFlow() {
               onChange={(e) => setPercentage(Number.parseInt(e.target.value))}
               className="h-1 flex-1 cursor-pointer accent-brand"
             />
-            <span className="text-xs font-semibold text-main">{percentage}%</span>
+            <span className="text-xs font-semibold text-main">
+              {percentage}%
+            </span>
           </div>
           <div className="flex items-center justify-between rounded-lg bg-surface-raised px-3 py-2">
             <span className="text-xs text-muted">Amount to withdraw</span>
@@ -241,7 +255,9 @@ function NoxWithdrawFlow() {
     return (
       <div className="flex flex-col items-center gap-3 py-8 text-center">
         <FiLoader className="h-6 w-6 animate-spin text-brand" />
-        <p className="text-sm font-semibold text-main">Redeeming your vault shares...</p>
+        <p className="text-sm font-semibold text-main">
+          Redeeming your vault shares...
+        </p>
         <p className="text-xs text-muted">Please confirm in your wallet</p>
       </div>
     );
@@ -251,8 +267,12 @@ function NoxWithdrawFlow() {
     return (
       <div className="flex flex-col items-center gap-3 py-8 text-center">
         <FiLoader className="h-6 w-6 animate-spin text-brand" />
-        <p className="text-sm font-semibold text-main">Unwrapping confidential tokens...</p>
-        <p className="text-xs text-muted">Converting cToken back to underlying</p>
+        <p className="text-sm font-semibold text-main">
+          Unwrapping confidential tokens...
+        </p>
+        <p className="text-xs text-muted">
+          Converting cToken back to underlying
+        </p>
       </div>
     );
   }
@@ -263,7 +283,9 @@ function NoxWithdrawFlow() {
         <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[rgba(16,185,129,0.1)]">
           <FiCheck className="h-6 w-6 text-[#10B981]" />
         </div>
-        <p className="text-sm font-semibold text-main">Withdrawal successful!</p>
+        <p className="text-sm font-semibold text-main">
+          Withdrawal successful!
+        </p>
         <p className="text-xs text-muted">
           {withdrawAmount} {symbol} has been sent to your wallet
         </p>

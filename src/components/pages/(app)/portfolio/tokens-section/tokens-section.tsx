@@ -1,8 +1,8 @@
 "use client";
 
-import { HiOutlineBanknotes } from "react-icons/hi2";
 import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
+import { HiOutlineBanknotes } from "react-icons/hi2";
 import type { PortfolioHolding } from "@/lib/portfolio-fetcher";
 import {
   formatAmount,
@@ -70,7 +70,7 @@ export function TokensSection({ holdings = [], status }: TokensSectionProps) {
             </p>
             <p className="max-w-sm text-xs text-muted">
               We couldn&apos;t find any balances across the supported networks.
-              Bridge in funds to start earning on iEx AI.
+              Bridge in funds to start earning on Wen-Ox.
             </p>
           </motion.div>
         ) : (

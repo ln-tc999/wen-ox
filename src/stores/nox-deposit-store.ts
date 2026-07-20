@@ -1,4 +1,8 @@
-import { getPublicClient, waitForTransactionReceipt, writeContract } from "@wagmi/core";
+import {
+  getPublicClient,
+  waitForTransactionReceipt,
+  writeContract,
+} from "@wagmi/core";
 import { erc20Abi, parseGwei, parseUnits } from "viem";
 import type { Config } from "wagmi";
 import { create } from "zustand";
@@ -72,8 +76,7 @@ async function getGasParams(config: Config, chainId: number) {
     const fees = await client?.estimateFeesPerGas();
     if (fees?.maxFeePerGas) {
       maxFeePerGas = fees.maxFeePerGas * 2n;
-      maxPriorityFeePerGas =
-        fees.maxPriorityFeePerGas ?? parseGwei("0.001");
+      maxPriorityFeePerGas = fees.maxPriorityFeePerGas ?? parseGwei("0.001");
     }
   } catch {}
   return { maxFeePerGas, maxPriorityFeePerGas };

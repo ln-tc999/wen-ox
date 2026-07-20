@@ -1,12 +1,12 @@
 "use client";
 
-import { FiX } from "react-icons/fi";
 import { AnimatePresence, motion } from "motion/react";
+import { FiX } from "react-icons/fi";
 import { useAccount } from "wagmi";
 import { useWalletReady } from "@/lib/wallet-ready";
 import { useDepositStore } from "@/stores";
-import { LoadingState, ConnectPrompt } from "./deposit-sheet-states";
 import { ActiveFlow } from "./active-flow";
+import { ConnectPrompt, LoadingState } from "./deposit-sheet-states";
 
 export function DepositSheet() {
   const open = useDepositStore((state) => state.open);

@@ -1,6 +1,7 @@
 "use client";
 
 import { ConnectButton } from "@rainbow-me/rainbowkit";
+import { motion } from "motion/react";
 import {
   FiAlertTriangle,
   FiCheck,
@@ -8,7 +9,6 @@ import {
   FiLoader,
 } from "react-icons/fi";
 import { HiOutlineWallet } from "react-icons/hi2";
-import { motion } from "motion/react";
 
 export function LoadingState() {
   return (

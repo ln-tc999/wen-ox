@@ -5,6 +5,8 @@ import {
   waitForTransactionReceipt,
   writeContract,
 } from "@wagmi/core";
+import { motion } from "motion/react";
+import Image from "next/image";
 import {
   FiAlertTriangle,
   FiArrowDown,
@@ -13,8 +15,6 @@ import {
   FiLoader,
 } from "react-icons/fi";
 import { HiOutlineArrowsRightLeft } from "react-icons/hi2";
-import { motion } from "motion/react";
-import Image from "next/image";
 import { erc20Abi, formatUnits, parseUnits } from "viem";
 import {
   useBalance,
@@ -24,21 +24,21 @@ import {
   useSendTransaction,
   useSwitchChain,
 } from "wagmi";
+import { addTrackedVault } from "@/lib/tracked-vaults";
 import { useDepositStore, useMetaStore, usePortfolioStore } from "@/stores";
 import {
   ERC4626_DIRECT_DEPOSIT_TOOL,
   ERC4626_WRAP_AND_DEPOSIT_TOOL,
 } from "@/stores/deposit-store";
-import { addTrackedVault } from "@/lib/tracked-vaults";
+import { ConnectPrompt, Row, StepIndicator } from "./deposit-sheet-states";
 import {
   ERC20_ABI,
-  NATIVE_TOKEN_ADDRESSES,
-  WRAPPED_NATIVE_ABI,
   formatDuration,
   formatUsdString,
+  NATIVE_TOKEN_ADDRESSES,
   trimAmountDisplay,
+  WRAPPED_NATIVE_ABI,
 } from "./deposit-sheet-utils";
-import { ConnectPrompt, Row, StepIndicator } from "./deposit-sheet-states";
 
 export function ActiveFlow({
   walletAddress,
@@ -624,12 +624,12 @@ export function ActiveFlow({
       <div className="flex items-center gap-2 rounded-xl bg-surface-raised/60 px-3 py-2 text-[11px] text-muted">
         <Image
           src="/Assets/Images/Logo-Brand/logo-transparent.png"
-          alt="iEx AI"
+          alt="Wen-Ox"
           width={16}
           height={16}
           className="h-4 w-4 object-contain"
         />
-        Non-custodial. iEx AI never holds your funds — your wallet signs every
+        Non-custodial. Wen-Ox never holds your funds — your wallet signs every
         step.
       </div>
 

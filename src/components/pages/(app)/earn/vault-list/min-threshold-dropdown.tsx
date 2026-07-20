@@ -1,8 +1,8 @@
 "use client";
 
-import { FiCheck, FiChevronDown } from "react-icons/fi";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
+import { FiCheck, FiChevronDown } from "react-icons/fi";
 
 export type ThresholdPreset = { label: string; value: number };
 

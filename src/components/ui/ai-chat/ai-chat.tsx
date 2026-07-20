@@ -1,8 +1,8 @@
 "use client";
 
-import { useRef, useEffect } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { FiMessageCircle, FiX, FiSend, FiTrash2 } from "react-icons/fi";
+import { useEffect, useRef } from "react";
+import { FiMessageCircle, FiSend, FiTrash2, FiX } from "react-icons/fi";
 import { useAIChatStore } from "./ai-chat-store";
 
 function TypingDots() {

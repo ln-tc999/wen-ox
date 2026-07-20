@@ -1,12 +1,12 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { useAccount, useBalance } from "wagmi";
-import { formatUnits } from "viem";
 import { FiArrowDown, FiSettings } from "react-icons/fi";
+import { formatUnits } from "viem";
+import { useAccount, useBalance } from "wagmi";
+import { NOX_CONTRACTS } from "@/lib/nox-types";
 import { useSwapStore } from "@/stores/swap-store";
 import { Selector } from "../earn/selector";
-import { NOX_CONTRACTS } from "@/lib/nox-types";
 
 const CONFIDENTIAL_TOKENS = [
   {
@@ -14,7 +14,8 @@ const CONFIDENTIAL_TOKENS = [
     symbol: "cUSDC",
     name: "Confidential USDC",
     decimals: 6,
-    logoURI: "https://tokens.1inch.io/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48.png",
+    logoURI:
+      "https://tokens.1inch.io/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48.png",
     priceUSD: "1",
     isConfidential: true,
   },
@@ -76,7 +77,12 @@ export function SwapCard() {
 
   // Fetch quote when amountIn changes
   useEffect(() => {
-    if (!amountIn || !tokenIn || !tokenOut || Number.parseFloat(amountIn) <= 0) {
+    if (
+      !amountIn ||
+      !tokenIn ||
+      !tokenOut ||
+      Number.parseFloat(amountIn) <= 0
+    ) {
       setAmountOut("");
       setQuote(null);
       return;
@@ -114,7 +120,15 @@ export function SwapCard() {
 
     const debounce = setTimeout(fetchQuote, 500);
     return () => clearTimeout(debounce);
-  }, [amountIn, tokenIn, tokenOut, slippage, setAmountOut, setQuote, setIsLoadingQuote]);
+  }, [
+    amountIn,
+    tokenIn,
+    tokenOut,
+    slippage,
+    setAmountOut,
+    setQuote,
+    setIsLoadingQuote,
+  ]);
 
   const tokenInOptions = useMemo(
     () =>
@@ -129,12 +143,14 @@ export function SwapCard() {
 
   const tokenOutOptions = useMemo(
     () =>
-      CONFIDENTIAL_TOKENS.filter((t) => t.symbol !== tokenIn?.symbol).map((t) => ({
-        key: t.symbol,
-        label: t.symbol,
-        hint: t.name,
-        iconUrl: t.logoURI,
-      })),
+      CONFIDENTIAL_TOKENS.filter((t) => t.symbol !== tokenIn?.symbol).map(
+        (t) => ({
+          key: t.symbol,
+          label: t.symbol,
+          hint: t.name,
+          iconUrl: t.logoURI,
+        }),
+      ),
     [tokenIn],
   );
 
@@ -195,7 +211,9 @@ export function SwapCard() {
                 type="number"
                 value={slippage / 100}
                 onChange={(e) =>
-                  setSlippage(Math.max(0, Number.parseFloat(e.target.value) * 100))
+                  setSlippage(
+                    Math.max(0, Number.parseFloat(e.target.value) * 100),
+                  )
                 }
                 className="w-20 rounded-lg bg-surface-muted px-3 py-2 text-sm text-center text-main"
                 placeholder="Custom"
@@ -213,7 +231,9 @@ export function SwapCard() {
             <input
               type="number"
               value={deadline}
-              onChange={(e) => setDeadline(Math.max(1, Number.parseInt(e.target.value)))}
+              onChange={(e) =>
+                setDeadline(Math.max(1, Number.parseInt(e.target.value)))
+              }
               className="w-full rounded-lg bg-surface-muted px-3 py-2 text-sm text-main"
               min="1"
               max="60"
@@ -236,7 +256,10 @@ export function SwapCard() {
                 }
                 className="text-xs text-faint hover:text-muted transition-colors"
               >
-                Balance: {Number.parseFloat(formatUnits(balanceIn.value, balanceIn.decimals)).toFixed(4)}
+                Balance:{" "}
+                {Number.parseFloat(
+                  formatUnits(balanceIn.value, balanceIn.decimals),
+                ).toFixed(4)}
               </button>
             )}
           </div>
@@ -264,7 +287,11 @@ export function SwapCard() {
 
           {tokenIn && amountIn && (
             <div className="text-sm text-faint">
-              ≈ ${(Number.parseFloat(amountIn) * Number.parseFloat(tokenIn.priceUSD || "0")).toFixed(2)}
+              ≈ $
+              {(
+                Number.parseFloat(amountIn) *
+                Number.parseFloat(tokenIn.priceUSD || "0")
+              ).toFixed(2)}
             </div>
           )}
         </div>
@@ -286,7 +313,10 @@ export function SwapCard() {
             <span className="text-xs font-medium text-muted">To</span>
             {balanceOut && (
               <span className="text-xs text-faint">
-                Balance: {Number.parseFloat(formatUnits(balanceOut.value, balanceOut.decimals)).toFixed(4)}
+                Balance:{" "}
+                {Number.parseFloat(
+                  formatUnits(balanceOut.value, balanceOut.decimals),
+                ).toFixed(4)}
               </span>
             )}
           </div>
@@ -314,7 +344,11 @@ export function SwapCard() {
 
           {tokenOut && amountOut && (
             <div className="text-sm text-faint">
-              ≈ ${(Number.parseFloat(amountOut) * Number.parseFloat(tokenOut.priceUSD || "0")).toFixed(2)}
+              ≈ $
+              {(
+                Number.parseFloat(amountOut) *
+                Number.parseFloat(tokenOut.priceUSD || "0")
+              ).toFixed(2)}
             </div>
           )}
         </div>
@@ -326,13 +360,21 @@ export function SwapCard() {
           <div className="flex justify-between">
             <span className="text-muted">Rate</span>
             <span className="font-medium text-main">
-              1 {tokenIn?.symbol} = {(Number.parseFloat(amountOut) / Number.parseFloat(amountIn)).toFixed(6)} {tokenOut?.symbol}
+              1 {tokenIn?.symbol} ={" "}
+              {(
+                Number.parseFloat(amountOut) / Number.parseFloat(amountIn)
+              ).toFixed(6)}{" "}
+              {tokenOut?.symbol}
             </span>
           </div>
 
           <div className="flex justify-between">
             <span className="text-muted">Price Impact</span>
-            <span className={quote.priceImpact > 5 ? "text-negative" : "text-positive"}>
+            <span
+              className={
+                quote.priceImpact > 5 ? "text-negative" : "text-positive"
+              }
+            >
               {quote.priceImpact.toFixed(2)}%
             </span>
           </div>
@@ -340,7 +382,8 @@ export function SwapCard() {
           <div className="flex justify-between">
             <span className="text-muted">Minimum Received</span>
             <span className="font-medium text-main">
-              {Number.parseFloat(quote.minimumReceived).toFixed(6)} {tokenOut?.symbol}
+              {Number.parseFloat(quote.minimumReceived).toFixed(6)}{" "}
+              {tokenOut?.symbol}
             </span>
           </div>
 
@@ -381,14 +424,25 @@ export function SwapCard() {
       <div className="rounded-xl bg-brand-soft border border-brand p-4">
         <div className="flex items-start gap-3">
           <div className="rounded-full bg-brand/20 p-2 flex-shrink-0">
-            <svg className="w-4 h-4 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            <svg
+              className="w-4 h-4 text-brand"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+              />
             </svg>
           </div>
           <div>
             <h4 className="font-medium text-sm mb-1 text-main">Private Swap</h4>
             <p className="text-xs text-muted">
-              Your swap amounts are encrypted via Nox Protocol. Only you can decrypt your transaction details.
+              Your swap amounts are encrypted via Nox Protocol. Only you can
+              decrypt your transaction details.
             </p>
           </div>
         </div>

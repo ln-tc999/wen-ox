@@ -1,8 +1,8 @@
 "use client";
 
 import { ConnectButton } from "@rainbow-me/rainbowkit";
-import { HiOutlineWallet } from "react-icons/hi2";
 import { motion } from "motion/react";
+import { HiOutlineWallet } from "react-icons/hi2";
 
 export function ConnectPromptCard() {
   return (
@@ -20,7 +20,7 @@ export function ConnectPromptCard() {
           Connect your wallet to view your portfolio
         </h2>
         <p className="mt-2 text-sm text-muted">
-          iEx AI reads real balances and earn positions directly from the
+          Wen-Ox reads real balances and earn positions directly from the
           connected wallet across every supported network — we never hold your
           funds.
         </p>

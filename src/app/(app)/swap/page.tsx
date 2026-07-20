@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { SwapView } from "@/components/pages/(app)/swap";
 
 export const metadata: Metadata = {
-  title: "iEx AI | Swap",
+  title: "Wen-Ox | Swap",
   description: "Private token swaps with Nox Protocol encryption",
 };
 

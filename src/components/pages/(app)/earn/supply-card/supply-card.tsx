@@ -1,19 +1,20 @@
 "use client";
 
-import { FiChevronDown } from "react-icons/fi";
 import { useEffect, useMemo, useState } from "react";
-import { useAccount, useBalance, useReadContract } from "wagmi";
+import { FiChevronDown } from "react-icons/fi";
 import { erc20Abi, formatUnits } from "viem";
+import { useAccount, useBalance, useReadContract } from "wagmi";
 
 const NATIVE_TOKEN_ADDRESSES = new Set([
   "0x0000000000000000000000000000000000000000",
   "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
 ]);
+
 import { mockChains } from "@/data";
 import { useWalletReady } from "@/lib/wallet-ready";
 import { useExpertStore, useMetaStore } from "@/stores";
 import { Selector } from "../selector";
-import { type YieldPeriod, YIELD_PERIODS } from "./constants";
+import { YIELD_PERIODS, type YieldPeriod } from "./constants";
 import { formatUsd } from "./utils";
 
 export function SupplyCard() {

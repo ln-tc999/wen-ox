@@ -1,9 +1,9 @@
 "use client";
 
-import { FiChevronDown } from "react-icons/fi";
 import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { FiChevronDown } from "react-icons/fi";
 
 export type ProtocolOption = {
   key: string;

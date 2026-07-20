@@ -86,7 +86,9 @@ function ChainGPTVisual() {
       <div className="flex flex-col items-center gap-4">
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
-          animate={inView ? { scale: 1, opacity: 1 } : { scale: 0.8, opacity: 0 }}
+          animate={
+            inView ? { scale: 1, opacity: 1 } : { scale: 0.8, opacity: 0 }
+          }
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="relative"
         >
@@ -283,7 +285,7 @@ export function FeaturesSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          Why earn with iEx AI
+          Why earn with Wen-Ox
         </motion.h2>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">

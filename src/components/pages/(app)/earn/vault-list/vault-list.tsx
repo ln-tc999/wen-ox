@@ -1,36 +1,32 @@
 "use client";
 
-import { FiCheck, FiClock, FiExternalLink } from "react-icons/fi";
-import { HiOutlineShieldCheck } from "react-icons/hi2";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
 import { useEffect, useMemo, useRef } from "react";
-import { ConnectButton } from "@rainbow-me/rainbowkit";
+import { FiCheck, FiClock, FiExternalLink } from "react-icons/fi";
+import { HiOutlineShieldCheck } from "react-icons/hi2";
 import { useAccount } from "wagmi";
 import { useWalletReady } from "@/lib/wallet-ready";
-import {
-  useExpertStore,
-  useMetaStore,
-  useNoxDepositStore,
-} from "@/stores";
+import { useExpertStore, useMetaStore, useNoxDepositStore } from "@/stores";
 import { IdleAggregatorCard } from "../idle-aggregator-card";
-import {
-  formatApy,
-  formatTimelock,
-  formatTvl,
-  resolveVaultLink,
-  RISK_CLASS,
-  RISK_LABEL,
-  sortVaults,
-} from "./vault-list-utils";
-import { RiskFilterChips } from "./risk-filter-chips";
-import { ProtocolFilterDropdown } from "./protocol-filter-dropdown";
 import {
   APY_PRESETS,
   MinThresholdDropdown,
   TVL_PRESETS,
 } from "./min-threshold-dropdown";
+import { ProtocolFilterDropdown } from "./protocol-filter-dropdown";
+import { RiskFilterChips } from "./risk-filter-chips";
 import { EmptyState, ErrorState, SkeletonList } from "./vault-list-states";
+import {
+  formatApy,
+  formatTimelock,
+  formatTvl,
+  RISK_CLASS,
+  RISK_LABEL,
+  resolveVaultLink,
+  sortVaults,
+} from "./vault-list-utils";
 
 export function VaultList() {
   const vaults = useExpertStore((state) => state.vaults);
@@ -210,7 +206,7 @@ export function VaultList() {
           <span className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-xl bg-brand-soft">
             <Image
               src="/Assets/Images/Logo-Brand/logo-transparent.png"
-              alt="iEx AI"
+              alt="Wen-Ox"
               width={32}
               height={32}
               className="h-8 w-8 object-contain rounded-full"

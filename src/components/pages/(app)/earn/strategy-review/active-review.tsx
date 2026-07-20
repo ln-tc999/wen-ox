@@ -1,22 +1,22 @@
 "use client";
 
-import { FiCheck, FiClock, FiCopy, FiExternalLink } from "react-icons/fi";
-import { HiOutlineShieldCheck } from "react-icons/hi2";
 import { motion } from "motion/react";
 import Image from "next/image";
 import { useState } from "react";
+import { FiCheck, FiClock, FiCopy, FiExternalLink } from "react-icons/fi";
+import { HiOutlineShieldCheck } from "react-icons/hi2";
 import type { VaultStrategy } from "@/types";
+import { Chip, Stat } from "./strategy-review-states";
 import {
-  PREVIEW_PERIODS,
-  RISK_LABEL,
   explorerUrl,
   formatApy,
   formatTimelock,
   formatTvl,
   formatUsd,
+  PREVIEW_PERIODS,
+  RISK_LABEL,
   shortenAddress,
 } from "./strategy-review-utils";
-import { Chip, Stat } from "./strategy-review-states";
 
 export function ActiveReview({
   vault,

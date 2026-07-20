@@ -2,8 +2,8 @@ import { readContract } from "@wagmi/core";
 import { encodeFunctionData, erc20Abi } from "viem";
 import type { Config } from "wagmi";
 import { create } from "zustand";
-import type { LifiQuoteResponse } from "@/lib/lifi-quote";
 import type { LifiPortfolioPosition } from "@/lib/lifi-portfolio";
+import type { LifiQuoteResponse } from "@/lib/lifi-quote";
 import { getTrackedVaults, type TrackedVault } from "@/lib/tracked-vaults";
 
 export type WithdrawStep =

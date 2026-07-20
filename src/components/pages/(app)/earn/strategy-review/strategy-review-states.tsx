@@ -1,7 +1,7 @@
 "use client";
 
-import { FiInbox } from "react-icons/fi";
 import { motion } from "motion/react";
+import { FiInbox } from "react-icons/fi";
 
 export function EmptyReview({ isLoading }: { isLoading: boolean }) {
   return (

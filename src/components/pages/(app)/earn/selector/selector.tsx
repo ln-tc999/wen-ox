@@ -1,8 +1,8 @@
 "use client";
 
-import { FiCheck, FiChevronDown, FiSearch } from "react-icons/fi";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useMemo, useRef, useState } from "react";
+import { FiCheck, FiChevronDown, FiSearch } from "react-icons/fi";
 import type { SelectorProps } from "./option-icon";
 import { OptionIcon } from "./option-icon";
 
