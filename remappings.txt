@@ -1,0 +1,2 @@
+@openzeppelin/contracts/=foundry/lib/openzeppelin-contracts/contracts/
+forge-std/=foundry/lib/forge-std/src/
