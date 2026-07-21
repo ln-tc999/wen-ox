@@ -54,7 +54,7 @@ export function SwapView() {
                     Price chart for confidential token pair
                   </p>
                 </div>
-                <div className="rounded-full bg-surface-muted px-3 py-1.5 text-xs font-semibold text-main">
+                <div className="rounded-full border border-main bg-white dark:bg-surface px-3 py-1.5 text-xs font-semibold text-main">
                   Chart
                 </div>
               </div>
