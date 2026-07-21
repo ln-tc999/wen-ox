@@ -142,8 +142,8 @@ export function SupplyCard() {
         />
       </div>
 
-      <div className="relative mt-2">
-        <div className="rounded-2xl bg-surface-raised p-3">
+      <div className="relative mt-2 space-y-1">
+        <div className="rounded-2xl border border-main bg-surface p-3.5 transition-colors focus-within:border-brand">
           <div className="flex items-center justify-between">
             <span className="text-xs font-medium text-muted">You supply</span>
             <span className="text-[11px] text-muted">on {chain.shortName}</span>
@@ -155,7 +155,7 @@ export function SupplyCard() {
               placeholder="0"
               value={amount}
               onChange={handleAmountChange}
-              className="w-full bg-transparent text-[28px] font-medium leading-none tracking-tight text-main outline-none placeholder:text-faint"
+              className="min-w-0 flex-1 bg-transparent text-[28px] font-medium leading-none tracking-tight text-main outline-none placeholder:text-faint"
             />
             <Selector
               label="Select token"
@@ -177,9 +177,9 @@ export function SupplyCard() {
           </div>
         </div>
 
-        <div className="relative mt-1 rounded-2xl bg-surface-raised p-3">
-          <div className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-full border-4 border-(--color-surface-1) bg-brand">
+        <div className="relative rounded-2xl border border-main bg-surface p-3.5">
+          <div className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 z-10">
+            <div className="flex h-7 w-7 items-center justify-center rounded-full border border-main bg-brand shadow-xs">
               <FiChevronDown className="h-4 w-4 text-white" />
             </div>
           </div>
