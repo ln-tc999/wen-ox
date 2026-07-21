@@ -4,7 +4,48 @@ import { motion, useInView } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { FiPlus } from "react-icons/fi";
+import { FiArrowRight, FiShield } from "react-icons/fi";
+import { FluidVolume, ScrambleCycle } from "@/components/ui";
+
+function ChartBackground() {
+  const fade =
+    "radial-gradient(125% 105% at 50% 46%, #000 40%, transparent 100%)";
+  return (
+    <div className="pointer-events-none absolute inset-0 overflow-hidden select-none">
+      <div
+        className="absolute inset-0 opacity-40 dark:opacity-30"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, var(--color-line) 1px, transparent 1px), linear-gradient(to bottom, var(--color-line) 1px, transparent 1px)",
+          backgroundSize: "64px 46px",
+          maskImage: fade,
+          WebkitMaskImage: fade,
+        }}
+      />
+
+      <ul className="absolute inset-0 font-mono text-[10px] uppercase tracking-[0.16em] text-muted/60">
+        <li className="absolute left-[4%] top-[40%] hidden sm:block">
+          <span className="block text-main/80 font-semibold">
+            Network Status
+          </span>
+          <span className="block">[ Arbitrum Sepolia · 421614 ]</span>
+        </li>
+        <li className="absolute right-[4%] top-[35%] text-right hidden sm:block">
+          <span className="block text-main/80 font-semibold">
+            Confidential Enclave
+          </span>
+          <span className="block">[ iExec Nox Protocol · TEE ]</span>
+        </li>
+        <li className="absolute bottom-[10%] left-1/2 -translate-x-1/2 text-center hidden md:block">
+          <span className="block text-main/80 font-semibold">
+            Shielded Tokens
+          </span>
+          <span className="block">[ ERC-7984 · cUSDC & cRLC ]</span>
+        </li>
+      </ul>
+    </div>
+  );
+}
 
 function YieldBar({
   height,
@@ -21,7 +62,7 @@ function YieldBar({
       style={{
         height: `${height}%`,
         backgroundColor: "var(--color-brand)",
-        opacity: 0.25,
+        opacity: 0.35,
       }}
       initial={{ scaleY: 0 }}
       animate={inView ? { scaleY: 1 } : { scaleY: 0 }}
@@ -88,60 +129,57 @@ function YieldChart() {
   return (
     <div
       ref={ref}
-      className="relative flex h-full w-full flex-col overflow-hidden rounded-xl border border-main p-5"
-      style={{ backgroundColor: "var(--color-surface-1)" }}
+      className="relative flex h-full w-full flex-col overflow-hidden rounded-3xl border border-main bg-surface p-6 shadow-xl backdrop-blur-md"
     >
       <div className="mb-4 flex items-center justify-between">
-        <div
-          className="flex items-center gap-2 rounded-lg px-3 py-2"
-          style={{ backgroundColor: "var(--color-surface-2)" }}
-        >
-          <span className="text-sm">🔒</span>
+        <div className="flex items-center gap-2 rounded-full border border-main bg-surface-muted px-3 py-1.5 text-xs font-semibold text-main">
+          <FiShield className="h-3.5 w-3.5 text-brand" />
+          <span>TEE Enclave Active</span>
         </div>
         <div className="flex items-center gap-3">
           <motion.div
             className="pointer-events-none select-none"
-            initial={{ x: 60, opacity: 0, scale: 0.6 }}
+            initial={{ x: 40, opacity: 0, scale: 0.6 }}
             animate={
               inView
                 ? { x: 0, opacity: 1, scale: 1 }
-                : { x: 60, opacity: 0, scale: 0.6 }
+                : { x: 40, opacity: 0, scale: 0.6 }
             }
             transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
           >
             <Image
               src="/Assets/Images/Logo-DeFi/morpho-logo.webp"
-              alt=""
+              alt="Morpho"
               width={36}
               height={36}
-              className="rounded-full"
+              className="rounded-full shadow-md"
             />
           </motion.div>
           <AnimatedCounter target={12} suffix="%" inView={inView} />
-          <span className="text-xs text-faint">APY</span>
+          <span className="text-xs text-faint font-semibold">APY</span>
         </div>
       </div>
 
       <motion.div
-        className="pointer-events-none absolute right-5 top-14 select-none"
-        initial={{ y: -40, opacity: 0, scale: 0.5 }}
+        className="pointer-events-none absolute right-5 top-16 select-none"
+        initial={{ y: -30, opacity: 0, scale: 0.5 }}
         animate={
           inView
             ? { y: 0, opacity: 1, scale: 1 }
-            : { y: -40, opacity: 0, scale: 0.5 }
+            : { y: -30, opacity: 0, scale: 0.5 }
         }
         transition={{ duration: 0.7, delay: 0.6, ease: "easeOut" }}
       >
         <Image
           src="/Assets/Images/Logo-DeFi/aave-logo.svg"
-          alt=""
+          alt="Aave"
           width={28}
           height={28}
-          className="rounded-full"
+          className="rounded-full shadow-md"
         />
       </motion.div>
 
-      <div className="relative flex flex-1 items-end justify-between gap-1.5 px-1">
+      <div className="relative flex flex-1 items-end justify-between gap-2 px-1 min-h-[160px]">
         {bars.map((bar) => (
           <YieldBar
             key={bar.id}
@@ -151,154 +189,136 @@ function YieldChart() {
           />
         ))}
         <motion.div
-          className="pointer-events-none absolute bottom-2 right-6 select-none"
-          initial={{ x: -40, y: 30, opacity: 0, scale: 0.5 }}
+          className="pointer-events-none absolute bottom-3 right-6 select-none"
+          initial={{ x: -30, y: 20, opacity: 0, scale: 0.5 }}
           animate={
             inView
               ? { x: 0, y: 0, opacity: 1, scale: 1 }
-              : { x: -40, y: 30, opacity: 0, scale: 0.5 }
+              : { x: -30, y: 20, opacity: 0, scale: 0.5 }
           }
           transition={{ duration: 0.8, delay: 0.9, ease: "easeOut" }}
         >
           <Image
             src="/Assets/Images/Logo-DeFi/euler-finance-logo.svg"
-            alt=""
-            width={44}
-            height={44}
-            className="rounded-full"
+            alt="Euler"
+            width={40}
+            height={40}
+            className="rounded-full shadow-md"
           />
         </motion.div>
       </div>
 
-      <div
-        className="mt-3 h-px w-full"
-        style={{ backgroundColor: "var(--color-line)" }}
-      />
+      <div className="mt-4 border-t border-main pt-3 flex items-center justify-between text-xs text-muted">
+        <span>Confidential Strategy</span>
+        <span className="font-semibold text-brand">Arbitrum Sepolia</span>
+      </div>
     </div>
   );
 }
 
-function YieldCard({
-  logo,
-  alt,
-  rate,
-  token,
-  label,
-}: {
-  logo: string;
-  alt: string;
-  rate: string;
-  token: string;
-  label: string;
-}) {
-  return (
-    <div
-      className="flex items-center justify-between gap-6 rounded-2xl border px-6 py-5 backdrop-blur-sm"
-      style={{
-        borderColor: "var(--color-line)",
-        backgroundColor: "var(--color-surface-1)",
-      }}
-    >
-      <div className="flex flex-col gap-1">
-        <span className="text-[10px] text-faint">{label}</span>
-        <div className="flex items-center gap-3">
-          <Image
-            src={logo}
-            alt={alt}
-            width={32}
-            height={32}
-            className="pointer-events-none select-none rounded-full"
-          />
-          <span className="text-2xl font-semibold tracking-tight text-main">
-            {rate}
-          </span>
-        </div>
-      </div>
-      <span className="text-sm font-medium text-faint">({token})</span>
-    </div>
-  );
-}
+const ROTATING_KEYWORDS = [
+  "confidential",
+  "encrypted",
+  "unlinkable",
+  "verified",
+  "yours",
+];
 
 export function HeroSection() {
   return (
-    <section
-      className="relative w-full overflow-hidden py-32 md:py-40"
-      style={{ backgroundColor: "var(--color-canvas)" }}
-    >
-      <div className="mx-auto max-w-6xl px-6">
-        <div className="grid grid-cols-1 gap-16 md:grid-cols-2">
-          {/* Left column — headline */}
-          <div className="flex flex-col gap-8">
-            <motion.h1
-              className="text-4xl leading-tight tracking-tight text-main md:text-5xl lg:text-6xl"
+    <section className="relative min-h-[calc(100vh-5rem)] w-full overflow-hidden flex flex-col justify-center py-12 md:py-20">
+      {/* Volumetric Raymarching Fluid Backdrop */}
+      <div className="absolute inset-0 opacity-40 dark:opacity-50">
+        <FluidVolume
+          baseColor="#1e40af"
+          background="#0d0e0f"
+          quality="high"
+          shape="plumes"
+        />
+      </div>
+
+      {/* Film Grain Texture Overlay */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-20 dark:opacity-25"
+        style={{
+          backgroundImage:
+            "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='90'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.45 0.45 0.45 0 -0.4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E\")",
+          backgroundSize: "90px 90px",
+        }}
+      />
+
+      {/* Chart Hairline Grid */}
+      <ChartBackground />
+
+      <div className="relative z-10 mx-auto max-w-6xl px-6 w-full">
+        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-8">
+          {/* Left Column: LaxStell Scramble Title & CTA */}
+          <div className="flex flex-col items-center text-center lg:col-span-7 lg:items-start lg:text-left">
+            <motion.div
+              className="inline-flex items-center gap-2 rounded-full border border-main bg-surface px-4 py-1.5 text-xs font-semibold text-main mb-6 shadow-xs"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.5 }}
             >
-              <span className="text-muted">Confidential</span> Yield
-              <br />
-              Farming.
-              <br />
-              <span className="text-muted">Powered by</span> Nox
-              <br />
-              Protocol.
+              <span className="flex h-2 w-2 rounded-full bg-brand animate-pulse" />
+              <span>Nox Protocol & TEE Integration</span>
+            </motion.div>
+
+            <motion.h1
+              className="font-sans text-4xl font-bold uppercase leading-[1.05] tracking-tight text-main sm:text-5xl md:text-6xl"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              <span className="block">Confidential Yield</span>
+              <span className="block text-muted">That Stays</span>
+              <span className="block text-brand">
+                <ScrambleCycle words={ROTATING_KEYWORDS} />
+              </span>
             </motion.h1>
 
-            <motion.div
-              className="flex items-start gap-3 pt-8"
+            <motion.p
+              className="mt-6 max-w-lg text-base leading-relaxed text-muted sm:text-lg"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <FiPlus className="mt-0.5 size-4 shrink-0 text-faint" />
-              <p className="max-w-sm text-sm leading-relaxed text-muted">
-                Confidential yield farming powered by iExec Nox & TEE compute.
-                Secure your assets with ERC-7984 tokens and find the best routes
-                with ChainGPT-assisted AI routing — keeping your balances hidden
-                on-chain.
-              </p>
-            </motion.div>
+              Confidential yield farming powered by iExec Nox & TEE compute.
+              Secure your assets with ERC-7984 tokens and discover top routes —
+              keeping your balances hidden on-chain.
+            </motion.p>
 
             <motion.div
+              className="mt-8 flex flex-wrap items-center justify-center gap-4 lg:justify-start"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
             >
               <Link
                 href="/earn"
-                className="inline-flex items-center justify-center rounded-full bg-brand px-8 py-3 text-sm font-semibold text-white transition-colors hover-brand"
+                className="inline-flex items-center gap-2 rounded-full bg-brand px-8 py-3.5 text-sm font-semibold text-white transition-all hover-brand shadow-md hover:scale-[1.02] active:scale-[0.98]"
               >
-                Launch App
+                <span>Launch App</span>
+                <FiArrowRight className="h-4 w-4" />
+              </Link>
+              <Link
+                href="/swap"
+                className="inline-flex items-center gap-2 rounded-full border border-main bg-surface px-8 py-3.5 text-sm font-semibold text-main transition-colors hover:border-strong hover:bg-surface-raised"
+              >
+                <span>Private Swap</span>
               </Link>
             </motion.div>
           </div>
 
-          {/* Right column — yield visual */}
+          {/* Right Column: Interactive Yield Visual Card */}
           <motion.div
-            className="relative flex flex-col gap-6"
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            className="w-full lg:col-span-5 flex justify-center"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
           >
-            <div className="relative h-[400px] w-full max-w-[500px] overflow-hidden rounded-2xl">
+            <div className="w-full max-w-md aspect-[4/3]">
               <YieldChart />
-            </div>
-
-            <div className="flex flex-col gap-3">
-              <YieldCard
-                logo="/Assets/Images/Logo-Coin/usdt-logo.svg"
-                alt="cUSDC"
-                rate="Up to 12%"
-                token="cUSDC Vault"
-                label="Confidential Yield"
-              />
-              <YieldCard
-                logo="/Assets/Images/Logo-Coin/rlc-logo.svg"
-                alt="cRLC"
-                rate="Up to 15%"
-                token="cRLC Vault"
-                label="Confidential Yield"
-              />
             </div>
           </motion.div>
         </div>
