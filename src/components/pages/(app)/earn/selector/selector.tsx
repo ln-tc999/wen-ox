@@ -56,11 +56,11 @@ export function Selector({
 
   const triggerClass =
     variant === "chip"
-      ? "flex items-center gap-2 rounded-full bg-surface-muted border border-main px-3 py-1.5 text-sm font-semibold text-main cursor-pointer transition-colors duration-200 ease-in-out hover:border-strong"
-      : "flex items-center gap-2 rounded-full bg-surface-raised border border-main px-3 py-2 text-sm font-semibold text-main cursor-pointer transition-colors duration-200 ease-in-out hover:border-strong";
+      ? "flex items-center gap-2 rounded-full bg-surface-muted border border-main px-3 py-1.5 text-sm font-semibold text-main cursor-pointer transition-colors duration-200 ease-in-out hover:border-strong shrink-0 whitespace-nowrap"
+      : "flex items-center gap-2 rounded-full bg-surface-raised border border-main px-3 py-2 text-sm font-semibold text-main cursor-pointer transition-colors duration-200 ease-in-out hover:border-strong shrink-0 whitespace-nowrap";
 
   return (
-    <div ref={containerRef} className="relative">
+    <div ref={containerRef} className="relative shrink-0">
       <motion.button
         type="button"
         aria-label={label}
