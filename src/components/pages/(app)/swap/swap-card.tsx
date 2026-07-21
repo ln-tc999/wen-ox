@@ -1,5 +1,6 @@
 "use client";
 
+import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { useEffect, useMemo, useState } from "react";
 import { FiArrowDown, FiSettings } from "react-icons/fi";
 import { formatUnits } from "viem";
@@ -173,7 +174,7 @@ export function SwapCard() {
     <section className="rounded-3xl border border-main bg-surface p-4 space-y-4">
       {/* Header */}
       <div className="flex items-center justify-between">
-        <div className="rounded-full bg-surface-muted px-3 py-1.5 text-xs font-semibold text-main">
+        <div className="rounded-full border border-main bg-white dark:bg-surface px-3 py-1.5 text-xs font-semibold text-main">
           Swap
         </div>
         <button
@@ -187,7 +188,7 @@ export function SwapCard() {
 
       {/* Settings Panel */}
       {showSettings && (
-        <div className="rounded-xl border border-main bg-surface-raised p-4 space-y-4">
+        <div className="rounded-xl border border-main bg-surface p-4 space-y-4">
           <div>
             <label className="text-sm text-muted mb-2 block">
               Slippage Tolerance
@@ -201,7 +202,7 @@ export function SwapCard() {
                   className={`flex-1 rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
                     slippage === value
                       ? "bg-brand text-white"
-                      : "bg-surface-muted hover:bg-surface-raised text-muted"
+                      : "border border-main bg-surface hover:bg-surface-raised text-muted"
                   }`}
                 >
                   {value / 100}%
@@ -215,7 +216,7 @@ export function SwapCard() {
                     Math.max(0, Number.parseFloat(e.target.value) * 100),
                   )
                 }
-                className="w-20 rounded-lg bg-surface-muted px-3 py-2 text-sm text-center text-main"
+                className="w-20 rounded-lg border border-main bg-surface px-3 py-2 text-sm text-center text-main outline-none focus:border-brand"
                 placeholder="Custom"
                 step="0.1"
                 min="0"
@@ -234,7 +235,7 @@ export function SwapCard() {
               onChange={(e) =>
                 setDeadline(Math.max(1, Number.parseInt(e.target.value)))
               }
-              className="w-full rounded-lg bg-surface-muted px-3 py-2 text-sm text-main"
+              className="w-full rounded-lg border border-main bg-surface px-3 py-2 text-sm text-main outline-none focus:border-brand"
               min="1"
               max="60"
             />
@@ -245,7 +246,7 @@ export function SwapCard() {
       {/* Swap Card */}
       <div className="space-y-1">
         {/* From Token */}
-        <div className="rounded-2xl bg-surface-raised p-3 space-y-3">
+        <div className="rounded-2xl border border-main bg-surface p-3.5 space-y-3 transition-colors focus-within:border-brand">
           <div className="flex items-center justify-between">
             <span className="text-xs font-medium text-muted">From</span>
             {balanceIn && (
@@ -264,13 +265,13 @@ export function SwapCard() {
             )}
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center justify-between gap-3">
             <input
               type="text"
               value={amountIn}
               onChange={(e) => setAmountIn(e.target.value)}
               placeholder="0.0"
-              className="flex-1 bg-transparent text-2xl font-semibold outline-none text-main"
+              className="min-w-0 flex-1 bg-transparent text-2xl font-semibold outline-none text-main placeholder:text-faint"
             />
 
             <Selector
@@ -301,14 +302,14 @@ export function SwapCard() {
           <button
             type="button"
             onClick={swapTokens}
-            className="rounded-xl bg-brand hover-brand p-2 transition-all hover:scale-110"
+            className="rounded-xl bg-brand hover-brand p-2 transition-all hover:scale-110 shadow-sm"
           >
             <FiArrowDown className="h-5 w-5 text-white" />
           </button>
         </div>
 
         {/* To Token */}
-        <div className="rounded-2xl bg-surface-raised p-3 space-y-3">
+        <div className="rounded-2xl border border-main bg-surface p-3.5 space-y-3 transition-colors">
           <div className="flex items-center justify-between">
             <span className="text-xs font-medium text-muted">To</span>
             {balanceOut && (
@@ -321,13 +322,13 @@ export function SwapCard() {
             )}
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center justify-between gap-3">
             <input
               type="text"
               value={isLoadingQuote ? "Loading..." : amountOut}
               readOnly
               placeholder="0.0"
-              className="flex-1 bg-transparent text-2xl font-semibold outline-none text-main"
+              className="min-w-0 flex-1 bg-transparent text-2xl font-semibold outline-none text-main placeholder:text-faint"
             />
 
             <Selector
@@ -356,7 +357,7 @@ export function SwapCard() {
 
       {/* Quote Details */}
       {quote && !isLoadingQuote && (
-        <div className="rounded-xl border border-main bg-surface-raised p-4 space-y-2 text-sm">
+        <div className="rounded-xl border border-main bg-surface p-4 space-y-2 text-sm">
           <div className="flex justify-between">
             <span className="text-muted">Rate</span>
             <span className="font-medium text-main">
@@ -396,34 +397,50 @@ export function SwapCard() {
 
       {/* Swap Button */}
       <div>
-        <button
-          type="button"
-          onClick={handleSwapClick}
-          disabled={!canSwap}
-          className={`w-full rounded-xl py-4 font-semibold text-lg transition-all ${
-            canSwap
-              ? "bg-brand hover-brand text-white hover:scale-[1.02] active:scale-[0.98]"
-              : "bg-surface-muted text-faint cursor-not-allowed"
-          }`}
-        >
-          {!address
-            ? "Connect Wallet"
-            : !tokenIn || !tokenOut
-              ? "Select Tokens"
-              : !amountIn || Number.parseFloat(amountIn) <= 0
-                ? "Enter Amount"
-                : isLoadingQuote
-                  ? "Loading Quote..."
-                  : isSwapping
-                    ? "Swapping..."
-                    : "Swap"}
-        </button>
+        <ConnectButton.Custom>
+          {({ openConnectModal }) => {
+            if (!address) {
+              return (
+                <button
+                  type="button"
+                  onClick={openConnectModal}
+                  className="w-full rounded-2xl py-4 font-semibold text-lg bg-brand hover-brand text-white shadow-md transition-all hover:scale-[1.01] active:scale-[0.99] cursor-pointer"
+                >
+                  Connect Wallet
+                </button>
+              );
+            }
+
+            return (
+              <button
+                type="button"
+                onClick={handleSwapClick}
+                disabled={!canSwap}
+                className={`w-full rounded-2xl py-4 font-semibold text-lg transition-all ${
+                  canSwap
+                    ? "bg-brand hover-brand text-white shadow-md hover:scale-[1.01] active:scale-[0.99] cursor-pointer"
+                    : "border border-main bg-surface-muted/60 text-muted cursor-not-allowed"
+                }`}
+              >
+                {!tokenIn || !tokenOut
+                  ? "Select Tokens"
+                  : !amountIn || Number.parseFloat(amountIn) <= 0
+                    ? "Enter Amount"
+                    : isLoadingQuote
+                      ? "Loading Quote..."
+                      : isSwapping
+                        ? "Swapping..."
+                        : "Swap"}
+              </button>
+            );
+          }}
+        </ConnectButton.Custom>
       </div>
 
       {/* Privacy Notice */}
-      <div className="rounded-xl bg-brand-soft border border-brand p-4">
+      <div className="rounded-2xl border border-main bg-white dark:bg-surface p-3.5">
         <div className="flex items-start gap-3">
-          <div className="rounded-full bg-brand/20 p-2 flex-shrink-0">
+          <div className="rounded-full bg-brand-soft p-2 shrink-0">
             <svg
               className="w-4 h-4 text-brand"
               fill="none"
@@ -439,8 +456,10 @@ export function SwapCard() {
             </svg>
           </div>
           <div>
-            <h4 className="font-medium text-sm mb-1 text-main">Private Swap</h4>
-            <p className="text-xs text-muted">
+            <h4 className="font-semibold text-sm mb-0.5 text-main">
+              Private Swap
+            </h4>
+            <p className="text-xs text-muted leading-relaxed">
               Your swap amounts are encrypted via Nox Protocol. Only you can
               decrypt your transaction details.
             </p>
