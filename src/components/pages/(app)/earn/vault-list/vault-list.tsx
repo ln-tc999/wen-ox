@@ -346,8 +346,8 @@ export function VaultList() {
                       }}
                       className={
                         isSelected
-                          ? "flex w-full items-center justify-between gap-4 rounded-2xl border border-strong bg-surface-raised px-4 py-3 text-left cursor-pointer transition-all duration-200 ease-in-out"
-                          : "flex w-full items-center justify-between gap-4 rounded-2xl border border-transparent bg-surface-raised px-4 py-3 text-left cursor-pointer transition-all duration-200 ease-in-out hover:border-main hover:bg-surface-muted"
+                          ? "flex w-full items-center justify-between gap-4 rounded-2xl border-2 border-brand bg-surface px-4 py-3 text-left cursor-pointer transition-all duration-200 ease-in-out shadow-xs"
+                          : "flex w-full items-center justify-between gap-4 rounded-2xl border border-main bg-surface px-4 py-3 text-left cursor-pointer transition-all duration-200 ease-in-out hover:border-strong"
                       }
                     >
                       <div className="flex min-w-0 items-center gap-3">
