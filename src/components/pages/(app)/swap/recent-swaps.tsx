@@ -48,10 +48,10 @@ function formatTimeAgo(timestamp: number): string {
 
 export function RecentSwaps() {
   return (
-    <section className="rounded-3xl border border-main bg-surface p-2.5 flex flex-col max-h-[280px]">
+    <section className="rounded-3xl border border-main bg-white dark:bg-surface p-3 flex flex-col shrink-0">
       {/* Header */}
-      <div className="flex items-center justify-between px-2 pt-1 mb-3">
-        <div className="rounded-full bg-surface-muted px-3 py-1.5 text-xs font-semibold text-main">
+      <div className="flex items-center justify-between px-1 mb-3">
+        <div className="rounded-full border border-main bg-white dark:bg-surface px-3 py-1.5 text-xs font-semibold text-main">
           Recent Swaps
         </div>
         <button
@@ -63,11 +63,11 @@ export function RecentSwaps() {
       </div>
 
       {/* Swaps List */}
-      <div className="flex-1 rounded-2xl bg-surface-raised overflow-y-auto mx-2">
+      <div className="rounded-2xl border border-main bg-white dark:bg-surface overflow-y-auto max-h-[260px]">
         <div className="divide-y divide-(--color-line)">
           {MOCK_SWAPS.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-12 px-4 text-center">
-              <div className="rounded-full bg-surface-muted p-4 mb-4">
+              <div className="rounded-full border border-main bg-white dark:bg-surface p-4 mb-4">
                 <FiArrowRight className="h-8 w-8 text-faint" />
               </div>
               <p className="text-muted text-sm mb-2">No swaps yet</p>
@@ -79,7 +79,7 @@ export function RecentSwaps() {
             MOCK_SWAPS.map((swap) => (
               <div
                 key={swap.id}
-                className="p-3 hover:bg-surface-muted transition-colors cursor-pointer"
+                className="p-3 hover:bg-black/5 dark:hover:bg-white/5 transition-colors cursor-pointer"
               >
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center gap-2">
@@ -131,7 +131,7 @@ export function RecentSwaps() {
       </div>
 
       {/* Privacy Notice */}
-      <div className="mt-3 rounded-xl bg-surface-raised p-2.5 text-xs text-muted mx-2">
+      <div className="mt-3 rounded-xl border border-main bg-white dark:bg-surface p-3 text-xs text-muted">
         <p>🔒 Amounts are encrypted. Hashes visible for verification.</p>
       </div>
     </section>
