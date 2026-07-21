@@ -73,7 +73,7 @@ type PriceChartProps = {
 export function PriceChart({ tokenPair, currentPrice }: PriceChartProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const chartRef = useRef<IChartApi | null>(null);
-  const seriesRef = useRef<ISeriesApi<typeof CandlestickSeries> | null>(null);
+  const seriesRef = useRef<ISeriesApi<"Candlestick"> | null>(null);
 
   // Generate candles based on token pair (deterministic per pair)
   const candles = useMemo(
