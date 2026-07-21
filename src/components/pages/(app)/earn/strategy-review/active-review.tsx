@@ -51,7 +51,7 @@ export function ActiveReview({
       transition={{ duration: 0.22, ease: "easeOut" }}
       className="mt-3 flex flex-1 flex-col gap-3"
     >
-      <div className="flex items-center gap-3 rounded-2xl bg-surface-raised p-3">
+      <div className="flex items-center gap-3 rounded-2xl border border-main bg-surface p-3.5">
         <div className="relative h-11 w-11 shrink-0">
           <span className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-full bg-brand-soft text-sm font-semibold text-brand">
             {tokenLogo ? (
@@ -169,7 +169,7 @@ export function ActiveReview({
         ))}
       </div>
 
-      <div className="rounded-2xl bg-surface-raised p-3">
+      <div className="rounded-2xl border border-main bg-surface p-3.5">
         <div className="flex items-center justify-between">
           <span className="flex items-center gap-1.5 text-[10px] tracking-wide text-faint">
             {tokenLogo ? (
