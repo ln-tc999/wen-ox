@@ -73,7 +73,7 @@ function ConfidentialVaultVisual() {
   );
 }
 
-function ChainGPTVisual() {
+function YieldRoutingVisual() {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true });
 
@@ -94,8 +94,8 @@ function ChainGPTVisual() {
         >
           <div className="absolute inset-0 animate-pulse rounded-full bg-brand/20 blur-xl" />
           <Image
-            src="/Assets/Images/Logo-Brand/chaingpt.png"
-            alt="ChainGPT"
+            src="/Assets/Images/Logo-Brand/logo-transparent.png"
+            alt="Wen-Ox"
             width={80}
             height={80}
             className="relative size-20 rounded-2xl object-contain shadow-2xl"
@@ -108,7 +108,7 @@ function ChainGPTVisual() {
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            AI Agent Active
+            Smart Routing
           </motion.span>
           <motion.span
             className="text-[10px] uppercase tracking-widest text-faint"
@@ -116,7 +116,7 @@ function ChainGPTVisual() {
             animate={inView ? { opacity: 1 } : { opacity: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
           >
-            Routing Optimization
+            Yield Optimization
           </motion.span>
         </div>
       </div>
@@ -239,11 +239,11 @@ const features = [
     ],
   },
   {
-    emoji: "🤖",
-    title: "ChainGPT AI Routing",
+    emoji: "⚡",
+    title: "Smart Yield Routing",
     description:
-      "Get real-time vault recommendations and risk analysis powered by ChainGPT. Our AI agent finds the most efficient yield routes across Arbitrum while preserving your privacy.",
-    visual: ChainGPTVisual,
+      "Get real-time vault recommendations and risk analysis powered by Nox Protocol. Our aggregator finds the most efficient yield routes across Arbitrum while preserving your privacy.",
+    visual: YieldRoutingVisual,
     logos: true,
   },
   {
