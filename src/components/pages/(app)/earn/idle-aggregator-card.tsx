@@ -30,8 +30,8 @@ export function IdleAggregatorCard() {
       <div className="mt-6 flex flex-1 items-center justify-center">
         <div className="relative aspect-video w-full max-w-sm overflow-hidden rounded-lg border border-white/10">
           <Image
-            src="/Assets/Images/Logo-Brand/chaingpt.png"
-            alt="ChainGPT"
+            src="/Assets/Images/Logo-Brand/logo-transparent.png"
+            alt="Wen-Ox"
             fill
             className="object-contain p-2"
           />
