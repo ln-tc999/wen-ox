@@ -11,6 +11,7 @@ import { WalletButton } from "./wallet-button";
 
 const NAV_LINKS: { label: string; href: string }[] = [
   { label: "Earn", href: "/earn" },
+  { label: "Deposit", href: "/deposit" },
   { label: "Swap", href: "/swap" },
   { label: "Compare", href: "/compare" },
   { label: "Portfolio", href: "/portfolio" },
