@@ -92,6 +92,7 @@ export function PriceChart({ tokenPair, currentPrice }: PriceChartProps) {
     const textColor = "#9b9ba5"; // text-muted
     const gridColor = "rgba(255, 255, 255, 0.06)";
     const borderColor = "#2c2c31"; // border-main
+    const brandColor = "#f5c219"; // brand yellow
 
     const chart = createChart(container, {
       autoSize: true,
@@ -118,11 +119,11 @@ export function PriceChart({ tokenPair, currentPrice }: PriceChartProps) {
         mode: 0, // Normal crosshair
         vertLine: {
           color: "rgba(255, 255, 255, 0.2)",
-          labelBackgroundColor: "#1e40af",
+          labelBackgroundColor: brandColor,
         },
         horzLine: {
           color: "rgba(255, 255, 255, 0.2)",
-          labelBackgroundColor: "#1e40af",
+          labelBackgroundColor: brandColor,
         },
       },
     });
