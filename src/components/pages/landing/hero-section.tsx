@@ -226,11 +226,11 @@ const ROTATING_KEYWORDS = [
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-[calc(100vh-5rem)] w-full overflow-hidden flex flex-col justify-center py-12 md:py-20">
+    <section className="relative min-h-screen w-full overflow-hidden flex flex-col justify-center pt-28 pb-12 md:pt-36 md:pb-20">
       {/* Volumetric Raymarching Fluid Backdrop */}
       <div className="absolute inset-0 opacity-40 dark:opacity-50">
         <FluidVolume
-          baseColor="#1e40af"
+          baseColor="#f5c219"
           background="#0d0e0f"
           quality="high"
           shape="plumes"
