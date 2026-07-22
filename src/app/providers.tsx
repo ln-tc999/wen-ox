@@ -90,14 +90,15 @@ function WagmiAndWalletProviders({ children }: ProvidersProps) {
 function RainbowKitWithTheme({ children }: ProvidersProps) {
   const { theme } = useTheme();
   const rainbowTheme = useMemo(() => {
+    const isLight = theme === "light";
     const opts = {
-      accentColor: "#1e40af",
-      accentColorForeground: "#ffffff",
+      accentColor: isLight ? "#ca8a04" : "#f5c219",
+      accentColorForeground: isLight ? "#ffffff" : "#0d0e0f",
       borderRadius: "large" as const,
       fontStack: "system" as const,
       overlayBlur: "small" as const,
     };
-    return theme === "light" ? lightTheme(opts) : darkTheme(opts);
+    return isLight ? lightTheme(opts) : darkTheme(opts);
   }, [theme]);
 
   return (
