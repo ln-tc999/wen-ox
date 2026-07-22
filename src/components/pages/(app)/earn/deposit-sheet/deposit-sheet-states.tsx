@@ -2,7 +2,7 @@
 
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { FiCheck, FiLoader, FiZap } from "react-icons/fi";
-import type { DepositStep } from "@/stores";
+import type { LifiDepositStep as DepositStep } from "@/stores";
 
 export function LoadingState() {
   return (
