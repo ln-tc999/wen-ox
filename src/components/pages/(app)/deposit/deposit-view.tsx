@@ -645,7 +645,7 @@ function DepositConnected({ address }: { address: `0x${string}` }) {
         </div>
       )}
 
-      {error && step !== "error" && (
+      {error && (
         <div className="rounded-xl border border-[rgba(250,43,57,0.35)] bg-[rgba(250,43,57,0.12)] px-3 py-2 text-[11px] text-(--color-negative)">
           {error}
         </div>
@@ -1006,7 +1006,6 @@ function WithdrawConnected({ address }: { address: `0x${string}` }) {
             value={percentage}
             onChange={(e) => {
               setPercentage(Number.parseInt(e.target.value, 10));
-              if (step === "success" || step === "error") setStep("idle");
             }}
             className="h-1.5 flex-1 cursor-pointer accent-brand rounded-full appearance-none bg-surface-muted"
             disabled={isExecuting || !hasShares}
@@ -1024,7 +1023,6 @@ function WithdrawConnected({ address }: { address: `0x${string}` }) {
               type="button"
               onClick={() => {
                 setPercentage(pct);
-                if (step === "success" || step === "error") setStep("idle");
               }}
               className={`flex-1 rounded-lg py-1.5 text-[11px] font-semibold transition-colors cursor-pointer ${
                 percentage === pct
@@ -1069,7 +1067,7 @@ function WithdrawConnected({ address }: { address: `0x${string}` }) {
         </div>
       )}
 
-      {error && step !== "error" && (
+      {error && (
         <div className="rounded-xl border border-[rgba(250,43,57,0.35)] bg-[rgba(250,43,57,0.12)] px-3 py-2 text-[11px] text-(--color-negative)">
           {error}
         </div>
