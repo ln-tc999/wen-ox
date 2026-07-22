@@ -21,7 +21,7 @@ export function LandingNavbar() {
   const toggleMenu = () => setIsOpen((prev) => !prev);
 
   return (
-    <div className="flex w-full justify-center px-4 py-6">
+    <div className="absolute inset-x-0 top-0 z-50 flex w-full justify-center px-4 py-6">
       <div className="relative z-10 flex w-full max-w-3xl items-center justify-between rounded-full border border-glass bg-glass px-6 py-3 backdrop-blur-2xl backdrop-saturate-150 before:pointer-events-none before:absolute before:inset-0 before:rounded-full before:bg-[linear-gradient(140deg,rgba(255,255,255,0.18),rgba(255,255,255,0.02)_55%,rgba(255,255,255,0.06))] before:content-['']">
         <div className="flex items-center">
           <Link href="/" className="flex cursor-pointer items-center gap-2">
