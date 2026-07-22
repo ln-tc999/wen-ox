@@ -70,10 +70,24 @@ type TabKey = "deposit" | "withdraw";
 export function DepositView() {
   const [activeTab, setActiveTab] = useState<TabKey>("deposit");
   const loadMeta = useMetaStore((state) => state.loadMeta);
+  const ready = useWalletReady();
 
   useEffect(() => {
-    loadMeta();
-  }, [loadMeta]);
+    if (ready) {
+      loadMeta();
+    }
+  }, [loadMeta, ready]);
+
+  if (!ready) {
+    return (
+      <div className="flex h-[calc(100vh-10rem)] w-full items-center justify-center">
+        <div className="flex flex-col items-center gap-3">
+          <FiLoader className="h-6 w-6 animate-spin text-brand" />
+          <p className="text-xs text-muted">Initializing wallet provider...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <>
