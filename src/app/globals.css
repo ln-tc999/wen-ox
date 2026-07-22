@@ -9,9 +9,10 @@
 :root,
 [data-theme="dark"] {
   color-scheme: dark;
-  --color-brand: #1e40af;
-  --color-brand-hover: #1e3a8a;
-  --color-brand-soft: rgba(30, 64, 175, 0.18);
+  --color-brand: #f5c219;
+  --color-brand-hover: #d9a70f;
+  --color-brand-soft: rgba(245, 194, 25, 0.15);
+  --color-brand-text: #0d0e0f;
   --color-canvas: #0d0e0f;
   --color-surface-1: #131316;
   --color-surface-2: #1b1b1f;
@@ -26,15 +27,16 @@
   --color-glass-bg: rgba(255, 255, 255, 0.1);
   --color-glass-border: rgba(255, 255, 255, 0.15);
   --color-glass-overlay: rgba(13, 14, 15, 0.75);
-  --color-selection-bg: rgba(30, 64, 175, 0.45);
-  --color-selection-fg: #ffffff;
+  --color-selection-bg: rgba(245, 194, 25, 0.45);
+  --color-selection-fg: #0d0e0f;
 }
 
 [data-theme="light"] {
   color-scheme: light;
-  --color-brand: #1e40af;
-  --color-brand-hover: #1e3a8a;
-  --color-brand-soft: rgba(30, 64, 175, 0.1);
+  --color-brand: #ca8a04;
+  --color-brand-hover: #a16207;
+  --color-brand-soft: rgba(202, 138, 4, 0.1);
+  --color-brand-text: #ffffff;
   --color-canvas: #f5f6f8;
   --color-surface-1: #ffffff;
   --color-surface-2: #f1f2f5;
@@ -49,8 +51,8 @@
   --color-glass-bg: rgba(255, 255, 255, 0.65);
   --color-glass-border: rgba(0, 0, 0, 0.08);
   --color-glass-overlay: rgba(245, 246, 248, 0.85);
-  --color-selection-bg: rgba(30, 64, 175, 0.2);
-  --color-selection-fg: #0d0e0f;
+  --color-selection-bg: rgba(202, 138, 4, 0.2);
+  --color-selection-fg: #ffffff;
 }
 
 @utility bg-main {
@@ -95,6 +97,7 @@
 
 @utility bg-brand {
   background-color: var(--color-brand);
+  color: var(--color-brand-text) !important;
 }
 
 @utility bg-brand-soft {
