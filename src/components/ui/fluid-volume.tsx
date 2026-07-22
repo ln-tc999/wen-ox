@@ -220,7 +220,7 @@ function makeNoiseTexture(): THREE.DataTexture {
 }
 
 export function FluidVolume({
-  baseColor = "#1e40af",
+  baseColor = "#f5c219",
   background = "#0d0e0f",
   speed = 1.0,
   fov = 1.1,
