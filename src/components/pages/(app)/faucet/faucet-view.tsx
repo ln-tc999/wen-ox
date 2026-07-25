@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { useAccount } from "wagmi";
+import { useWalletReady } from "@/lib/wallet-ready";
 import {
   FiCopy,
   FiCheck,
@@ -78,6 +80,136 @@ const FAUCET_ASSETS: FaucetAsset[] = [
   },
 ];
 
+function InstantClaimBox() {
+  const walletReady = useWalletReady();
+
+  if (!walletReady) {
+    return (
+      <div className="mb-8 rounded-3xl border border-main bg-surface p-6 text-center">
+        <p className="text-sm text-muted">
+          Checking wallet connection status...
+        </p>
+      </div>
+    );
+  }
+
+  return <InstantClaimBoxInner />;
+}
+
+function InstantClaimBoxInner() {
+  const { address, isConnected } = useAccount();
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState<{
+    type: "success" | "error" | null;
+    message: string;
+  }>({ type: null, message: "" });
+
+  const handleInstantClaim = async () => {
+    if (!address) return;
+    setLoading(true);
+    setStatus({ type: null, message: "" });
+    try {
+      const response = await fetch("/api/faucet/claim", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ address }),
+      });
+      const data = await response.json();
+      if (!response.ok) {
+        throw new Error(data.error || "Something went wrong.");
+      }
+      setStatus({
+        type: "success",
+        message:
+          "Successfully dripped 1,000 USDC & 100 RLC to your wallet! (And gas ETH if needed)",
+      });
+    } catch (error: any) {
+      console.error(error);
+      setStatus({
+        type: "error",
+        message: error.message || "Failed to claim tokens.",
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="mb-8 rounded-3xl border border-brand bg-brand-soft/20 p-6 relative overflow-hidden">
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <span className="inline-flex items-center gap-1 rounded-full bg-brand px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-brand-contrast">
+            Hackathon Mode
+          </span>
+          <h2 className="mt-1.5 text-lg font-bold text-main">
+            Instant Testnet Faucet
+          </h2>
+          <p className="text-xs text-muted max-w-xl">
+            Get mock USDC and RLC sent directly to your connected wallet
+            instantly. No captchas, no logins required. Perfect for judges to
+            quickly test deposit/yield features!
+          </p>
+        </div>
+
+        <div>
+          {isConnected && address ? (
+            <button
+              type="button"
+              disabled={loading}
+              onClick={handleInstantClaim}
+              className="w-full sm:w-auto shrink-0 inline-flex items-center justify-center gap-2 rounded-xl bg-brand px-5 py-3 text-xs font-bold text-brand-contrast hover:bg-brand/90 transition-colors disabled:opacity-50 cursor-pointer"
+            >
+              {loading ? (
+                <>
+                  <svg
+                    className="animate-spin -ml-1 mr-2 h-4 w-4 text-brand-contrast"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <title>Loading</title>
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    />
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                    />
+                  </svg>
+                  Claiming...
+                </>
+              ) : (
+                "Claim Faucet Assets"
+              )}
+            </button>
+          ) : (
+            <div className="text-xs text-muted border border-dashed border-main rounded-xl p-3 bg-surface text-center">
+              Please connect your wallet to claim
+            </div>
+          )}
+        </div>
+      </div>
+
+      {status.type && (
+        <div
+          className={`mt-4 rounded-xl border p-3.5 text-xs ${
+            status.type === "success"
+              ? "border-positive/30 bg-positive-soft text-positive"
+              : "border-negative/30 bg-negative-soft text-negative"
+          }`}
+        >
+          {status.message}
+        </div>
+      )}
+    </div>
+  );
+}
+
 export function FaucetView() {
   const [copiedText, setCopiedText] = useState<string | null>(null);
 
@@ -106,6 +238,8 @@ export function FaucetView() {
             financial value.
           </p>
         </div>
+
+        <InstantClaimBox />
 
         {/* Faucet Assets Grid */}
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 mb-10">
