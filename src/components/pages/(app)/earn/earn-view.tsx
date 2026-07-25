@@ -2,7 +2,6 @@
 
 import dynamic from "next/dynamic";
 import { Suspense } from "react";
-import { EarnBackground } from "./earn-background";
 import { EarnQueryHydrator } from "./earn-query-hydrator";
 import { StrategyPreview } from "./strategy-preview";
 import { StrategyReview } from "./strategy-review";
@@ -20,7 +19,6 @@ const NoxDepositSheet = dynamic(
 export function EarnView() {
   return (
     <>
-      <EarnBackground />
       <Suspense fallback={null}>
         <EarnQueryHydrator />
       </Suspense>
