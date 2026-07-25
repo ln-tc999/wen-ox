@@ -15,7 +15,6 @@ const NAV_LINKS: { label: string; href: string }[] = [
   { label: "Swap", href: "/swap" },
   { label: "Compare", href: "/compare" },
   { label: "Portfolio", href: "/portfolio" },
-  { label: "Faucet", href: "/faucet" },
 ];
 
 const Navbar1 = () => {
