@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { FiArrowLeft } from "react-icons/fi";
 import type { FeatureSections } from "@/components/ui";
 
@@ -6,16 +7,24 @@ export function IdleAggregatorCard() {
   return (
     <section className="relative flex h-[62%] flex-col overflow-hidden rounded-3xl border border-main bg-surface p-5 sm:p-6">
       <div className="flex flex-col gap-2">
-        <span className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-faint">
-          <Image
-            src="/Assets/Images/Logo-Brand/logo-transparent.png"
-            alt="Wen-Ox"
-            width={18}
-            height={18}
-            className="h-4 w-4 object-contain"
-          />
-          Wen-Ox Aggregator · Arbitrum-first
-        </span>
+        <div className="flex items-center justify-between">
+          <span className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-faint">
+            <Image
+              src="/Assets/Images/Logo-Brand/logo-transparent.png"
+              alt="Wen-Ox"
+              width={18}
+              height={18}
+              className="h-4 w-4 object-contain"
+            />
+            Wen-Ox Aggregator · Arbitrum-first
+          </span>
+          <Link
+            href="/faucet"
+            className="inline-flex items-center gap-1 rounded-full border border-brand/20 bg-brand-soft px-3 py-1 text-[10px] font-bold text-brand transition-colors hover:bg-brand hover:text-brand-contrast cursor-pointer"
+          >
+            Claim Faucet ↗
+          </Link>
+        </div>
         <h2 className="max-w-[22ch] text-xl font-semibold leading-tight tracking-tight text-main sm:text-2xl">
           Best yield on Arbitrum, aggregated live.
         </h2>
