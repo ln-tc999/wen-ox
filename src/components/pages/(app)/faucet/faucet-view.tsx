@@ -9,6 +9,9 @@ import {
   FiExternalLink,
   FiHelpCircle,
   FiDroplet,
+  FiDollarSign,
+  FiCpu,
+  FiZap,
 } from "react-icons/fi";
 import { BackgroundDecor } from "@/components/layout";
 import { NOX_CONTRACTS } from "@/lib/nox-types";
@@ -23,7 +26,6 @@ type FaucetAsset = {
     name: string;
     url: string;
   }[];
-  icon: string;
 };
 
 const FAUCET_ASSETS: FaucetAsset[] = [
@@ -46,7 +48,6 @@ const FAUCET_ASSETS: FaucetAsset[] = [
         url: "https://sepolia-faucet.pk910.de/",
       },
     ],
-    icon: "🪙",
   },
   {
     symbol: "USDC",
@@ -61,7 +62,6 @@ const FAUCET_ASSETS: FaucetAsset[] = [
         url: "https://faucet.circle.com/",
       },
     ],
-    icon: "💵",
   },
   {
     symbol: "RLC",
@@ -76,9 +76,21 @@ const FAUCET_ASSETS: FaucetAsset[] = [
         url: "https://faucet.iexec.io/",
       },
     ],
-    icon: "💻",
   },
 ];
+
+function getAssetIcon(symbol: string) {
+  switch (symbol) {
+    case "ETH":
+      return <FiZap className="h-5 w-5" />;
+    case "USDC":
+      return <FiDollarSign className="h-5 w-5" />;
+    case "RLC":
+      return <FiCpu className="h-5 w-5" />;
+    default:
+      return <FiZap className="h-5 w-5" />;
+  }
+}
 
 function InstantClaimBox() {
   const walletReady = useWalletReady();
@@ -249,7 +261,9 @@ export function FaucetView() {
               className="flex flex-col rounded-3xl border border-main bg-surface p-6 shadow-xs relative overflow-hidden transition-all hover:border-strong"
             >
               <div className="flex items-center justify-between mb-4">
-                <span className="text-3xl">{asset.icon}</span>
+                <div className="flex h-10 w-10 items-center justify-center rounded-2xl border border-brand/20 bg-brand-soft text-brand shadow-[0_0_15px_-3px_var(--color-brand)]">
+                  {getAssetIcon(asset.symbol)}
+                </div>
                 <span className="rounded-full bg-surface-muted px-3 py-1 text-xs font-bold text-main border border-main">
                   {asset.symbol}
                 </span>
