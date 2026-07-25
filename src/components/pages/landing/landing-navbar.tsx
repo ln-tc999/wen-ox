@@ -9,7 +9,6 @@ import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 const NAV_LINKS = [
   { label: "How It Works", href: "#features" },
-  { label: "Faucet", href: "/faucet" },
   {
     label: "Docs",
     href: "https://docs.iex.ec/nox-protocol/getting-started/welcome",
