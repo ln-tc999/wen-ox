@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { FiChevronDown } from "react-icons/fi";
 import { erc20Abi, formatUnits } from "viem";
@@ -230,6 +231,18 @@ export function SupplyCard() {
             </span>
           </div>
         </div>
+      </div>
+
+      <div className="mt-3.5 border-t border-main pt-3 px-2 flex items-center justify-between text-[11px]">
+        <span className="text-muted font-medium">
+          Need testnet tokens for deposit?
+        </span>
+        <Link
+          href="/faucet"
+          className="font-semibold text-brand hover:underline cursor-pointer flex items-center gap-1"
+        >
+          Claim Faucet ↗
+        </Link>
       </div>
     </section>
   );
