@@ -4,8 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 
-/* Shared styling tokens that align with Wen-Ox CSS variables */
-
 function Label({
   children,
   className = "",
@@ -88,9 +86,7 @@ export function BentoSection() {
     <div className="mt-20">
       <Label>
         <span className="text-main/80">the platform</span>
-        <span className="text-brand">
-          [ one shielded layer · four surfaces ]
-        </span>
+        <span className="text-brand">[ one shielded layer · two vaults ]</span>
       </Label>
       <h3 className="mt-6 max-w-2xl font-sans text-2xl font-bold lowercase leading-tight tracking-tight text-main md:text-3xl">
         privacy, proven, not promised.
@@ -100,83 +96,85 @@ export function BentoSection() {
         {/* big feature — commitment note */}
         <Tile className="sm:col-span-2 md:col-span-2 md:row-span-2">
           <TileHead
-            eyebrow="01 · commitment note"
-            title="your balance is a hash, not an account."
+            eyebrow="01 · Nox Handle Client"
+            title="your amount is a handle, not plaintext."
           />
           <p className="mt-4 max-w-sm text-[13.5px] leading-relaxed text-muted">
-            every deposit becomes a Poseidon2 commitment in an append-only
-            Merkle tree. amount and owner live inside the hash, only the root is
-            ever public, and old notes never link to new ones.
+            every deposit wraps your underlying assets to confidential tokens.
+            amounts are encrypted client-side using the Nox Handle SDK, mapping
+            plaintext values to cryptographically secure handles.
           </p>
           <code
             className="mt-6 block w-fit rounded-lg px-3 py-2 font-mono text-[11px] text-brand"
             style={{ backgroundColor: "var(--color-surface-3)" }}
           >
-            commitment = hash4(asset, amount, owner, blinding)
+            handle = encryptInput(amount, type, contract)
           </code>
         </Tile>
 
-        {/* ultrahonk */}
+        {/* TEE Enclave */}
         <Tile className="sm:col-span-2 md:col-span-2">
-          <TileHead eyebrow="02 · ultrahonk" title="proofs, not disclosures." />
+          <TileHead
+            eyebrow="02 · TEE Enclave"
+            title="off-chain secure compute."
+          />
           <p className="mt-3 text-[13px] leading-relaxed text-muted">
-            each exit is a Noir/UltraHonk zero-knowledge proof, checked inside
-            an Arbitrum Sepolia contract over BN254. no amounts, no addresses
-            leave the circuit.
+            confidential smart contracts read handles and process yields
+            securely inside Intel SGX/TDX Trusted Execution Environments.
+            decrypted data never touches the public chain.
           </p>
           <div className="mt-5 flex flex-wrap gap-2 font-mono text-[10px] uppercase tracking-[0.12em]">
             <span
               className="rounded-md px-2.5 py-1 text-brand"
               style={{ backgroundColor: "var(--color-surface-3)" }}
             >
-              14,592 B proof
+              Nox Compute Precompile
             </span>
             <span
               className="rounded-md px-2.5 py-1 text-brand"
               style={{ backgroundColor: "var(--color-surface-3)" }}
             >
-              1,760 B vk
+              Intel SGX/TDX
             </span>
             <span
               className="rounded-md px-2.5 py-1 text-muted"
               style={{ backgroundColor: "var(--color-surface-3)" }}
             >
-              keccak transcript
+              EIP-712 auth
             </span>
           </div>
         </Tile>
 
-        {/* stat: merkle depth */}
+        {/* stat: TEE events */}
         <Tile>
-          <Stat value="20" label="merkle depth · 2²⁰ private leaves" />
+          <Stat value="14" label="on-chain TEE precompile events per wrap" />
         </Tile>
 
-        {/* stat: circuits */}
+        {/* stat: protocols */}
         <Tile>
-          <Stat value="5" label="Noir circuits · one verifier each" />
+          <Stat value="2" label="confidential cTokens · cUSDC & cRLC" />
         </Tile>
 
-        {/* bridge */}
+        {/* trust-minimized aggregator */}
         <Tile className="sm:col-span-2 md:col-span-2">
           <TileHead
-            eyebrow="03 · trust-minimized aggregator"
-            title="aggregated, not wrapped."
+            eyebrow="03 · confidential yield"
+            title="shielded strategies."
           />
           <p className="mt-3 text-[13px] leading-relaxed text-muted">
-            assets locked on Ethereum or other chains arrive natively in
-            Arbitrum. The routing state verification is checked{" "}
-            <span className="text-brand">natively on-chain</span>, without
-            relying on trusted relayers.
+            yield vault strategies compound assets on Arbitrum Sepolia. live
+            aggregate TVL is visible using public decryption allowances, but
+            individual allocation mappings remain strictly private.
           </p>
         </Tile>
 
-        {/* dark pool */}
+        {/* ChainGPT integration */}
         <Tile className="sm:col-span-2 md:col-span-2">
-          <TileHead eyebrow="04 · dark pool / dex" title="matched blind." />
+          <TileHead eyebrow="04 · AI Assistant" title="ChainGPT routing." />
           <p className="mt-3 text-[13px] leading-relaxed text-muted">
-            orders are placed and matched at the midpoint without revealing size
-            or side, then settled atomically: a zero-knowledge DEX where the
-            book itself stays hidden.
+            integrated floating AI chat leverages ChainGPT models via proxy
+            endpoints. get automated vault allocations and strategy reviews
+            privately without exposing API keys.
           </p>
         </Tile>
       </div>
@@ -279,7 +277,7 @@ export function SystemArchitecture() {
       <Label>
         <span className="text-main/80">system architecture</span>
         <span className="text-brand">
-          [ L1 lock → L2 verifier → shielded settle ]
+          [ wrap assets → deposit operator → TEE secure yield ]
         </span>
       </Label>
       <h3 className="mt-6 max-w-2xl font-sans text-xl font-bold lowercase leading-tight tracking-tight text-main md:text-2xl">
@@ -374,45 +372,45 @@ export function SwapAmmMechanism() {
       }}
     >
       <Label>
-        <span className="text-main/80">swap & amm mechanism</span>
+        <span className="text-main/80">confidential swap mechanism</span>
         <span className="text-brand">
-          [ commitment → midpoint match → ZK-settlement ]
+          [ encrypt input → execute swap → wrap output ]
         </span>
       </Label>
       <h3 className="mt-6 max-w-2xl font-sans text-xl font-bold lowercase leading-tight tracking-tight text-main md:text-2xl">
-        how dark swaps work: from commitment to constant product settlement.
+        how dark swaps work: from client-side handle to curve/uniswap router.
       </h3>
 
       <div className="mt-10 grid gap-6 lg:grid-cols-[1fr_16rem]">
         {/* main vertical flow */}
         <div className="flex flex-col">
           <Layer
-            eyebrow="Phase 1 · Client Commitment"
-            title="SDK / Zero-Knowledge Circuit"
+            eyebrow="Phase 1 · Client Encryption"
+            title="Nox Handle SDK"
             items={[
-              "shielded input notes locked",
-              "generate place_order proof",
-              "order commitment emitted",
+              "shielded input handles generated",
+              "RSA encryption key signatures exchanged",
+              "operator allowance granted",
             ]}
           />
-          <Connector note="sealed commitments sent to matcher — size and price hidden" />
+          <Connector note="encrypted handles sent to router contract — sizes hidden" />
           <Layer
-            eyebrow="Phase 2 · Midpoint Matching"
-            title="Off-Chain Matcher Engine"
+            eyebrow="Phase 2 · Enclave Execution"
+            title="NoxCompute TEE Swap Router"
             items={[
-              "live reference price queried",
-              "match bids & asks at midpoint",
-              "calculate constant product (x * y = k)",
+              "decrypt input amount securely inside enclave",
+              "unwrap cToken to public token",
+              "execute standard swap on Curve / Uniswap",
             ]}
           />
-          <Connector note="generates blind execution path and ZK match proof" />
+          <Connector note="re-wrap public output to confidential wrapper" />
           <Layer
-            eyebrow="Phase 3 · On-Chain Settlement"
-            title="Arbitrum Sepolia Contract (match_orders)"
+            eyebrow="Phase 3 · Confidential Output"
+            title="ERC-7984 Token Wrapper"
             items={[
-              "verify ZK proof of matching",
-              "nullify spent input notes",
-              "append output notes to Merkle tree",
+              "transfer wrapped cToken back to user",
+              "encrypt yield output handles",
+              "issue execution receipt receipt",
             ]}
             highlight
           />
@@ -424,27 +422,27 @@ export function SwapAmmMechanism() {
             AMM Specifications
           </span>
           <RailCard
-            title="Constant Product"
+            title="Composability"
             lines={[
-              "x * y = k formula",
-              "maintains pool invariant",
-              "slippage computed blind",
+              "integrates with Curve/Uniswap",
+              "underlying pool stays unchanged",
+              "slippage check inside TEE",
             ]}
           />
           <RailCard
-            title="Anti-Frontrunning"
+            title="Frontrunning Protection"
             lines={[
-              "matched at fair midpoint",
-              "no public mempool visibility",
-              "sandwiches are impossible",
+              "hidden swap size and path",
+              "encrypted mempool payload",
+              "sandwiches are mitigated",
             ]}
           />
           <RailCard
-            title="ZK Privacy"
+            title="Private Accounting"
             lines={[
-              "notes nullified privately",
-              "only roots are updated",
-              "unlinkable asset paths",
+              "individual balance encrypted",
+              "balances fully auditable",
+              "unlinkable trading routes",
             ]}
           />
         </aside>
