@@ -23,6 +23,8 @@ export interface ScrambleCycleProps {
   hold?: number;
   /** RGB chromatic-aberration glitch on scrambling glyphs. */
   glitch?: boolean;
+  /** Resolve the first word and stop, instead of cycling on hold. */
+  once?: boolean;
 }
 
 export function ScrambleCycle({
@@ -31,6 +33,7 @@ export function ScrambleCycle({
   duration = 900,
   hold = 2000,
   glitch = true,
+  once = false,
 }: ScrambleCycleProps) {
   const spacerRef = useRef<HTMLSpanElement>(null);
   const lettersRef = useRef<HTMLSpanElement>(null);
@@ -109,7 +112,7 @@ export function ScrambleCycle({
         raf = requestAnimationFrame(tick);
       } else {
         current = words[idx];
-        timer = window.setTimeout(advance, hold);
+        if (!once) timer = window.setTimeout(advance, hold);
       }
     };
 
@@ -131,7 +134,7 @@ export function ScrambleCycle({
       cancelAnimationFrame(raf);
       clearTimeout(timer);
     };
-  }, [words, duration, hold, glitch]);
+  }, [words, duration, hold, glitch, once]);
 
   return (
     <span
