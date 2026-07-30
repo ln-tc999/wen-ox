@@ -1,7 +1,7 @@
 # Smart Contracts Proof - Wen-Ox
 
-**Date**: 2026-07-20  
-**Network**: Arbitrum Sepolia (421614)  
+**Date**: 2026-07-25 (updated)  
+**Networks**: Arbitrum Sepolia (421614) + Ethereum Sepolia (11155111)  
 **Hackathon**: WTF Summer Edition (iExec Nox Protocol)
 
 ## 📦 Contracts Built
@@ -83,7 +83,20 @@ Repay:
 
 ---
 
-### 3. Supporting Contracts
+### 3. NoxYieldVault.sol
+**Purpose**: ERC-4626 yield vault accepting confidential tokens (cUSDC, cRLC)
+
+**Key Functions**:
+- `deposit()` / `withdraw()` - Standard ERC-4626 vault operations
+- `depositYield()` - Owner deposits yield to the vault
+- `estimatedAPY()` - Calculate estimated annual yield
+- `totalAssets()` - View total assets under management
+
+**Compilation**: Success
+
+---
+
+### 4. Supporting Contracts
 
 #### MockDEXRouter.sol
 - Mock Uniswap V2 router for testing
@@ -94,6 +107,21 @@ Repay:
 - Mock Aave V3 implementation for testing
 - Simplified LTV (70%) and liquidation threshold (80%)
 - FOR TESTING ONLY (not production)
+
+#### MockNoxCompute.sol (NEW - for L1 deployment)
+- Simulates Nox TEE precompile on Ethereum Sepolia L1
+- `encrypt()` / `decrypt()` use identity mapping (bytes32 <-> uint256)
+- Enables full contract deployment on L1 without real TEE infrastructure
+
+#### MockConfidentialERC20.sol (NEW - for L1 deployment)
+- ERC-7984 confidential token wrapper implementation
+- `wrap()` - Lock underlying ERC-20 and mint confidential token
+- `unwrap()` - Burn confidential token and return underlying ERC-20
+- Used for cUSDC and cRLC deployment on Ethereum Sepolia L1
+
+#### MockERC20.sol (NEW - for L1 deployment)
+- Standard ERC-20 with configurable decimals and public `mint()`
+- Used for USDC (6 decimals) and RLC (9 decimals) on Ethereum Sepolia L1
 
 ---
 
@@ -133,18 +161,18 @@ interface IConfidentialERC20 is IERC20 {
 
 ## ✅ Compilation Proof
 
-**Command**: `forge build`
+**Command**: `~/.foundry/bin/forge build`
 
-**Result**: ✅ Success
+**Result**: Success
 ```
-Compiling 27 files with Solc 0.8.24
-Solc 0.8.24 finished in 200.93ms
-Compiler run successful
+Compiling 4 files with Solc 0.8.24
+Solc 0.8.24 finished in 2.88s
+Compiler run successful!
 ```
 
 **Warnings**: 
 - `block.timestamp` usage (acceptable for deadline checks)
-- Unused parameters in mock contracts (testing only)
+- `erc20-unchecked-transfer` in mock contracts (testing only, acceptable)
 
 **Optimizer**: Enabled (200 runs)
 
@@ -160,7 +188,8 @@ Compiler run successful
 | **Don't modify underlying** | Only wrap with privacy layer | ✅ |
 | **Add privacy via Nox** | All amounts encrypted with Nox TEE | ✅ |
 | **Maintain composability** | Output can be used in other protocols | ✅ |
-| **Deploy on testnet** | Ready for Arbitrum Sepolia | ⏳ |
+| **Deploy on ETH Sepolia** | Full ecosystem deployed on L1 (chain 11155111) | ✅ |
+| **Deploy on Arbitrum Sepolia** | Production contracts live on L2 (chain 421614) | ✅ |
 
 ### Nox Integration Points:
 
@@ -211,54 +240,84 @@ Total Production Code   ~668 LOC
 
 ---
 
-## 🚀 Deployment Plan
+## Deployment Proof
 
-### Phase 1: Mock DEX & Aave (Testing)
+### Ethereum Sepolia L1 (Chain ID: 11155111)
+
+**Script**: `DeployNoxSepoliaL1.s.sol`  
+**Status**: ONCHAIN EXECUTION COMPLETE & SUCCESSFUL  
+**Gas Used**: ~8.87M gas (~0.018 ETH)  
+**Tx log**: `broadcast/DeployNoxSepoliaL1.s.sol/11155111/run-latest.json`
+
+| Contract | Address | Etherscan |
+|---|---|---|
+| Mock USDC (underlying) | `0x76F65E2389Ada2a4b0d604520Efe31cb70e47Bc6` | [view](https://sepolia.etherscan.io/address/0x76F65E2389Ada2a4b0d604520Efe31cb70e47Bc6) |
+| Mock RLC (underlying) | `0x1aeEDC9Ced161624210963231d4083Fdc17e56E6` | [view](https://sepolia.etherscan.io/address/0x1aeEDC9Ced161624210963231d4083Fdc17e56E6) |
+| cUSDC Wrapper (ERC-7984) | `0x38c92488eB1cd7f2235031Cee7D5eA2a362005B6` | [view](https://sepolia.etherscan.io/address/0x38c92488eB1cd7f2235031Cee7D5eA2a362005B6) |
+| cRLC Wrapper (ERC-7984) | `0x58129508C4fC26f2B4Ab6FDeCDFDa57BA4364c3b` | [view](https://sepolia.etherscan.io/address/0x58129508C4fC26f2B4Ab6FDeCDFDa57BA4364c3b) |
+| Mock NoxCompute | `0x5BE4bC13e8f515f167a4Ee3225E1CB85B8Aea7b9` | [view](https://sepolia.etherscan.io/address/0x5BE4bC13e8f515f167a4Ee3225E1CB85B8Aea7b9) |
+| Mock DEXRouter | `0x2D931C2a648b02ee07a1e5b6C8F7BB99ba08b695` | [view](https://sepolia.etherscan.io/address/0x2D931C2a648b02ee07a1e5b6C8F7BB99ba08b695) |
+| NoxSwapRouter | `0x0256137E4262Ac007463067BC5Dd15A9de4CfAa8` | [view](https://sepolia.etherscan.io/address/0x0256137E4262Ac007463067BC5Dd15A9de4CfAa8) |
+| cUSDC Yield Vault (ERC-4626) | `0x561361D3c5a9933a6FEDa26d590144B3c42Eba7d` | [view](https://sepolia.etherscan.io/address/0x561361D3c5a9933a6FEDa26d590144B3c42Eba7d) |
+| cRLC Yield Vault (ERC-4626) | `0x74B884A7ff3B65a112b09820Af2739098C1FA532` | [view](https://sepolia.etherscan.io/address/0x74B884A7ff3B65a112b09820Af2739098C1FA532) |
+
+### Arbitrum Sepolia L2 (Chain ID: 421614) — Production
+
+| Contract | Address | Arbiscan |
+|---|---|---|
+| USDC (public ERC-20) | `0x75faf114eafb1BDbe2F0316DF893fd58CE46AA4d` | [verified](https://sepolia.arbiscan.io/address/0x75faf114eafb1BDbe2F0316DF893fd58CE46AA4d#code) |
+| cUSDC (ERC-7984) | `0x1ccec6bc60db15e4055d43dc2531bb7d4e5b808e` | [verified](https://sepolia.arbiscan.io/address/0x1ccec6bc60db15e4055d43dc2531bb7d4e5b808e#code) |
+| RLC (public ERC-20) | `0x9923eD3cbd90CD78b910c475f9A731A6e0b8C963` | [verified](https://sepolia.arbiscan.io/address/0x9923eD3cbd90CD78b910c475f9A731A6e0b8C963#code) |
+| cRLC (ERC-7984) | `0x92b23f4a59175415ced5cb37e64a1fc6a9d79af4` | [verified](https://sepolia.arbiscan.io/address/0x92b23f4a59175415ced5cb37e64a1fc6a9d79af4#code) |
+| cUSDC Vault (ERC-4626) | `0x75ef70Ea33994a16751ff0b4f7DCF0F94DF1351F` | [verified](https://sepolia.arbiscan.io/address/0x75ef70Ea33994a16751ff0b4f7DCF0F94DF1351F#code) |
+| cRLC Vault (ERC-4626) | `0x1955eF9145cCAa643a8Ee61aE3206F0acb632Adf` | [verified](https://sepolia.arbiscan.io/address/0x1955eF9145cCAa643a8Ee61aE3206F0acb632Adf#code) |
+| NoxCompute precompile (iExec) | `0xd464B198f06756a1d00be223634b85E0a731c229` | [view](https://sepolia.arbiscan.io/address/0xd464B198f06756a1d00be223634b85E0a731c229) |
+
+### Deploy Commands
+
 ```bash
-forge script DeployNoxSwapRouter --rpc-url arbitrum_sepolia --broadcast
-forge script DeployNoxLending --rpc-url arbitrum_sepolia --broadcast
+# Ethereum Sepolia L1
+~/.foundry/bin/forge script foundry/src/DeployNoxSepoliaL1.s.sol:DeployNoxSepoliaL1 \
+  --rpc-url https://ethereum-sepolia-rpc.publicnode.com --broadcast
+
+# Arbitrum Sepolia L2
+~/.foundry/bin/forge script foundry/src/DeployNoxVaults.s.sol:DeployNoxVaults \
+  --rpc-url https://sepolia-rollup.arbitrum.io/rpc --broadcast
 ```
 
-### Phase 2: Real DEX Integration
-- Update `DEX_ROUTER` address to real Uniswap/Curve on Arbitrum Sepolia
-- Test with small amounts
-
-### Phase 3: Real Aave Integration (if available)
-- Check if Aave V3 deployed on Arbitrum Sepolia
-- If not, keep mock for demo
-
 ---
 
-## 📝 Code Quality
+## Code Quality
 
 ### Security Features:
-- ✅ ReentrancyGuard on all state-changing functions
-- ✅ SafeERC20 for token transfers
-- ✅ Ownable for admin functions
-- ✅ Custom errors (gas efficient)
-- ✅ Health factor checks before borrow
+- ReentrancyGuard on all state-changing functions
+- SafeERC20 for token transfers
+- Ownable for admin functions
+- Custom errors (gas efficient)
+- Health factor checks before borrow
 
 ### Best Practices:
-- ✅ NatSpec documentation
-- ✅ Events for all operations
-- ✅ Explicit error messages
-- ✅ View functions for quotes
+- NatSpec documentation
+- Events for all operations
+- Explicit error messages
+- View functions for quotes
 
 ### Testing Readiness:
-- ✅ Mock contracts included
-- ✅ Deployment scripts ready
-- ✅ Foundry test structure prepared
+- Mock contracts included
+- Deployment scripts ready
+- Foundry test structure prepared
 
 ---
 
-## 🎯 Next Steps
+## Status
 
 1. ✅ Contracts built and compiled
-2. ⏳ Frontend integration (swap/lending UI)
-3. ⏳ Deploy to Arbitrum Sepolia
-4. ⏳ Verify on Arbiscan
-5. ⏳ End-to-end testing
-6. ⏳ Demo video
+2. ✅ Frontend integration (earn/deposit/swap/portfolio UI)
+3. ✅ Deployed to Arbitrum Sepolia (production)
+4. ✅ Deployed to Ethereum Sepolia L1 (hackathon requirement)
+5. ✅ Verified on Arbiscan
+6. ✅ End-to-end testing
+7. ✅ Demo video
 
 ---
 
