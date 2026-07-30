@@ -7,11 +7,15 @@ import "./scroll-stack.css";
 export const ScrollStackItem = ({
   children,
   itemClassName = "",
+  style,
 }: {
   children: ReactNode;
   itemClassName?: string;
+  style?: React.CSSProperties;
 }) => (
-  <div className={`scroll-stack-card ${itemClassName}`.trim()}>{children}</div>
+  <div className={`scroll-stack-card ${itemClassName}`.trim()} style={style}>
+    {children}
+  </div>
 );
 
 interface Transform {
