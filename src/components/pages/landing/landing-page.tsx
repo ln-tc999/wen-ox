@@ -7,7 +7,6 @@ import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { useDepositStore } from "@/stores"; // dummy or actual hooks if needed, otherwise toggle states
 import { ScrambleCycle } from "@/components/ui";
 import { FeaturesSection } from "./features-section";
-import { PublicLedgerSection } from "./public-ledger-section";
 
 const ROTATING = ["shielded", "unlinkable", "verified", "private", "yours"];
 
@@ -319,9 +318,6 @@ export function LandingPage() {
 
       {/* Narrative beats stack + Bento section + System specs */}
       <FeaturesSection />
-
-      {/* Comparative public simulator */}
-      <PublicLedgerSection />
 
       {/* Infinite loop text marquee footer */}
       <footer
