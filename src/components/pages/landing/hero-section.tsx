@@ -13,34 +13,76 @@ function ChartBackground() {
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden select-none">
       <div
-        className="absolute inset-0 opacity-40 dark:opacity-30"
+        className="absolute inset-0 opacity-20 dark:opacity-10"
         style={{
           backgroundImage:
             "linear-gradient(to right, var(--color-line) 1px, transparent 1px), linear-gradient(to bottom, var(--color-line) 1px, transparent 1px)",
-          backgroundSize: "64px 46px",
+          backgroundSize: "192px 138px",
           maskImage: fade,
           WebkitMaskImage: fade,
         }}
       />
 
       <ul className="absolute inset-0 font-mono text-[10px] uppercase tracking-[0.16em] text-muted/60">
-        <li className="absolute left-[4%] top-[40%] hidden sm:block">
+        <li className="absolute left-[5%] top-[45%] hidden sm:block">
           <span className="block text-main/80 font-semibold">
-            Network Status
+            <ScrambleCycle
+              words={["Network Status"]}
+              duration={620}
+              glitch={false}
+              once
+            />
           </span>
-          <span className="block">[ Arbitrum Sepolia · 421614 ]</span>
+          <span className="block">
+            [{" "}
+            <ScrambleCycle
+              words={["Arbitrum Sepolia · 421614"]}
+              duration={900}
+              glitch={false}
+              once
+            />{" "}
+            ]
+          </span>
         </li>
-        <li className="absolute right-[4%] top-[35%] text-right hidden sm:block">
+        <li className="absolute right-[5%] top-[38%] text-right hidden sm:block">
           <span className="block text-main/80 font-semibold">
-            Confidential Enclave
+            <ScrambleCycle
+              words={["Confidential Enclave"]}
+              duration={820}
+              glitch={false}
+              once
+            />
           </span>
-          <span className="block">[ iExec Nox Protocol · TEE ]</span>
+          <span className="block">
+            [{" "}
+            <ScrambleCycle
+              words={["iExec Nox Protocol · TEE"]}
+              duration={1150}
+              glitch={false}
+              once
+            />{" "}
+            ]
+          </span>
         </li>
-        <li className="absolute bottom-[10%] left-1/2 -translate-x-1/2 text-center hidden md:block">
+        <li className="absolute bottom-[16%] left-1/2 -translate-x-1/2 text-center hidden md:block">
           <span className="block text-main/80 font-semibold">
-            Shielded Tokens
+            <ScrambleCycle
+              words={["Shielded Tokens"]}
+              duration={1040}
+              glitch={false}
+              once
+            />
           </span>
-          <span className="block">[ ERC-7984 · cUSDC & cRLC ]</span>
+          <span className="block">
+            [{" "}
+            <ScrambleCycle
+              words={["ERC-7984 · cUSDC & cRLC"]}
+              duration={1400}
+              glitch={false}
+              once
+            />{" "}
+            ]
+          </span>
         </li>
       </ul>
     </div>
