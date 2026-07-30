@@ -1,382 +1,250 @@
 "use client";
 
-import { motion, useInView } from "motion/react";
 import Image from "next/image";
-import { useRef } from "react";
+import Link from "next/link";
+import { type ReactNode } from "react";
+import ScrollStack, { ScrollStackItem } from "./scroll-stack";
+import {
+  BentoSection,
+  SystemArchitecture,
+  SwapAmmMechanism,
+} from "./story-sections";
 
-/* ---------- Animated visuals (Framer Motion only, no GSAP) ---------- */
+// Film grain SVG background overlay styling matching LaxStell
+const GRAIN =
+  "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='90'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0.35 0.35 0.35 0 -0.36'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E\")";
 
-function ConfidentialVaultVisual() {
-  const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true });
-
-  const bars = [
-    { id: "cv0", height: 25, delay: 0 },
-    { id: "cv1", height: 40, delay: 0.07 },
-    { id: "cv2", height: 35, delay: 0.14 },
-    { id: "cv3", height: 55, delay: 0.21 },
-    { id: "cv4", height: 48, delay: 0.28 },
-    { id: "cv5", height: 68, delay: 0.35 },
-    { id: "cv6", height: 60, delay: 0.42 },
-    { id: "cv7", height: 78, delay: 0.49 },
-    { id: "cv8", height: 65, delay: 0.56 },
-    { id: "cv9", height: 75, delay: 0.63 },
-  ];
-
-  return (
-    <div
-      ref={ref}
-      className="relative flex h-full w-full flex-col overflow-hidden rounded-xl p-5"
-      style={{ backgroundColor: "var(--color-surface-2)" }}
-    >
-      <div className="mb-4 flex items-center justify-between">
-        <div
-          className="flex items-center gap-2 rounded-lg px-3 py-2"
-          style={{ backgroundColor: "var(--color-surface-3)" }}
-        >
-          <span className="text-sm">🔒</span>
-        </div>
-        <div className="flex items-center gap-2">
-          <motion.span
-            className="text-xl font-bold tabular-nums text-main"
-            initial={{ opacity: 0 }}
-            animate={inView ? { opacity: 1 } : { opacity: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-          >
-            TEE Secured
-          </motion.span>
-        </div>
-      </div>
-
-      <div className="relative flex flex-1 items-end justify-between gap-1.5 px-1">
-        {bars.map((bar) => (
-          <motion.div
-            key={bar.id}
-            className="flex-1 origin-bottom rounded-t"
-            style={{
-              height: `${bar.height}%`,
-              backgroundColor: "var(--color-brand)",
-              opacity: 0.3,
-            }}
-            initial={{ scaleY: 0 }}
-            animate={inView ? { scaleY: 1 } : { scaleY: 0 }}
-            transition={{ duration: 0.5, delay: bar.delay, ease: "easeOut" }}
-          />
-        ))}
-      </div>
-
-      <div
-        className="mt-3 h-px w-full"
-        style={{ backgroundColor: "var(--color-line)" }}
-      />
-    </div>
-  );
-}
-
-function YieldRoutingVisual() {
-  const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true });
-
-  return (
-    <div
-      ref={ref}
-      className="relative flex h-full w-full items-center justify-center overflow-hidden rounded-xl p-5"
-      style={{ backgroundColor: "var(--color-surface-2)" }}
-    >
-      <div className="flex flex-col items-center gap-4">
-        <motion.div
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={
-            inView ? { scale: 1, opacity: 1 } : { scale: 0.8, opacity: 0 }
-          }
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="relative"
-        >
-          <div className="absolute inset-0 animate-pulse rounded-full bg-brand/20 blur-xl" />
-          <Image
-            src="/Assets/Images/Logo-Brand/logo-transparent.png"
-            alt="Wen-Ox"
-            width={80}
-            height={80}
-            className="relative size-20 rounded-2xl object-contain shadow-2xl"
-          />
-        </motion.div>
-        <div className="flex flex-col items-center gap-1 text-center">
-          <motion.span
-            className="text-lg font-semibold text-main"
-            initial={{ opacity: 0, y: 10 }}
-            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            Smart Routing
-          </motion.span>
-          <motion.span
-            className="text-[10px] uppercase tracking-widest text-faint"
-            initial={{ opacity: 0 }}
-            animate={inView ? { opacity: 1 } : { opacity: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-          >
-            Yield Optimization
-          </motion.span>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function OneClickVisual() {
-  const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true });
-
-  return (
-    <div
-      ref={ref}
-      className="relative flex h-full w-full items-center justify-center overflow-hidden rounded-xl p-5"
-      style={{ backgroundColor: "var(--color-surface-2)" }}
-    >
-      <motion.div
-        className="pointer-events-none absolute left-4 top-4 select-none"
-        initial={{ scale: 0, opacity: 0 }}
-        animate={inView ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
-        transition={{ duration: 0.5, delay: 0.6, ease: "easeOut" }}
-      >
-        <Image
-          src="/Assets/Images/Logo-DeFi/euler-finance-logo.svg"
-          alt=""
-          width={32}
-          height={32}
-          className="rounded-full"
-        />
-      </motion.div>
-      <motion.div
-        className="pointer-events-none absolute right-4 top-4 select-none"
-        initial={{ scale: 0, opacity: 0 }}
-        animate={inView ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
-        transition={{ duration: 0.5, delay: 0.8, ease: "easeOut" }}
-      >
-        <Image
-          src="/Assets/Images/Logo-DeFi/pendle-logo.jpg"
-          alt=""
-          width={28}
-          height={28}
-          className="rounded-full"
-        />
-      </motion.div>
-      <motion.div
-        className="pointer-events-none absolute bottom-4 right-6 select-none"
-        initial={{ scale: 0, opacity: 0 }}
-        animate={inView ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
-        transition={{ duration: 0.5, delay: 1.0, ease: "easeOut" }}
-      >
-        <Image
-          src="/Assets/Images/Logo-DeFi/neverland-money-logo.jpg"
-          alt=""
-          width={30}
-          height={30}
-          className="rounded-full"
-        />
-      </motion.div>
-
-      <div className="flex items-center gap-3">
-        <motion.div
-          className="flex h-20 w-24 origin-left items-center justify-center rounded-2xl"
-          style={{ backgroundColor: "var(--color-surface-3)" }}
-          initial={{ scaleX: 0, opacity: 0 }}
-          animate={
-            inView ? { scaleX: 1, opacity: 1 } : { scaleX: 0, opacity: 0 }
-          }
-          transition={{ duration: 0.8, ease: "easeOut" }}
-        >
-          <span className="text-[10px] font-medium text-faint">Deposit</span>
-        </motion.div>
-
-        <motion.div
-          className="h-[2px] w-8 origin-left"
-          style={{ backgroundColor: "var(--color-line-strong)" }}
-          initial={{ scaleX: 0, opacity: 0 }}
-          animate={
-            inView ? { scaleX: 1, opacity: 1 } : { scaleX: 0, opacity: 0 }
-          }
-          transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
-        />
-
-        <motion.div
-          className="flex h-20 w-24 origin-right items-center justify-center rounded-2xl"
-          style={{ backgroundColor: "var(--color-surface-3)" }}
-          initial={{ scaleX: 0, opacity: 0 }}
-          animate={
-            inView ? { scaleX: 1, opacity: 1 } : { scaleX: 0, opacity: 0 }
-          }
-          transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-        >
-          <span className="text-[10px] font-medium text-faint">Vault</span>
-        </motion.div>
-      </div>
-    </div>
-  );
-}
-
-/* ---------- Feature data ---------- */
-
-const features = [
+const STACK = [
   {
-    emoji: "🔒",
-    title: "Nox Protocol & TEE",
-    description:
-      "Powered by iExec Nox and Trusted Execution Environments (TEE). Your individual balances and strategies stay cryptographically hidden while aggregate TVL remains public.",
-    visual: ConfidentialVaultVisual,
-    tags: [
-      {
-        icon: "/Assets/Images/Logo-Coin/usdt-logo.svg",
-        rate: "5–12%",
-        name: "cUSDC",
-      },
-      {
-        icon: "/Assets/Images/Logo-Coin/rlc-logo.svg",
-        rate: "8–15%",
-        name: "cRLC",
-      },
-    ],
+    n: "01",
+    label: "public ledger",
+    coord: "[ every block · forever ]",
+    title: "public chains remember everything.",
+    body: "every block on an open chain is permanent, public and linkable. amounts, balances, counterparties: readable by anyone with the address, forever. the ledger never forgets.",
+    src: "/Assets/Images/Background/hourglass.webp",
+    poster: "/Assets/Images/Background/hourglass-poster.webp",
+    flip: false,
   },
   {
-    emoji: "⚡",
-    title: "Smart Yield Routing",
-    description:
-      "Get real-time vault recommendations and risk analysis powered by Nox Protocol. Our aggregator finds the most efficient yield routes across Arbitrum while preserving your privacy.",
-    visual: YieldRoutingVisual,
-    logos: true,
+    n: "02",
+    label: "vault aggregator",
+    coord: "[ confidential yield · smart routing ]",
+    title: "automatic yield & private routing.",
+    body: "deposits are sent to optimal yield routes across Arbitrum while shielding details. Nox gateways matched with TEE secure enclaves process the funds off-chain and compound yield without exposing user identities or allocations.",
+    src: "/Assets/Images/Background/vortex.webp",
+    poster: "/Assets/Images/Background/vortex-poster.webp",
+    flip: true,
   },
   {
-    emoji: "🛡️",
-    title: "Confidential Tokens",
-    description:
-      "ERC-7984 confidential tokens (cUSDC, cRLC) wrap your public assets into private ones. Enjoy the security of confidential transfers without sacrificing DeFi composability.",
-    visual: OneClickVisual,
+    n: "03",
+    label: "shielded pool",
+    coord: "[ Poseidon2 · Merkle ]",
+    title: "the shielded layer forgets.",
+    body: "wrap your public USDC or RLC into cUSDC or cRLC, committing your assets into a secure Merkle tree. amount and owner stay inside the hash; only the root is ever public, and old notes never link to new.",
+    src: "/Assets/Images/Background/balance.webp",
+    poster: "/Assets/Images/Background/balance-poster.webp",
+    flip: false,
+  },
+  {
+    n: "04",
+    label: "proven math",
+    coord: "[ UltraHonk · BN254 ]",
+    title: "the math is the lock.",
+    body: "every move out is a zero-knowledge proof, checked on-chain inside an Arbitrum smart contract. a spend reveals only a nullifier, so the old note and the new never link. no valid proof, no funds move.",
+    src: "/Assets/Images/Background/cube.webp",
+    poster: "/Assets/Images/Background/cube-poster.webp",
+    flip: true,
   },
 ];
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: i * 0.2,
-      duration: 0.6,
-      ease: [0.25, 0.4, 0.25, 1] as [number, number, number, number],
-    },
-  }),
-};
+const MODULES = [
+  {
+    k: "DEPOSIT / WITHDRAW",
+    d: "USDC & RLC in, BLS-verified and wrapped to cToken.",
+    to: "/earn",
+  },
+  {
+    k: "PORTFOLIO",
+    d: "private multi-asset balances only you can see.",
+    to: "/portfolio",
+  },
+  {
+    k: "SWAP",
+    d: "a zero-knowledge dark pool; swaps executed privately.",
+    to: "/swap",
+  },
+  {
+    k: "FAUCET",
+    d: "request instant mock testnet funds in one click.",
+    to: "/faucet",
+  },
+];
 
-/* ---------- Section ---------- */
+function LoopAsset({
+  src,
+  poster,
+  className,
+}: {
+  src: string;
+  poster: string;
+  className?: string;
+}) {
+  return (
+    <picture className="contents">
+      <source media="(prefers-reduced-motion: reduce)" srcSet={poster} />
+      <img src={src} alt="" aria-hidden className={className} />
+    </picture>
+  );
+}
+
+function Label({
+  children,
+  className = "",
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
+  return (
+    <div
+      className={`flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[11px] uppercase tracking-[0.18em] ${className}`}
+    >
+      {children}
+    </div>
+  );
+}
 
 export function FeaturesSection() {
   return (
     <section
-      id="features"
-      className="relative w-full py-24 md:py-32"
-      style={{ backgroundColor: "var(--color-canvas)" }}
+      className="relative w-full overflow-hidden px-6 py-24 sm:px-8 md:py-32 transition-colors duration-300"
+      style={{
+        backgroundColor: "var(--color-canvas)",
+        color: "var(--color-text)",
+      }}
     >
-      <div className="mx-auto max-w-6xl px-6">
-        <motion.h2
-          className="mb-16 text-center text-4xl tracking-tight text-main md:text-5xl lg:text-6xl"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          Why earn with Wen-Ox
-        </motion.h2>
+      {/* Film grain backdrop overlay */}
+      <div
+        className="pointer-events-none absolute inset-0 z-0 opacity-20 dark:opacity-25"
+        style={{
+          backgroundImage: GRAIN,
+          backgroundSize: "90px 90px",
+          maskImage: "linear-gradient(to bottom, transparent, #000 16rem)",
+          WebkitMaskImage:
+            "linear-gradient(to bottom, transparent, #000 16rem)",
+        }}
+      />
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-          {features.map((feature, i) => {
-            const Visual = feature.visual;
-            return (
-              <motion.div
-                key={feature.title}
-                className="flex flex-col gap-6 rounded-2xl border p-5"
+      <div className="relative z-10 mx-auto max-w-6xl">
+        {/* Intro */}
+        <Label>
+          <span className="text-main/80">public ledger</span>
+          <span aria-hidden className="text-brand">
+            →
+          </span>
+          <span className="text-main/80">shielded layer</span>
+        </Label>
+        <h2 className="mt-8 max-w-3xl font-sans text-3xl font-bold lowercase leading-none tracking-tight text-main sm:text-4xl md:text-5xl">
+          public chains remember everything.{" "}
+          <span className="text-muted">the shielded layer forgets.</span>
+        </h2>
+
+        {/* Narrative Card Stack */}
+        <div className="mt-14 md:mt-16">
+          <ScrollStack
+            useWindowScroll
+            itemDistance={280}
+            itemStackDistance={44}
+            stackPosition="14%"
+            scaleEndPosition="6%"
+            baseScale={0.88}
+            itemScale={0.04}
+            blurAmount={0}
+          >
+            {STACK.map((s) => (
+              <ScrollStackItem
+                key={s.n}
+                itemClassName={`flex min-h-[72vh] items-center rounded-[1.75rem] border px-6 py-12 sm:px-14 sm:py-16 transition-colors duration-300 shadow-2xl`}
                 style={{
                   borderColor: "var(--color-line)",
-                  backgroundColor: "var(--color-surface-1)",
+                  backgroundColor: "var(--color-surface-2)",
                 }}
-                custom={i}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={cardVariants}
               >
-                <div className="h-52">
-                  <Visual />
-                </div>
-
-                <div className="flex flex-col gap-3">
-                  <div className="flex items-center gap-2">
-                    <span className="text-lg">{feature.emoji}</span>
-                    <h3 className="text-lg font-semibold text-main">
-                      {feature.title}
+                <div className="grid w-full grid-cols-1 items-center gap-x-12 gap-y-8 md:grid-cols-2">
+                  <div
+                    className={`mx-auto w-[clamp(210px,32vw,380px)] ${s.flip ? "md:order-1" : "md:order-2"}`}
+                  >
+                    <LoopAsset
+                      src={s.src}
+                      poster={s.poster}
+                      className="block w-full object-contain"
+                    />
+                  </div>
+                  <div
+                    className={`max-w-md ${s.flip ? "md:order-2" : "md:order-1"}`}
+                  >
+                    <Label>
+                      <span className="text-main">
+                        {s.n} · {s.label}
+                      </span>
+                      <span className="text-brand">{s.coord}</span>
+                    </Label>
+                    <h3 className="mt-5 font-sans text-2xl font-bold lowercase leading-tight tracking-tight text-main">
+                      {s.title}
                     </h3>
+                    <p className="mt-5 text-sm leading-relaxed text-muted">
+                      {s.body}
+                    </p>
                   </div>
-                  <p className="text-sm leading-relaxed text-muted">
-                    {feature.description}
-                  </p>
                 </div>
+              </ScrollStackItem>
+            ))}
+          </ScrollStack>
+        </div>
 
-                {feature.tags ? (
-                  <div className="flex flex-wrap items-center gap-2">
-                    {feature.tags.map((tag) => (
-                      <div
-                        key={tag.name}
-                        className="flex items-center gap-2 rounded-full border px-3 py-1.5"
-                        style={{
-                          borderColor: "var(--color-line)",
-                          backgroundColor: "var(--color-surface-2)",
-                        }}
-                      >
-                        <Image
-                          src={tag.icon}
-                          alt=""
-                          width={20}
-                          height={20}
-                          className="rounded-full"
-                        />
-                        <div className="flex flex-col leading-none">
-                          <span className="text-xs font-semibold text-main">
-                            {tag.rate}
-                          </span>
-                          <span className="text-[10px] text-faint">
-                            {tag.name}
-                          </span>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                ) : null}
+        {/* Bento platform grid */}
+        <BentoSection />
 
-                {feature.logos ? (
-                  <div className="flex items-center -space-x-1.5">
-                    {[
-                      "/Assets/Images/Logo-DeFi/aave-logo.svg",
-                      "/Assets/Images/Logo-DeFi/morpho-logo.webp",
-                      "/Assets/Images/Logo-DeFi/euler-finance-logo.svg",
-                      "/Assets/Images/Logo-DeFi/pendle-logo.jpg",
-                      "/Assets/Images/Logo-DeFi/ethena-logo.jpg",
-                      "/Assets/Images/Logo-DeFi/etherfi-logo.jpg",
-                    ].map((src) => (
-                      <Image
-                        key={src}
-                        src={src}
-                        alt=""
-                        width={28}
-                        height={28}
-                        className="rounded-full border-2"
-                        style={{ borderColor: "var(--color-canvas)" }}
-                      />
-                    ))}
-                  </div>
-                ) : null}
-              </motion.div>
-            );
-          })}
+        {/* System architecture lock diagram */}
+        <SystemArchitecture />
+
+        {/* Swap/AMM constant product mechanism */}
+        <SwapAmmMechanism />
+
+        {/* Module CTA card */}
+        <div
+          className="relative mt-8 border px-6 py-10 sm:px-10 sm:py-12"
+          style={{
+            borderColor: "var(--color-line)",
+            backgroundColor: "var(--color-surface-1)",
+          }}
+        >
+          <div
+            className="grid grid-cols-2 gap-px overflow-hidden border bg-line sm:grid-cols-4"
+            style={{ borderColor: "var(--color-line)" }}
+          >
+            {MODULES.map((m) => (
+              <Link
+                key={m.k}
+                href={m.to}
+                className="group block px-5 py-7 transition"
+                style={{ backgroundColor: "var(--color-surface-2)" }}
+              >
+                <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-main">
+                  {m.k}
+                </div>
+                <p className="mt-3 text-xs leading-relaxed text-muted">{m.d}</p>
+                <span className="mt-4 inline-block font-mono text-[10px] uppercase tracking-[0.18em] text-brand transition-colors group-hover:text-brand/80">
+                  open →
+                </span>
+              </Link>
+            ))}
+          </div>
+          <Link
+            href="/earn"
+            className="inline-block mt-10 font-mono text-[12px] uppercase tracking-[0.18em] text-brand transition hover:text-brand/80"
+          >
+            enter the shielded layer →
+          </Link>
         </div>
       </div>
     </section>
