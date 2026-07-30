@@ -1,26 +1,42 @@
+/* ScrollStack — tuned for an in-page, window-scroll embed. The scroller does not
+   scroll on its own (the page/Lenis does); this file only owns the transform
+   plumbing. Each card's look (background, border, radius, padding) is supplied by
+   its `itemClassName` so the landing design stays intact. */
+
 .scroll-stack-scroller {
   position: relative;
   width: 100%;
 }
 
 .scroll-stack-inner {
-  position: relative;
-  width: 100%;
+  /* Release room: the last card stays pinned until you scroll roughly one
+     viewport past it. Without this bottom gap the next section rides up into the
+     still-pinned card. Sized so the following section stays off-screen while any
+     card is pinned (≈ card min-height − ½vh). */
+  padding: 0 0 56vh;
 }
 
 .scroll-stack-card {
   position: relative;
   width: 100%;
-  transform-style: preserve-3d;
+  box-sizing: border-box;
+  transform-origin: top center;
+  will-change: transform, filter;
   backface-visibility: hidden;
-  transition:
-    transform 0.1s cubic-bezier(0.25, 1, 0.5, 1),
-    filter 0.1s cubic-bezier(0.25, 1, 0.5, 1);
+  transform-style: preserve-3d;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
 
 .scroll-stack-end {
-  position: relative;
   width: 100%;
   height: 1px;
-  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* No pinning/scaling: cards fall back to a normal stacked flow. */
+  .scroll-stack-card {
+    transform: none !important;
+    filter: none !important;
+  }
 }
