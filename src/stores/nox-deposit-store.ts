@@ -193,88 +193,68 @@ export const useNoxDepositStore = create<DepositState>((set, get) => ({
       const targetChainId = vault.chainId;
       const gasParams = await getGasParams(config, targetChainId);
 
-      try {
-        const approveHash = await writeContract(config, {
-          address: underlyingAddress,
-          abi: erc20Abi,
-          functionName: "approve",
-          args: [cTokenAddress, amountBigInt],
-          chainId: targetChainId,
-          gas: 100_000n,
-          ...gasParams,
-        });
-        await waitForTransactionReceipt(config, {
-          hash: approveHash,
-          chainId: targetChainId,
-        });
-      } catch (e) {
-        console.warn("Underlying approve bypassed for simulation:", e);
-      }
+      const approveHash = await writeContract(config, {
+        address: underlyingAddress,
+        abi: erc20Abi,
+        functionName: "approve",
+        args: [cTokenAddress, amountBigInt],
+        chainId: targetChainId,
+        gas: 100_000n,
+        ...gasParams,
+      });
+      await waitForTransactionReceipt(config, {
+        hash: approveHash,
+        chainId: targetChainId,
+      });
 
-      try {
-        set({ step: "wrapping" });
-        const wrapHash = await writeContract(config, {
-          address: cTokenAddress,
-          abi: ERC7984_WRAPPER_ABI,
-          functionName: "wrap",
-          args: [account, amountBigInt],
-          chainId: targetChainId,
-          gas: 300_000n,
-          ...gasParams,
-        });
-        await waitForTransactionReceipt(config, {
-          hash: wrapHash,
-          chainId: targetChainId,
-        });
-      } catch (e) {
-        console.warn("cToken wrap bypassed for simulation:", e);
-      }
+      set({ step: "wrapping" });
+      const wrapHash = await writeContract(config, {
+        address: cTokenAddress,
+        abi: ERC7984_WRAPPER_ABI,
+        functionName: "wrap",
+        args: [account, amountBigInt],
+        chainId: targetChainId,
+        gas: 300_000n,
+        ...gasParams,
+      });
+      await waitForTransactionReceipt(config, {
+        hash: wrapHash,
+        chainId: targetChainId,
+      });
 
-      try {
-        set({ step: "depositing" });
-        const approveVaultHash = await writeContract(config, {
-          address: cTokenAddress,
-          abi: erc20Abi,
-          functionName: "approve",
-          args: [yieldVaultAddress, amountBigInt],
-          chainId: targetChainId,
-          gas: 200_000n,
-          ...gasParams,
-        });
-        await waitForTransactionReceipt(config, {
-          hash: approveVaultHash,
-          chainId: targetChainId,
-        });
-      } catch (e) {
-        console.warn("cToken approve bypassed for simulation:", e);
-      }
+      set({ step: "depositing" });
+      const approveVaultHash = await writeContract(config, {
+        address: cTokenAddress,
+        abi: erc20Abi,
+        functionName: "approve",
+        args: [yieldVaultAddress, amountBigInt],
+        chainId: targetChainId,
+        gas: 200_000n,
+        ...gasParams,
+      });
+      await waitForTransactionReceipt(config, {
+        hash: approveVaultHash,
+        chainId: targetChainId,
+      });
 
-      let depositHash = "";
-      try {
-        const hash = await writeContract(config, {
-          address: yieldVaultAddress,
-          abi: NOX_YIELD_VAULT_ABI,
-          functionName: "deposit",
-          args: [amountBigInt, account],
-          chainId: targetChainId,
-          gas: 300_000n,
-          ...gasParams,
-        });
-        await waitForTransactionReceipt(config, {
-          hash,
-          chainId: targetChainId,
-        });
-        depositHash = hash;
-      } catch (e) {
-        console.warn("Vault deposit bypassed for simulation:", e);
-        depositHash = "0x" + Array(64).fill("7").join("");
-      }
+      const depositHash = await writeContract(config, {
+        address: yieldVaultAddress,
+        abi: NOX_YIELD_VAULT_ABI,
+        functionName: "deposit",
+        args: [amountBigInt, account],
+        chainId: targetChainId,
+        gas: 300_000n,
+        ...gasParams,
+      });
+      await waitForTransactionReceipt(config, {
+        hash: depositHash,
+        chainId: targetChainId,
+      });
 
       set({ txHash: depositHash, step: "success" });
     } catch (error) {
-      console.error("Nox deposit process fallback applied:", error);
-      const mockHash = "0x" + Array(64).fill("7").join("");
-      set({ txHash: mockHash, step: "success" });
+      const message = (error as Error).message || "Deposit failed";
+      set({ step: "error", error: friendlyError(message) });
     }
   },
 
