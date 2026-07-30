@@ -31,7 +31,6 @@ import { NOX_YIELD_VAULT_ABI } from "@/lib/nox-vault-contract";
 import { useWalletReady } from "@/lib/wallet-ready";
 import { useMetaStore } from "@/stores";
 
-
 const DEPOSIT_TOKENS = [
   {
     symbol: "USDC",
@@ -59,7 +58,6 @@ const DEPOSIT_TOKENS = [
 ] as const;
 
 type TabKey = "deposit" | "withdraw";
-
 
 export function DepositView() {
   const [activeTab, setActiveTab] = useState<TabKey>("deposit");
@@ -125,7 +123,6 @@ export function DepositView() {
   );
 }
 
-
 function TabButton({
   label,
   icon,
@@ -152,7 +149,6 @@ function TabButton({
     </button>
   );
 }
-
 
 function DepositHero() {
   return (
@@ -193,7 +189,6 @@ function StatPill({ label, value }: { label: string; value: string }) {
     </div>
   );
 }
-
 
 const DEPOSIT_FEATURES = [
   {
@@ -236,7 +231,6 @@ function DepositFeatures() {
     </div>
   );
 }
-
 
 function DepositFlow() {
   const { address, isConnected } = useAccount();
@@ -671,7 +665,6 @@ function DepositConnected({ address }: { address: `0x${string}` }) {
     </div>
   );
 }
-
 
 function WithdrawFlow() {
   const { address, isConnected } = useAccount();
