@@ -168,13 +168,16 @@ export function BentoSection() {
           </p>
         </Tile>
 
-        {/* ChainGPT integration */}
+        {/* Instant Faucet integration */}
         <Tile className="sm:col-span-2 md:col-span-2">
-          <TileHead eyebrow="04 · AI Assistant" title="ChainGPT routing." />
+          <TileHead
+            eyebrow="04 · instant faucet"
+            title="one-click testnet assets."
+          />
           <p className="mt-3 text-[13px] leading-relaxed text-muted">
-            integrated floating AI chat leverages ChainGPT models via proxy
-            endpoints. get automated vault allocations and strategy reviews
-            privately without exposing API keys.
+            get pre-funded with Arbitrum Sepolia ETH, public USDC, and RLC
+            instantly. Built specifically for hackathon judges to verify the
+            end-to-end confidential deposit flow in seconds.
           </p>
         </Tile>
       </div>
