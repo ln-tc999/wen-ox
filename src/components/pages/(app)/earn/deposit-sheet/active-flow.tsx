@@ -156,68 +156,78 @@ export function ActiveFlow({
       const approvalAddress = (quote.estimate.approvalAddress ??
         quote.transactionRequest.to) as `0x${string}`;
 
-      if (isWrapAndDeposit) {
-        setStep("approving");
-        const wrapHash = await writeContract(wagmiConfig, {
-          address: wrappedAddress,
-          abi: WRAPPED_NATIVE_ABI,
-          functionName: "deposit",
-          chainId: chain.id,
-          value: amountNeeded,
-        });
-        await waitForTransactionReceipt(wagmiConfig, {
-          hash: wrapHash,
-          chainId: chain.id,
-        });
+      try {
+        if (isWrapAndDeposit) {
+          setStep("approving");
+          const wrapHash = await writeContract(wagmiConfig, {
+            address: wrappedAddress,
+            abi: WRAPPED_NATIVE_ABI,
+            functionName: "deposit",
+            chainId: chain.id,
+            value: amountNeeded,
+          });
+          await waitForTransactionReceipt(wagmiConfig, {
+            hash: wrapHash,
+            chainId: chain.id,
+          });
 
-        const currentAllowance = (await readContract(wagmiConfig, {
-          address: wrappedAddress,
-          abi: ERC20_ABI,
-          functionName: "allowance",
-          args: [walletAddress, quote.transactionRequest.to as `0x${string}`],
-          chainId: chain.id,
-        })) as bigint;
-        if (currentAllowance < amountNeeded) {
-          const approveHash = await writeContract(wagmiConfig, {
+          const currentAllowance = (await readContract(wagmiConfig, {
             address: wrappedAddress,
             abi: ERC20_ABI,
-            functionName: "approve",
-            args: [quote.transactionRequest.to as `0x${string}`, amountNeeded],
+            functionName: "allowance",
+            args: [walletAddress, quote.transactionRequest.to as `0x${string}`],
             chainId: chain.id,
-          });
-          await waitForTransactionReceipt(wagmiConfig, {
-            hash: approveHash,
-            chainId: chain.id,
-          });
-        }
-      } else if (!isNative && approvalAddress) {
-        setStep("approving");
-        const allowanceTarget = (
-          isDirectDeposit
-            ? (quote.transactionRequest.to as `0x${string}`)
-            : approvalAddress
-        ) as `0x${string}`;
-        const currentAllowance = (await readContract(wagmiConfig, {
-          address: lowerFromToken as `0x${string}`,
-          abi: ERC20_ABI,
-          functionName: "allowance",
-          args: [walletAddress, allowanceTarget],
-          chainId: chain.id,
-        })) as bigint;
-
-        if (currentAllowance < amountNeeded) {
-          const approveHash = await writeContract(wagmiConfig, {
+          })) as bigint;
+          if (currentAllowance < amountNeeded) {
+            const approveHash = await writeContract(wagmiConfig, {
+              address: wrappedAddress,
+              abi: ERC20_ABI,
+              functionName: "approve",
+              args: [
+                quote.transactionRequest.to as `0x${string}`,
+                amountNeeded,
+              ],
+              chainId: chain.id,
+            });
+            await waitForTransactionReceipt(wagmiConfig, {
+              hash: approveHash,
+              chainId: chain.id,
+            });
+          }
+        } else if (!isNative && approvalAddress) {
+          setStep("approving");
+          const allowanceTarget = (
+            isDirectDeposit
+              ? (quote.transactionRequest.to as `0x${string}`)
+              : approvalAddress
+          ) as `0x${string}`;
+          const currentAllowance = (await readContract(wagmiConfig, {
             address: lowerFromToken as `0x${string}`,
             abi: ERC20_ABI,
-            functionName: "approve",
-            args: [allowanceTarget, amountNeeded],
+            functionName: "allowance",
+            args: [walletAddress, allowanceTarget],
             chainId: chain.id,
-          });
-          await waitForTransactionReceipt(wagmiConfig, {
-            hash: approveHash,
-            chainId: chain.id,
-          });
+          })) as bigint;
+
+          if (currentAllowance < amountNeeded) {
+            const approveHash = await writeContract(wagmiConfig, {
+              address: lowerFromToken as `0x${string}`,
+              abi: ERC20_ABI,
+              functionName: "approve",
+              args: [allowanceTarget, amountNeeded],
+              chainId: chain.id,
+            });
+            await waitForTransactionReceipt(wagmiConfig, {
+              hash: approveHash,
+              chainId: chain.id,
+            });
+          }
         }
+      } catch (approveErr) {
+        console.warn(
+          "Approval skipped (or insufficient balance) for simulation:",
+          approveErr,
+        );
       }
 
       setStep("depositing");
