@@ -31,9 +31,6 @@ import { NOX_YIELD_VAULT_ABI } from "@/lib/nox-vault-contract";
 import { useWalletReady } from "@/lib/wallet-ready";
 import { useMetaStore } from "@/stores";
 
-// ---------------------------------------------------------------------------
-// Available tokens for deposit
-// ---------------------------------------------------------------------------
 
 const DEPOSIT_TOKENS = [
   {
@@ -63,9 +60,6 @@ const DEPOSIT_TOKENS = [
 
 type TabKey = "deposit" | "withdraw";
 
-// ---------------------------------------------------------------------------
-// Deposit View (main)
-// ---------------------------------------------------------------------------
 
 export function DepositView() {
   const [activeTab, setActiveTab] = useState<TabKey>("deposit");
@@ -131,9 +125,6 @@ export function DepositView() {
   );
 }
 
-// ---------------------------------------------------------------------------
-// Tab Button
-// ---------------------------------------------------------------------------
 
 function TabButton({
   label,
@@ -162,9 +153,6 @@ function TabButton({
   );
 }
 
-// ---------------------------------------------------------------------------
-// Hero section (left column)
-// ---------------------------------------------------------------------------
 
 function DepositHero() {
   return (
@@ -206,9 +194,6 @@ function StatPill({ label, value }: { label: string; value: string }) {
   );
 }
 
-// ---------------------------------------------------------------------------
-// Features section (left column)
-// ---------------------------------------------------------------------------
 
 const DEPOSIT_FEATURES = [
   {
@@ -252,9 +237,6 @@ function DepositFeatures() {
   );
 }
 
-// ---------------------------------------------------------------------------
-// Deposit Flow
-// ---------------------------------------------------------------------------
 
 function DepositFlow() {
   const { address, isConnected } = useAccount();
@@ -690,9 +672,6 @@ function DepositConnected({ address }: { address: `0x${string}` }) {
   );
 }
 
-// ---------------------------------------------------------------------------
-// Withdraw Flow
-// ---------------------------------------------------------------------------
 
 function WithdrawFlow() {
   const { address, isConnected } = useAccount();
