@@ -156,78 +156,68 @@ export function ActiveFlow({
       const approvalAddress = (quote.estimate.approvalAddress ??
         quote.transactionRequest.to) as `0x${string}`;
 
-      try {
-        if (isWrapAndDeposit) {
-          setStep("approving");
-          const wrapHash = await writeContract(wagmiConfig, {
+      if (isWrapAndDeposit) {
+        setStep("approving");
+        const wrapHash = await writeContract(wagmiConfig, {
+          address: wrappedAddress,
+          abi: WRAPPED_NATIVE_ABI,
+          functionName: "deposit",
+          chainId: chain.id,
+          value: amountNeeded,
+        });
+        await waitForTransactionReceipt(wagmiConfig, {
+          hash: wrapHash,
+          chainId: chain.id,
+        });
+
+        const currentAllowance = (await readContract(wagmiConfig, {
+          address: wrappedAddress,
+          abi: ERC20_ABI,
+          functionName: "allowance",
+          args: [walletAddress, quote.transactionRequest.to as `0x${string}`],
+          chainId: chain.id,
+        })) as bigint;
+        if (currentAllowance < amountNeeded) {
+          const approveHash = await writeContract(wagmiConfig, {
             address: wrappedAddress,
-            abi: WRAPPED_NATIVE_ABI,
-            functionName: "deposit",
+            abi: ERC20_ABI,
+            functionName: "approve",
+            args: [quote.transactionRequest.to as `0x${string}`, amountNeeded],
             chainId: chain.id,
-            value: amountNeeded,
           });
           await waitForTransactionReceipt(wagmiConfig, {
-            hash: wrapHash,
+            hash: approveHash,
             chainId: chain.id,
           });
+        }
+      } else if (!isNative && approvalAddress) {
+        setStep("approving");
+        const allowanceTarget = (
+          isDirectDeposit
+            ? (quote.transactionRequest.to as `0x${string}`)
+            : approvalAddress
+        ) as `0x${string}`;
+        const currentAllowance = (await readContract(wagmiConfig, {
+          address: lowerFromToken as `0x${string}`,
+          abi: ERC20_ABI,
+          functionName: "allowance",
+          args: [walletAddress, allowanceTarget],
+          chainId: chain.id,
+        })) as bigint;
 
-          const currentAllowance = (await readContract(wagmiConfig, {
-            address: wrappedAddress,
-            abi: ERC20_ABI,
-            functionName: "allowance",
-            args: [walletAddress, quote.transactionRequest.to as `0x${string}`],
-            chainId: chain.id,
-          })) as bigint;
-          if (currentAllowance < amountNeeded) {
-            const approveHash = await writeContract(wagmiConfig, {
-              address: wrappedAddress,
-              abi: ERC20_ABI,
-              functionName: "approve",
-              args: [
-                quote.transactionRequest.to as `0x${string}`,
-                amountNeeded,
-              ],
-              chainId: chain.id,
-            });
-            await waitForTransactionReceipt(wagmiConfig, {
-              hash: approveHash,
-              chainId: chain.id,
-            });
-          }
-        } else if (!isNative && approvalAddress) {
-          setStep("approving");
-          const allowanceTarget = (
-            isDirectDeposit
-              ? (quote.transactionRequest.to as `0x${string}`)
-              : approvalAddress
-          ) as `0x${string}`;
-          const currentAllowance = (await readContract(wagmiConfig, {
+        if (currentAllowance < amountNeeded) {
+          const approveHash = await writeContract(wagmiConfig, {
             address: lowerFromToken as `0x${string}`,
             abi: ERC20_ABI,
-            functionName: "allowance",
-            args: [walletAddress, allowanceTarget],
+            functionName: "approve",
+            args: [allowanceTarget, amountNeeded],
             chainId: chain.id,
-          })) as bigint;
-
-          if (currentAllowance < amountNeeded) {
-            const approveHash = await writeContract(wagmiConfig, {
-              address: lowerFromToken as `0x${string}`,
-              abi: ERC20_ABI,
-              functionName: "approve",
-              args: [allowanceTarget, amountNeeded],
-              chainId: chain.id,
-            });
-            await waitForTransactionReceipt(wagmiConfig, {
-              hash: approveHash,
-              chainId: chain.id,
-            });
-          }
+          });
+          await waitForTransactionReceipt(wagmiConfig, {
+            hash: approveHash,
+            chainId: chain.id,
+          });
         }
-      } catch (approveErr) {
-        console.warn(
-          "Approval skipped (or insufficient balance) for simulation:",
-          approveErr,
-        );
       }
 
       setStep("depositing");
@@ -238,22 +228,12 @@ export function ActiveFlow({
             ? BigInt(quote.transactionRequest.value)
             : undefined;
 
-      let hash = "";
-      try {
-        hash = await sendTransactionAsync({
-          to: quote.transactionRequest.to as `0x${string}`,
-          data: quote.transactionRequest.data as `0x${string}`,
-          value: sendValue,
-          chainId: chain.id,
-        });
-      } catch (txErr: any) {
-        console.warn(
-          "Real L2 deposit transaction rejected, activating test simulator fallback:",
-          txErr.message,
-        );
-        // If it's a gas/token balance issue, bypass for hackathon demonstration
-        hash = "0x" + Array(64).fill("9").join("");
-      }
+      const hash = await sendTransactionAsync({
+        to: quote.transactionRequest.to as `0x${string}`,
+        data: quote.transactionRequest.data as `0x${string}`,
+        value: sendValue,
+        chainId: chain.id,
+      });
 
       setTxHash(hash);
       setStep("success");
@@ -271,9 +251,12 @@ export function ActiveFlow({
       markForRefetch();
     } catch (err: any) {
       console.error("Deposit confirmation error:", err);
-      // Auto success fallback for UI simulation if wallet action fails
-      setTxHash("0x" + Array(64).fill("9").join(""));
-      setStep("success");
+      const raw = err.message || "Transaction failed";
+      const firstLine = raw.split("\n")[0];
+      const clean =
+        firstLine.length > 200 ? `${firstLine.slice(0, 200)}\u2026` : firstLine;
+      setError(clean);
+      setStep("error");
     }
   }
 
