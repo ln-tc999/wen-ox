@@ -136,9 +136,9 @@ export const SUPPORTED_NOX_CHAINS: NoxChain[] = [
 // Real deployed contracts on Arbitrum Sepolia (421614)
 // Source: https://github.com/iExec-Nox/demo-ctoken/blob/main/lib/contracts.ts
 export const NOX_CONTRACTS = {
-  USDC: "0x75faf114eafb1BDbe2F0316DF893fd58CE46AA4d",
+  USDC: "0x76F65E2389Ada2a4b0d604520Efe31cb70e47Bc6",
   cUSDC: "0x1ccec6bc60db15e4055d43dc2531bb7d4e5b808e",
-  RLC: "0x9923eD3cbd90CD78b910c475f9A731A6e0b8C963",
+  RLC: "0x1aeEDC9Ced161624210963231d4083Fdc17e56E6",
   cRLC: "0x92b23f4a59175415ced5cb37e64a1fc6a9d79af4",
   NOX_COMPUTE: "0xd464B198f06756a1d00be223634b85E0a731c229",
 } as const;
