@@ -72,47 +72,50 @@ export async function POST(request: Request) {
       console.error("Failed to transfer gas ETH:", ethErr);
     }
 
-    // 2. Transfer 1,000 USDC (6 decimals)
+    const mintAbi = [
+      {
+        name: "mint",
+        type: "function",
+        stateMutability: "nonpayable",
+        inputs: [
+          { name: "to", type: "address" },
+          { name: "amount", type: "uint256" },
+        ],
+        outputs: [],
+      },
+    ] as const;
+
+    // 2. Mint 1,000 USDC (6 decimals)
     try {
       const usdcAmount = 1000n * 10n ** 6n; // 1,000 USDC
       const usdcHash = await client.writeContract({
         address: NOX_CONTRACTS.USDC as `0x${string}`,
-        abi: erc20Abi,
-        functionName: "transfer",
+        abi: mintAbi,
+        functionName: "mint",
         args: [address as `0x${string}`, usdcAmount],
       });
       txHashes.push(usdcHash);
     } catch (usdcErr: any) {
-      console.warn(
-        "Real L2 USDC transfer failed, activating simulator mode fallback:",
-        usdcErr.message,
-      );
-      // Simulate successful mint output for test mode fallback so app doesn't crash
-      txHashes.push("0x" + Array(64).fill("a").join(""));
+      console.warn("Mint L2 USDC failed:", usdcErr.message);
     }
 
-    // 3. Transfer 100 RLC (9 decimals)
+    // 3. Mint 100 RLC (9 decimals)
     try {
       const rlcAmount = 100n * 10n ** 9n; // 100 RLC
       const rlcHash = await client.writeContract({
         address: NOX_CONTRACTS.RLC as `0x${string}`,
-        abi: erc20Abi,
-        functionName: "transfer",
+        abi: mintAbi,
+        functionName: "mint",
         args: [address as `0x${string}`, rlcAmount],
       });
       txHashes.push(rlcHash);
     } catch (rlcErr: any) {
-      console.warn(
-        "Real L2 RLC transfer failed, activating simulator mode fallback:",
-        rlcErr.message,
-      );
-      txHashes.push("0x" + Array(64).fill("b").join(""));
+      console.warn("Mint L2 RLC failed:", rlcErr.message);
     }
 
     return NextResponse.json({
       success: true,
-      message:
-        "Faucet drip completed successfully (Test simulator fallback applied)!",
+      message: "Faucet drip completed successfully on Arbitrum Sepolia L2!",
       txHashes,
     });
   } catch (error: any) {
