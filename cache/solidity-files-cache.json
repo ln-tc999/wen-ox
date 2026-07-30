@@ -810,6 +810,69 @@
       },
       "seenByCompiler": true
     },
+    "foundry/src/DeployNoxSepoliaL1.s.sol": {
+      "lastModificationDate": 1784964683981,
+      "contentHash": "9db4605bc3f0d9db",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/src/DeployNoxSepoliaL1.s.sol",
+      "imports": [
+        "foundry/lib/forge-std/src/Base.sol",
+        "foundry/lib/forge-std/src/Script.sol",
+        "foundry/lib/forge-std/src/StdChains.sol",
+        "foundry/lib/forge-std/src/StdCheats.sol",
+        "foundry/lib/forge-std/src/StdConstants.sol",
+        "foundry/lib/forge-std/src/StdJson.sol",
+        "foundry/lib/forge-std/src/StdMath.sol",
+        "foundry/lib/forge-std/src/StdStorage.sol",
+        "foundry/lib/forge-std/src/StdStyle.sol",
+        "foundry/lib/forge-std/src/StdUtils.sol",
+        "foundry/lib/forge-std/src/Vm.sol",
+        "foundry/lib/forge-std/src/console.sol",
+        "foundry/lib/forge-std/src/console2.sol",
+        "foundry/lib/forge-std/src/interfaces/IMulticall3.sol",
+        "foundry/lib/forge-std/src/safeconsole.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/access/Ownable.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC1363.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC165.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC20.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC20Metadata.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC4626.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/draft-IERC6093.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/utils/Context.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/utils/Panic.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/utils/ReentrancyGuard.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/utils/StorageSlot.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/utils/math/Math.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/utils/math/SafeCast.sol",
+        "foundry/src/MockConfidentialERC20.sol",
+        "foundry/src/MockDEXRouter.sol",
+        "foundry/src/MockERC20.sol",
+        "foundry/src/MockNoxCompute.sol",
+        "foundry/src/NoxSwapRouter.sol",
+        "foundry/src/NoxYieldVault.sol",
+        "foundry/src/interfaces/IConfidentialERC20.sol",
+        "foundry/src/interfaces/INoxCompute.sol",
+        "foundry/src/interfaces/ISwapRouter.sol"
+      ],
+      "versionRequirement": "^0.8.24",
+      "artifacts": {
+        "DeployNoxSepoliaL1": {
+          "0.8.24": {
+            "default": {
+              "path": "DeployNoxSepoliaL1.s.sol/DeployNoxSepoliaL1.json",
+              "build_id": "e5024813b99db66f"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
     "foundry/src/DeployNoxSwapRouter.s.sol": {
       "lastModificationDate": 1784550399376,
       "contentHash": "95f5c03871fc74c2",
@@ -951,6 +1014,32 @@
       },
       "seenByCompiler": true
     },
+    "foundry/src/MockConfidentialERC20.sol": {
+      "lastModificationDate": 1784964676468,
+      "contentHash": "2f546e88aa7c417c",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/src/MockConfidentialERC20.sol",
+      "imports": [
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/draft-IERC6093.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/utils/Context.sol",
+        "foundry/src/interfaces/IConfidentialERC20.sol"
+      ],
+      "versionRequirement": "^0.8.24",
+      "artifacts": {
+        "MockConfidentialERC20": {
+          "0.8.24": {
+            "default": {
+              "path": "MockConfidentialERC20.sol/MockConfidentialERC20.json",
+              "build_id": "e5024813b99db66f"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
     "foundry/src/MockDEXRouter.sol": {
       "lastModificationDate": 1784550399421,
       "contentHash": "fc074e733c97d1be",
@@ -974,6 +1063,50 @@
             "default": {
               "path": "MockDEXRouter.sol/MockDEXRouter.json",
               "build_id": "e1ad478dd7df8507"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/src/MockERC20.sol": {
+      "lastModificationDate": 1784964679727,
+      "contentHash": "d5d93aef199042c3",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/src/MockERC20.sol",
+      "imports": [
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/draft-IERC6093.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/utils/Context.sol"
+      ],
+      "versionRequirement": "^0.8.24",
+      "artifacts": {
+        "MockERC20": {
+          "0.8.24": {
+            "default": {
+              "path": "MockERC20.sol/MockERC20.json",
+              "build_id": "e5024813b99db66f"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/src/MockNoxCompute.sol": {
+      "lastModificationDate": 1784964669774,
+      "contentHash": "374f953680c800d3",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/src/MockNoxCompute.sol",
+      "imports": ["foundry/src/interfaces/INoxCompute.sol"],
+      "versionRequirement": "^0.8.24",
+      "artifacts": {
+        "MockNoxCompute": {
+          "0.8.24": {
+            "default": {
+              "path": "MockNoxCompute.sol/MockNoxCompute.json",
+              "build_id": "e5024813b99db66f"
             }
           }
         }
@@ -1182,7 +1315,7 @@
       "seenByCompiler": true
     }
   },
-  "builds": ["4e181423d07f84e5", "e1ad478dd7df8507"],
+  "builds": ["4e181423d07f84e5", "e1ad478dd7df8507", "e5024813b99db66f"],
   "profiles": {
     "default": {
       "solc": {
