@@ -291,41 +291,38 @@ export function SystemArchitecture() {
         {/* main vertical flow */}
         <div className="flex flex-col">
           <Layer
-            eyebrow="L1 · Ethereum Sepolia"
-            title="LoxStellBridgeL1 / Mock Token Lock"
-            items={["lock ETH / USDC", "emit Locked(commitment)"]}
+            eyebrow="Arbitrum Sepolia · L2 Public Token"
+            title="ERC-20 Contracts (USDC / RLC)"
+            items={["USDC: 0x75faf...4AA4d", "RLC: 0x9923e...8C963"]}
           />
-          <Connector note="untrusted relayer — transports data, holds no authority" />
+          <Connector note="wrap underlying assets to confidential tokens client-side" />
           <Layer
-            eyebrow="Arbitrum Sepolia · verification"
-            title="EthLightClient → WenOxVaultAggregator"
+            eyebrow="Arbitrum Sepolia · ERC-7984"
+            title="Confidential Wrapper (cUSDC / cRLC)"
             items={[
-              "BLS12-381 sync-committee",
-              "MPT storage proof vs state_root",
-              "bridge_in → mint note",
+              "cUSDC: 0x1ccec...b808e",
+              "cRLC: 0x92b23...9af4",
+              "Nox TEE precompile authorization check",
             ]}
           />
-          <Connector note="native BN254 / BLS — iExec Nox TEE Gateway" />
+          <Connector note="deposit cToken into confidential yield vaults" />
           <Layer
-            eyebrow="Arbitrum Sepolia · shielded state"
-            title="NoxYieldVault"
+            eyebrow="Arbitrum Sepolia · shielded yield state"
+            title="NoxYieldVault (cUSDC / cRLC)"
             items={[
-              "Poseidon2 commitment notes",
-              "append-only Merkle · depth 20",
-              "nullifier set · 100-root ring",
+              "cUSDC Vault: 0x75ef7...1351F",
+              "cRLC Vault: 0x1955e...2Adf",
+              "Poseidon2 Merkle tree state mapping",
             ]}
             highlight
           />
-          <Connector note="every exit gated by a zero-knowledge proof or operator authorization" />
+          <Connector note="TEE Compute Enclave for private balance decryption" />
           <Layer
-            eyebrow="Arbitrum Sepolia · UltraHonk verifiers"
-            title="5 circuits · one contract each"
+            eyebrow="Arbitrum Sepolia · TEE precompile integration"
+            title="NoxCompute Precompile (iExec)"
             items={[
-              "withdraw",
-              "transfer",
-              "place_order",
-              "match_orders",
-              "cancel_order",
+              "0xd464B...1c229",
+              "decrypt balance with EIP-712 signature verification",
             ]}
           />
         </div>
@@ -333,30 +330,30 @@ export function SystemArchitecture() {
         {/* off-chain rail */}
         <aside className="flex flex-col gap-3">
           <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-brand">
-            off-chain · no authority
+            off-chain · client SDK
           </span>
           <RailCard
-            title="SDK"
+            title="Nox Handle SDK"
             lines={[
-              "notes · Merkle · Poseidon2",
-              "UltraHonk proofs",
-              "Arbitrum tx building",
+              "encryptInput() client-side",
+              "decrypt balance via handle mapping",
+              "Arbitrum JSON-RPC client integration",
             ]}
           />
           <RailCard
-            title="Matcher"
+            title="EIP-712 Signatures"
             lines={[
-              "off-chain price-time",
-              "mirrors match_orders",
-              "re-proven on-chain",
+              "authorize publicDecrypt()",
+              "decrypt user balances locally",
+              "gasless view balance mapping",
             ]}
           />
           <RailCard
-            title="Relayer"
+            title="Yield Aggregation"
             lines={[
-              "beacon finality updates",
-              "eth_getProof",
-              "every value re-verified",
+              "route deposits to vaults",
+              "read live APY variables",
+              "automatic compounding check",
             ]}
           />
         </aside>
