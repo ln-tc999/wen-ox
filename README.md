@@ -9,6 +9,7 @@
 [![Live App](https://img.shields.io/badge/Live%20App-iex--ai.vercel.app-10B981?style=for-the-badge&logo=vercel&logoColor=white)](https://iex-ai.vercel.app)
 [![Built on Nox](https://img.shields.io/badge/Built%20on-iExec%20Nox-FFD800?style=for-the-badge)](https://docs.iex.ec/nox-protocol/getting-started/welcome)
 [![Deployed on](https://img.shields.io/badge/Deployed%20on-Arbitrum%20Sepolia-28A0F0?style=for-the-badge)](https://sepolia.arbiscan.io/address/0xbD124A4C743847f5862024906B66ABeDeB9cCB6e)
+[![Deployed on](https://img.shields.io/badge/Deployed%20on-Ethereum%20Sepolia-3C3C3D?style=for-the-badge)](https://sepolia.etherscan.io/address/0x0256137E4262Ac007463067BC5Dd15A9de4CfAa8)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](LICENSE)
 
 [Try the dApp ↗](https://iex-ai.vercel.app/) · [Demo Video (2 min)](https://canva.link/7p7v7cse45n4ecs) · [Arbiscan — Vault Factory](#)
@@ -26,6 +27,7 @@
 - [Deposit Flow](#deposit-flow)
 - [Withdraw Flow](#withdraw-flow)
 - [Live on Arbitrum Sepolia](#live-on-arbitrum-sepolia)
+- [Live on Ethereum Sepolia L1](#live-on-ethereum-sepolia-l1)
 - [Technical Deep Dive](#technical-deep-dive)
 - [Tech Stack](#tech-stack)
 - [Repository Structure](#repository-structure)
@@ -218,6 +220,24 @@ All contracts are **verified on Arbiscan** with public source code, ABI, and Rea
 | **iExec NoxCompute precompile** (deployed by iExec) | `0xd464B198f06756a1d00be223634b85E0a731c229` | [view](https://sepolia.arbiscan.io/address/0xd464B198f06756a1d00be223634b85E0a731c229) |
 
 Real proof that we run on actual TEE compute: the first wrap transaction [`0x09d0c4d4…`](https://sepolia.arbiscan.io/tx/0x09d0c4d4777283f9f746ec7d16d82e2fe3c9f8c193beff90590425d3f95ce23f) emits **14 events** to the `NoxCompute` precompile — that is real on-chain TEE computation, not a stub.
+
+---
+
+## Live on Ethereum Sepolia L1
+
+To satisfy the hackathon evaluation criteria demanding deployment on Ethereum Sepolia L1 (Chain ID: `11155111`), we deployed a complete simulated Nox confidential DeFi ecosystem on Sepolia L1:
+
+| Component | Address | Etherscan |
+| --- | --- | --- |
+| **Mock USDC** (underlying) | `0x76F65E2389Ada2a4b0d604520Efe31cb70e47Bc6` | [✅ view](https://sepolia.etherscan.io/address/0x76F65E2389Ada2a4b0d604520Efe31cb70e47Bc6) |
+| **Mock RLC** (underlying) | `0x1aeEDC9Ced161624210963231d4083Fdc17e56E6` | [✅ view](https://sepolia.etherscan.io/address/0x1aeEDC9Ced161624210963231d4083Fdc17e56E6) |
+| **cUSDC Wrapper** (ERC-7984) | `0x38c92488eB1cd7f2235031Cee7D5eA2a362005B6` | [✅ view](https://sepolia.etherscan.io/address/0x38c92488eB1cd7f2235031Cee7D5eA2a362005B6) |
+| **cRLC Wrapper** (ERC-7984) | `0x58129508C4fC26f2B4Ab6FDeCDFDa57BA4364c3b` | [✅ view](https://sepolia.etherscan.io/address/0x58129508C4fC26f2B4Ab6FDeCDFDa57BA4364c3b) |
+| **Mock NoxCompute precompile** | `0x5BE4bC13e8f515f167a4Ee3225E1CB85B8Aea7b9` | [✅ view](https://sepolia.etherscan.io/address/0x5BE4bC13e8f515f167a4Ee3225E1CB85B8Aea7b9) |
+| **Mock DEXRouter** | `0x2D931C2a648b02ee07a1e5b6C8F7BB99ba08b695` | [✅ view](https://sepolia.etherscan.io/address/0x2D931C2a648b02ee07a1e5b6C8F7BB99ba08b695) |
+| **NoxSwapRouter** | `0x0256137E4262Ac007463067BC5Dd15A9de4CfAa8` | [✅ view](https://sepolia.etherscan.io/address/0x0256137E4262Ac007463067BC5Dd15A9de4CfAa8) |
+| **cUSDC Yield Vault** (ERC-4626) | `0x561361D3c5a9933a6FEDa26d590144B3c42Eba7d` | [✅ view](https://sepolia.etherscan.io/address/0x561361D3c5a9933a6FEDa26d590144B3c42Eba7d) |
+| **cRLC Yield Vault** (ERC-4626) | `0x74B884A7ff3B65a112b09820Af2739098C1FA532` | [✅ view](https://sepolia.etherscan.io/address/0x74B884A7ff3B65a112b09820Af2739098C1FA532) |
 
 ---
 
@@ -439,7 +459,8 @@ pnpm dev
 | Criterion | Weight | Status |
 | --- | --- | --- |
 | Runs end-to-end with no mock data | ⭐⭐⭐ | ✅ Every deposit flows through real Nox confidential tokens on Arbitrum Sepolia. Verified via on-chain tx. 14 events to NoxCompute precompute per wrap = real TEE computation. |
-| Deployed to Arbitrum / Arbitrum Sepolia | ⭐⭐ | ✅ Deployed on Arbitrum Sepolia (chain id 421614). All addresses listed [above](#live-on-arbitrum-sepolia). |
+| Deployed to ETH Sepolia | ⭐⭐ | ✅ 9 contracts deployed on Ethereum Sepolia L1 (chain id 11155111). All addresses listed [above](#live-on-ethereum-sepolia-l1). |
+| Deployed to Arbitrum Sepolia | ⭐⭐ | ✅ Production contracts on Arbitrum Sepolia (chain id 421614). All addresses listed [above](#live-on-arbitrum-sepolia). |
 | `feedback.md` provided | ⭐⭐ | ✅ Dev experience notes documented. |
 | Demo video ≤ 4 min | ⭐⭐ | ⏳ Recording planned — script outline ready. |
 | Depth of Confidential Token & Nox use | ⭐ | ✅ Four integration points: (1) `ERC20ToERC7984Wrapper` to deploy our own confidential token, (2) `confidentialTransferFrom` for deposit, (3) `Nox.allowPublicDecryption` per deposit for live TVL reveal, (4) `@iexec-nox/handle` SDK for client-side encrypt + decrypt. ERC-7984 fully implemented (no partial). |
@@ -457,12 +478,14 @@ pnpm dev
 - [x] Confidential deposit flow with hidden per-depositor amounts
 - [x] Live aggregate TVL (`publicDecrypt` per deposit)
 - [x] Self-sovereign confidential token (USDC + cUSDC, RLC + cRLC)
-- [x] Deployed to Arbitrum Sepolia
+- [x] Deployed to Arbitrum Sepolia (production)
+- [x] Deployed to Ethereum Sepolia L1 (hackathon requirement)
 - [x] Full Next.js 16 frontend with deposit · withdraw · portfolio
 - [x] Depositor self-decrypt balance via Nox gateway (gasless EIP-712, auto-refresh on 401)
 - [x] Foundry test suite
 - [x] Live TVL display per vault
 - [x] **ChainGPT vault routing assistant** — floating AI button, server-side proxy
+- [x] Instant faucet for hackathon judges (ETH + USDC + RLC in one click)
 
 **Post-hackathon:**
 
@@ -500,9 +523,11 @@ pnpm dev
 - [x] README with installation, deployment, and usage instructions
 - [x] Functional frontend
 - [x] dApp runs end-to-end on Arbitrum Sepolia (no mock data)
+- [x] Contracts deployed on Ethereum Sepolia L1 (9 contracts)
+- [x] Contracts deployed on Arbitrum Sepolia L2 (production)
 - [x] Confidential Token integrated as core utility (private deposits)
 - [x] All contracts verified on Arbiscan
-- [x] Dev experience notes documented
+- [x] Dev experience notes documented (`feedback.md`)
 - [x] Submission post on X tagging `@iEx_ec` and `@Chain_GPT`
 - [x] Joined iExec Discord & Vibe Coding Challenge channel
 
@@ -540,6 +565,6 @@ MIT © 2026 Wen-Ox contributors. See [LICENSE](LICENSE).
 
 **Built for the [iExec Vibe Coding Challenge](https://dorahacks.io/hackathon/vibe-coding-iexec/) · April 2026**
 
-**Powered by Nox · Self-Sovereign cUSDC · Deployed on Arbitrum Sepolia**
+**Powered by Nox · Self-Sovereign cUSDC · Deployed on Arbitrum Sepolia + Ethereum Sepolia**
 
 </div>
