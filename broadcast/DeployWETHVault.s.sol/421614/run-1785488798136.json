@@ -6,11 +6,7 @@
       "contractName": "MockERC20",
       "contractAddress": "0x0256137e4262ac007463067bc5dd15a9de4cfaa8",
       "function": null,
-      "arguments": [
-        "Wrapped Ether",
-        "WETH",
-        "18"
-      ],
+      "arguments": ["Wrapped Ether", "WETH", "18"],
       "transaction": {
         "from": "0x5cbcab39ad45ba5f18059c19d8399f050764de5a",
         "to": null,
