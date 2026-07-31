@@ -130,10 +130,17 @@ export const useNoxWithdrawStore = create<WithdrawState>((set, get) => ({
         args: [sharesBigInt, account, account],
         chainId: position.chainId,
       });
-      await waitForTransactionReceipt(config, {
+      const redeemReceipt = await waitForTransactionReceipt(config, {
         hash: redeemHash,
         chainId: position.chainId,
       });
+      if (redeemReceipt.status !== "success") {
+        set({
+          step: "error",
+          error: "Vault redeem reverted on-chain.",
+        });
+        return;
+      }
 
       set({ step: "unwrapping" });
 
@@ -156,10 +163,17 @@ export const useNoxWithdrawStore = create<WithdrawState>((set, get) => ({
         ],
         chainId: position.chainId,
       });
-      await waitForTransactionReceipt(config, {
+      const unwrapReceipt = await waitForTransactionReceipt(config, {
         hash: unwrapHash,
         chainId: position.chainId,
       });
+      if (unwrapReceipt.status !== "success") {
+        set({
+          step: "error",
+          error: "Token unwrap reverted on-chain.",
+        });
+        return;
+      }
 
       set({ txHash: unwrapHash, step: "success" });
     } catch (error) {
