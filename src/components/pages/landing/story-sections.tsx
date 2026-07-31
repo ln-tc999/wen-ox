@@ -152,7 +152,7 @@ export function BentoSection() {
 
         {/* stat: protocols */}
         <Tile>
-          <Stat value="2" label="confidential cTokens · cUSDC & cRLC" />
+          <Stat value="3" label="confidential cTokens · cUSDC, cRLC & cWETH" />
         </Tile>
 
         {/* trust-minimized aggregator */}
@@ -299,7 +299,7 @@ export function SystemArchitecture() {
           <Connector note="wrap underlying assets to confidential tokens client-side" />
           <Layer
             eyebrow="Arbitrum Sepolia · ERC-7984"
-            title="Confidential Wrapper (cUSDC / cRLC)"
+            title="Confidential Wrapper (cUSDC / cRLC / cWETH)"
             items={[
               "cUSDC: 0x1ccec...b808e",
               "cRLC: 0x92b23...9af4",
@@ -309,7 +309,7 @@ export function SystemArchitecture() {
           <Connector note="deposit cToken into confidential yield vaults" />
           <Layer
             eyebrow="Arbitrum Sepolia · shielded yield state"
-            title="NoxYieldVault (cUSDC / cRLC)"
+            title="NoxYieldVault (cUSDC / cRLC / cWETH)"
             items={[
               "cUSDC Vault: 0x75ef7...1351F",
               "cRLC Vault: 0x1955e...2Adf",
