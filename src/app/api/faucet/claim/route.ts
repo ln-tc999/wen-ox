@@ -54,6 +54,7 @@ async function dripToken(
       address: tokenAddress as `0x${string}`,
       abi: faucetAbi,
       functionName: "faucet",
+      chain: arbitrumSepolia,
     });
     const receipt = await publicClient.waitForTransactionReceipt({ hash });
     if (receipt.status === "success") {
@@ -68,6 +69,7 @@ async function dripToken(
       abi: mintAbi,
       functionName: "mint",
       args: [recipient, amount],
+      chain: arbitrumSepolia,
     });
     const receipt = await publicClient.waitForTransactionReceipt({ hash });
     if (receipt.status === "success") {
@@ -90,6 +92,7 @@ async function dripToken(
         abi: erc20Abi,
         functionName: "transfer",
         args: [recipient, amount],
+        chain: arbitrumSepolia,
       });
       const receipt = await publicClient.waitForTransactionReceipt({ hash });
       if (receipt.status === "success") {
@@ -152,6 +155,7 @@ export async function POST(request: Request) {
         const hash = await client.sendTransaction({
           to: address as `0x${string}`,
           value: parseEther("0.01"),
+          chain: arbitrumSepolia,
         });
         const receipt = await publicClient.waitForTransactionReceipt({
           hash,
