@@ -127,19 +127,41 @@ function InstantClaimBoxInner() {
         body: JSON.stringify({ address }),
       });
       const data = await response.json();
-      if (!response.ok) {
+      if (!response.ok && !data.results) {
         throw new Error(data.error || "Something went wrong.");
       }
-      setStatus({
-        type: "success",
-        message:
-          "Successfully dripped 1,000 USDC & 100 RLC to your wallet! (And gas ETH if needed)",
-      });
-    } catch (error: any) {
+      const r = data.results as Record<
+        string,
+        { success: boolean; error?: string }
+      >;
+      const failed = Object.entries(r)
+        .filter(([, v]) => !v.success)
+        .map(([k]) => k.toUpperCase());
+      if (failed.length === 0) {
+        setStatus({
+          type: "success",
+          message:
+            "Successfully dripped 1,000 USDC & 100 RLC to your wallet! (And gas ETH if needed)",
+        });
+      } else if (failed.length < 3) {
+        setStatus({
+          type: "error",
+          message: `Partial failure: ${failed.join(", ")} mint failed. Check console for details.`,
+        });
+      } else {
+        setStatus({
+          type: "error",
+          message:
+            data.error ||
+            "All mint operations failed. The faucet wallet may lack MINTER_ROLE.",
+        });
+      }
+    } catch (error) {
       console.error(error);
       setStatus({
         type: "error",
-        message: error.message || "Failed to claim tokens.",
+        message:
+          error instanceof Error ? error.message : "Failed to claim tokens.",
       });
     } finally {
       setLoading(false);
