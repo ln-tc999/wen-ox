@@ -40,7 +40,7 @@ const STACK = [
     label: "shielded pool",
     coord: "[ Poseidon2 · Merkle ]",
     title: "the shielded layer forgets.",
-    body: "wrap your public USDC or RLC into cUSDC or cRLC, committing your assets into a secure Merkle tree. amount and owner stay inside the hash; only the root is ever public, and old notes never link to new.",
+    body: "wrap your public USDC, RLC, or WETH into cUSDC, cRLC, or cWETH, committing your assets into a secure Merkle tree. amount and owner stay inside the hash; only the root is ever public, and old notes never link to new.",
     src: "/Assets/Images/Background/balance.webp",
     poster: "/Assets/Images/Background/balance-poster.webp",
     flip: false,
