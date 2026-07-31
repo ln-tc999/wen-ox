@@ -1,5 +1,6 @@
 import {
   getPublicClient,
+  readContract,
   waitForTransactionReceipt,
   writeContract,
 } from "@wagmi/core";
@@ -193,6 +194,27 @@ export const useNoxDepositStore = create<DepositState>((set, get) => ({
       const targetChainId = vault.chainId;
       const gasParams = await getGasParams(config, targetChainId);
 
+      // Pre-check: verify underlying token balance
+      const underlyingBalance = (await readContract(config, {
+        address: underlyingAddress,
+        abi: erc20Abi,
+        functionName: "balanceOf",
+        args: [account],
+        chainId: targetChainId,
+      })) as bigint;
+
+      if (underlyingBalance < amountBigInt) {
+        const { formatUnits } = await import("viem");
+        const have = formatUnits(underlyingBalance, vault.tokenDecimals);
+        const need = formatUnits(amountBigInt, vault.tokenDecimals);
+        set({
+          step: "error",
+          error: `Insufficient balance. You have ${have} but need ${need}.`,
+        });
+        return;
+      }
+
+      // Step 1: Approve underlying → cToken
       const approveHash = await writeContract(config, {
         address: underlyingAddress,
         abi: erc20Abi,
@@ -202,11 +224,19 @@ export const useNoxDepositStore = create<DepositState>((set, get) => ({
         gas: 100_000n,
         ...gasParams,
       });
-      await waitForTransactionReceipt(config, {
+      const approveReceipt = await waitForTransactionReceipt(config, {
         hash: approveHash,
         chainId: targetChainId,
       });
+      if (approveReceipt.status !== "success") {
+        set({
+          step: "error",
+          error: "Token approval reverted on-chain. Check your balance.",
+        });
+        return;
+      }
 
+      // Step 2: Wrap underlying → cToken
       set({ step: "wrapping" });
       const wrapHash = await writeContract(config, {
         address: cTokenAddress,
@@ -217,11 +247,20 @@ export const useNoxDepositStore = create<DepositState>((set, get) => ({
         gas: 300_000n,
         ...gasParams,
       });
-      await waitForTransactionReceipt(config, {
+      const wrapReceipt = await waitForTransactionReceipt(config, {
         hash: wrapHash,
         chainId: targetChainId,
       });
+      if (wrapReceipt.status !== "success") {
+        set({
+          step: "error",
+          error:
+            "Token wrap reverted on-chain. The cToken contract may reject this amount.",
+        });
+        return;
+      }
 
+      // Step 3: Approve cToken → vault
       set({ step: "depositing" });
       const approveVaultHash = await writeContract(config, {
         address: cTokenAddress,
@@ -232,11 +271,19 @@ export const useNoxDepositStore = create<DepositState>((set, get) => ({
         gas: 200_000n,
         ...gasParams,
       });
-      await waitForTransactionReceipt(config, {
+      const approveVaultReceipt = await waitForTransactionReceipt(config, {
         hash: approveVaultHash,
         chainId: targetChainId,
       });
+      if (approveVaultReceipt.status !== "success") {
+        set({
+          step: "error",
+          error: "Vault approval reverted on-chain.",
+        });
+        return;
+      }
 
+      // Step 4: Deposit cToken into vault
       const depositHash = await writeContract(config, {
         address: yieldVaultAddress,
         abi: NOX_YIELD_VAULT_ABI,
@@ -246,10 +293,18 @@ export const useNoxDepositStore = create<DepositState>((set, get) => ({
         gas: 300_000n,
         ...gasParams,
       });
-      await waitForTransactionReceipt(config, {
+      const depositReceipt = await waitForTransactionReceipt(config, {
         hash: depositHash,
         chainId: targetChainId,
       });
+      if (depositReceipt.status !== "success") {
+        set({
+          step: "error",
+          error:
+            "Vault deposit reverted on-chain. The vault may be paused or at capacity.",
+        });
+        return;
+      }
 
       set({ txHash: depositHash, step: "success" });
     } catch (error) {
