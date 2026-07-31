@@ -29,6 +29,16 @@ const CONFIDENTIAL_TOKENS = [
     priceUSD: "3.5",
     isConfidential: true,
   },
+  {
+    address: NOX_CONTRACTS.cWETH,
+    symbol: "cWETH",
+    name: "Confidential WETH",
+    decimals: 18,
+    logoURI:
+      "https://tokens.1inch.io/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2.png",
+    priceUSD: "3500",
+    isConfidential: true,
+  },
 ];
 
 export function SwapCard() {
