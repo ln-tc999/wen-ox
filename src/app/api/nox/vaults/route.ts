@@ -63,6 +63,19 @@ export async function GET(request: Request) {
       defaultApy: 4.0,
       riskTier: "medium",
     },
+    {
+      underlying: NOX_CONTRACTS.WETH,
+      cToken: NOX_CONTRACTS.cWETH,
+      vault: NOX_VAULTS.cWETH_VAULT,
+      token: CONFIDENTIAL_TOKENS[421614][2],
+      underlyingSymbol: "WETH",
+      underlyingPrice: "3500",
+      underlyingLogo:
+        "https://tokens.1inch.io/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2.png",
+      underlyingDecimals: 18,
+      defaultApy: 3.2,
+      riskTier: "medium",
+    },
   ];
 
   for (const entry of entries) {
@@ -115,7 +128,12 @@ export async function GET(request: Request) {
       underlyingToken: {
         address: entry.underlying,
         symbol: entry.underlyingSymbol,
-        name: entry.underlyingSymbol === "USDC" ? "USD Coin" : "iExec RLC",
+        name:
+          entry.underlyingSymbol === "USDC"
+            ? "USD Coin"
+            : entry.underlyingSymbol === "RLC"
+              ? "iExec RLC"
+              : "Wrapped Ether",
         decimals: entry.underlyingDecimals,
         logoURI: entry.underlyingLogo,
         priceUSD: entry.underlyingPrice,
