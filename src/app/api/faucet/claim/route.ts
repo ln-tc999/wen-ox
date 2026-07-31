@@ -131,7 +131,18 @@ export async function POST(request: Request) {
       );
     }
 
-    const account = privateKeyToAccount(privateKey as `0x${string}`);
+    const keyHex = privateKey.startsWith("0x") ? privateKey : `0x${privateKey}`;
+    if (!/^0x[0-9a-fA-F]{64}$/.test(keyHex)) {
+      return NextResponse.json(
+        {
+          error:
+            "FAUCET_PRIVATE_KEY is invalid. Expected 64 hex chars (with or without 0x prefix).",
+        },
+        { status: 500 },
+      );
+    }
+
+    const account = privateKeyToAccount(keyHex as `0x${string}`);
     const accountAddr = account.address;
     const client = createWalletClient({
       account,
