@@ -16,7 +16,7 @@ const NET_VALUE = ["Arbitrum Sepolia · 421614"];
 const PROOF_TITLE = ["Confidential Enclave"];
 const PROOF_VALUE = ["iExec Nox Protocol · TEE"];
 const SHIELD_TITLE = ["Shielded Tokens"];
-const SHIELD_VALUE = ["ERC-7984 · cUSDC & cRLC"];
+const SHIELD_VALUE = ["ERC-7984 · cUSDC, cRLC & cWETH"];
 
 const GRID_V = "rgba(255,255,255,0.06)";
 const GRID_H = "rgba(255,255,255,0.09)";
