@@ -24,15 +24,17 @@ export async function GET(request: Request) {
 
   const isUSDC = tokenIn.toLowerCase() === NOX_CONTRACTS.USDC.toLowerCase();
   const isRLC = tokenIn.toLowerCase() === NOX_CONTRACTS.RLC.toLowerCase();
+  const isWETH = tokenIn.toLowerCase() === NOX_CONTRACTS.WETH.toLowerCase();
   const iscToken =
     tokenIn.toLowerCase() === NOX_CONTRACTS.cUSDC.toLowerCase() ||
-    tokenIn.toLowerCase() === NOX_CONTRACTS.cRLC.toLowerCase();
+    tokenIn.toLowerCase() === NOX_CONTRACTS.cRLC.toLowerCase() ||
+    tokenIn.toLowerCase() === NOX_CONTRACTS.cWETH.toLowerCase();
 
-  if (!isUSDC && !isRLC && !iscToken) {
+  if (!isUSDC && !isRLC && !isWETH && !iscToken) {
     return NextResponse.json(
       {
         error:
-          "Unsupported token. Only USDC, RLC, cUSDC, cRLC are supported on Arbitrum Sepolia.",
+          "Unsupported token. Only USDC, RLC, WETH, cUSDC, cRLC, cWETH are supported on Arbitrum Sepolia.",
       },
       { status: 400 },
     );
@@ -40,14 +42,14 @@ export async function GET(request: Request) {
 
   const steps: NoxQuoteStep[] = [];
 
-  if (isUSDC || isRLC) {
+  if (isUSDC || isRLC || isWETH) {
     steps.push({
       type: "approve",
       token: {
         address: tokenIn,
-        symbol: isUSDC ? "USDC" : "RLC",
-        name: isUSDC ? "USD Coin" : "iExec RLC",
-        decimals: isUSDC ? 6 : 9,
+        symbol: isUSDC ? "USDC" : isRLC ? "RLC" : "WETH",
+        name: isUSDC ? "USD Coin" : isRLC ? "iExec RLC" : "Wrapped Ether",
+        decimals: isUSDC ? 6 : isRLC ? 9 : 18,
         isConfidential: false,
       },
       amount: amountIn,
@@ -58,9 +60,13 @@ export async function GET(request: Request) {
       type: "wrap",
       token: {
         address: vaultAddress,
-        symbol: isUSDC ? "cUSDC" : "cRLC",
-        name: isUSDC ? "Confidential USDC" : "Confidential RLC",
-        decimals: isUSDC ? 6 : 9,
+        symbol: isUSDC ? "cUSDC" : isRLC ? "cRLC" : "cWETH",
+        name: isUSDC
+          ? "Confidential USDC"
+          : isRLC
+            ? "Confidential RLC"
+            : "Confidential WETH",
+        decimals: isUSDC ? 6 : isRLC ? 9 : 18,
         isConfidential: true,
       },
       amount: amountIn,
@@ -74,14 +80,18 @@ export async function GET(request: Request) {
         symbol: iscToken
           ? tokenIn.toLowerCase() === NOX_CONTRACTS.cUSDC.toLowerCase()
             ? "cUSDC"
-            : "cRLC"
+            : tokenIn.toLowerCase() === NOX_CONTRACTS.cRLC.toLowerCase()
+              ? "cRLC"
+              : "cWETH"
           : tokenIn,
         name: iscToken
           ? tokenIn.toLowerCase() === NOX_CONTRACTS.cUSDC.toLowerCase()
             ? "Confidential USDC"
-            : "Confidential RLC"
+            : tokenIn.toLowerCase() === NOX_CONTRACTS.cRLC.toLowerCase()
+              ? "Confidential RLC"
+              : "Confidential WETH"
           : tokenIn,
-        decimals: isUSDC ? 6 : 9,
+        decimals: isUSDC ? 6 : isRLC ? 9 : 18,
         isConfidential: true,
       },
       amount: amountIn,
@@ -95,14 +105,18 @@ export async function GET(request: Request) {
         symbol: iscToken
           ? tokenIn.toLowerCase() === NOX_CONTRACTS.cUSDC.toLowerCase()
             ? "cUSDC"
-            : "cRLC"
+            : tokenIn.toLowerCase() === NOX_CONTRACTS.cRLC.toLowerCase()
+              ? "cRLC"
+              : "cWETH"
           : tokenIn,
         name: iscToken
           ? tokenIn.toLowerCase() === NOX_CONTRACTS.cUSDC.toLowerCase()
             ? "Confidential USDC"
-            : "Confidential RLC"
+            : tokenIn.toLowerCase() === NOX_CONTRACTS.cRLC.toLowerCase()
+              ? "Confidential RLC"
+              : "Confidential WETH"
           : tokenIn,
-        decimals: isUSDC ? 6 : 9,
+        decimals: isUSDC ? 6 : isRLC ? 9 : 18,
         isConfidential: true,
       },
       amount: amountIn,
@@ -114,17 +128,25 @@ export async function GET(request: Request) {
     ? "cUSDC"
     : isRLC
       ? "cRLC"
-      : tokenIn.toLowerCase() === NOX_CONTRACTS.cUSDC.toLowerCase()
-        ? "cUSDC"
-        : "cRLC";
+      : isWETH
+        ? "cWETH"
+        : tokenIn.toLowerCase() === NOX_CONTRACTS.cUSDC.toLowerCase()
+          ? "cUSDC"
+          : tokenIn.toLowerCase() === NOX_CONTRACTS.cRLC.toLowerCase()
+            ? "cRLC"
+            : "cWETH";
   const tokenOutName = isUSDC
     ? "Confidential USDC"
     : isRLC
       ? "Confidential RLC"
-      : tokenIn.toLowerCase() === NOX_CONTRACTS.cUSDC.toLowerCase()
-        ? "Confidential USDC"
-        : "Confidential RLC";
-  const tokenOutDecimals = isUSDC || iscToken ? 6 : 9;
+      : isWETH
+        ? "Confidential WETH"
+        : tokenIn.toLowerCase() === NOX_CONTRACTS.cUSDC.toLowerCase()
+          ? "Confidential USDC"
+          : tokenIn.toLowerCase() === NOX_CONTRACTS.cRLC.toLowerCase()
+            ? "Confidential RLC"
+            : "Confidential WETH";
+  const tokenOutDecimals = isUSDC ? 6 : isRLC ? 9 : 18;
 
   const quote: NoxQuote = {
     vaultAddress,
@@ -134,17 +156,25 @@ export async function GET(request: Request) {
         ? "USDC"
         : isRLC
           ? "RLC"
-          : tokenIn.toLowerCase() === NOX_CONTRACTS.cUSDC.toLowerCase()
-            ? "cUSDC"
-            : "cRLC",
+          : isWETH
+            ? "WETH"
+            : tokenIn.toLowerCase() === NOX_CONTRACTS.cUSDC.toLowerCase()
+              ? "cUSDC"
+              : tokenIn.toLowerCase() === NOX_CONTRACTS.cRLC.toLowerCase()
+                ? "cRLC"
+                : "cWETH",
       name: isUSDC
         ? "USD Coin"
         : isRLC
           ? "iExec RLC"
-          : tokenIn.toLowerCase() === NOX_CONTRACTS.cUSDC.toLowerCase()
-            ? "Confidential USDC"
-            : "Confidential RLC",
-      decimals: isUSDC || iscToken ? 6 : 9,
+          : isWETH
+            ? "Wrapped Ether"
+            : tokenIn.toLowerCase() === NOX_CONTRACTS.cUSDC.toLowerCase()
+              ? "Confidential USDC"
+              : tokenIn.toLowerCase() === NOX_CONTRACTS.cRLC.toLowerCase()
+                ? "Confidential RLC"
+                : "Confidential WETH",
+      decimals: isUSDC ? 6 : isRLC ? 9 : 18,
       isConfidential: iscToken,
     },
     tokenOut: {
