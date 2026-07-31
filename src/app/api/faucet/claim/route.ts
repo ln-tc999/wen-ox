@@ -43,6 +43,7 @@ type TokenResult = {
 async function dripToken(
   client: ReturnType<typeof createWalletClient>,
   publicClient: ReturnType<typeof createPublicClient>,
+  account: `0x${string}`,
   tokenAddress: string,
   recipient: `0x${string}`,
   amount: bigint,
@@ -55,6 +56,7 @@ async function dripToken(
       abi: faucetAbi,
       functionName: "faucet",
       chain: arbitrumSepolia,
+      account,
     });
     const receipt = await publicClient.waitForTransactionReceipt({ hash });
     if (receipt.status === "success") {
@@ -70,6 +72,7 @@ async function dripToken(
       functionName: "mint",
       args: [recipient, amount],
       chain: arbitrumSepolia,
+      account,
     });
     const receipt = await publicClient.waitForTransactionReceipt({ hash });
     if (receipt.status === "success") {
@@ -83,7 +86,7 @@ async function dripToken(
       address: tokenAddress as `0x${string}`,
       abi: erc20Abi,
       functionName: "balanceOf",
-      args: [client.account.address],
+      args: [account],
     })) as bigint;
 
     if (faucetBalance >= amount) {
@@ -93,6 +96,7 @@ async function dripToken(
         functionName: "transfer",
         args: [recipient, amount],
         chain: arbitrumSepolia,
+        account,
       });
       const receipt = await publicClient.waitForTransactionReceipt({ hash });
       if (receipt.status === "success") {
@@ -128,6 +132,7 @@ export async function POST(request: Request) {
     }
 
     const account = privateKeyToAccount(privateKey as `0x${string}`);
+    const accountAddr = account.address;
     const client = createWalletClient({
       account,
       chain: arbitrumSepolia,
@@ -156,6 +161,7 @@ export async function POST(request: Request) {
           to: address as `0x${string}`,
           value: parseEther("0.01"),
           chain: arbitrumSepolia,
+          account: accountAddr,
         });
         const receipt = await publicClient.waitForTransactionReceipt({
           hash,
@@ -181,6 +187,7 @@ export async function POST(request: Request) {
     results.usdc = await dripToken(
       client,
       publicClient,
+      accountAddr,
       NOX_CONTRACTS.USDC,
       address as `0x${string}`,
       1000n * 10n ** 6n,
@@ -191,6 +198,7 @@ export async function POST(request: Request) {
     results.rlc = await dripToken(
       client,
       publicClient,
+      accountAddr,
       NOX_CONTRACTS.RLC,
       address as `0x${string}`,
       100n * 10n ** 9n,
