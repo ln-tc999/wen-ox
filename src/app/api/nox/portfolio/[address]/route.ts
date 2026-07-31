@@ -57,6 +57,13 @@ export async function GET(
       underlyingSymbol: "RLC",
       underlyingPrice: "3.5",
     },
+    {
+      cToken: NOX_CONTRACTS.cWETH,
+      vault: NOX_VAULTS.cWETH_VAULT,
+      token: CONFIDENTIAL_TOKENS[421614][2],
+      underlyingSymbol: "WETH",
+      underlyingPrice: "3500",
+    },
   ];
 
   for (const entry of vaultEntries) {
