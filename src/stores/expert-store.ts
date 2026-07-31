@@ -109,6 +109,7 @@ function toNumber(value: unknown, fallback = 0): number {
 const YIELD_VAULT_TO_CTOKEN: Record<string, `0x${string}`> = {
   [NOX_VAULTS.cUSDC_VAULT.toLowerCase()]: NOX_CONTRACTS.cUSDC,
   [NOX_VAULTS.cRLC_VAULT.toLowerCase()]: NOX_CONTRACTS.cRLC,
+  [NOX_VAULTS.cWETH_VAULT.toLowerCase()]: NOX_CONTRACTS.cWETH,
 };
 
 function mapVault(vault: NoxVault): VaultStrategy {
