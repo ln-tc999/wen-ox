@@ -199,7 +199,7 @@ const DEPOSIT_FEATURES = [
   {
     icon: <HiLockClosed className="h-4 w-4" />,
     title: "Confidential tokens",
-    desc: "USDC → cUSDC, RLC → cRLC. 1:1 wrapped via ERC-7984.",
+    desc: "USDC → cUSDC, RLC → cRLC, WETH → cWETH. 1:1 wrapped via ERC-7984.",
   },
   {
     icon: <FiCheck className="h-4 w-4" />,
