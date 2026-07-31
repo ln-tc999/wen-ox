@@ -76,7 +76,7 @@ function ChartBackground() {
           <span className="block">
             [{" "}
             <ScrambleCycle
-              words={["ERC-7984 · cUSDC & cRLC"]}
+              words={["ERC-7984 · cUSDC, cRLC & cWETH"]}
               duration={1400}
               glitch={false}
               once
