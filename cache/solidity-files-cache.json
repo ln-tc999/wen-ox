@@ -1,1 +1,1419 @@
-{"_format":"","paths":{"artifacts":"foundry/out","build_infos":"foundry/out/build-info","sources":"foundry/src","tests":"foundry/test","scripts":"foundry/src","libraries":["foundry/lib"]},"files":{"foundry/lib/forge-std/src/Base.sol":{"lastModificationDate":1784550884755,"contentHash":"057da15af4544b7a","interfaceReprHash":null,"sourceName":"foundry/lib/forge-std/src/Base.sol","imports":["foundry/lib/forge-std/src/StdStorage.sol","foundry/lib/forge-std/src/Vm.sol"],"versionRequirement":">=0.8.13, <0.9.0","artifacts":{"CommonBase":{"0.8.24":{"default":{"path":"Base.sol/CommonBase.json","build_id":"e1ad478dd7df8507"}}},"ScriptBase":{"0.8.24":{"default":{"path":"Base.sol/ScriptBase.json","build_id":"e1ad478dd7df8507"}}},"TestBase":{"0.8.24":{"default":{"path":"Base.sol/TestBase.json","build_id":"e1ad478dd7df8507"}}}},"seenByCompiler":true},"foundry/lib/forge-std/src/Script.sol":{"lastModificationDate":1784550884756,"contentHash":"f2808a0770d1b6a2","interfaceReprHash":null,"sourceName":"foundry/lib/forge-std/src/Script.sol","imports":["foundry/lib/forge-std/src/Base.sol","foundry/lib/forge-std/src/StdChains.sol","foundry/lib/forge-std/src/StdCheats.sol","foundry/lib/forge-std/src/StdConstants.sol","foundry/lib/forge-std/src/StdJson.sol","foundry/lib/forge-std/src/StdMath.sol","foundry/lib/forge-std/src/StdStorage.sol","foundry/lib/forge-std/src/StdStyle.sol","foundry/lib/forge-std/src/StdUtils.sol","foundry/lib/forge-std/src/Vm.sol","foundry/lib/forge-std/src/console.sol","foundry/lib/forge-std/src/console2.sol","foundry/lib/forge-std/src/interfaces/IMulticall3.sol","foundry/lib/forge-std/src/safeconsole.sol"],"versionRequirement":">=0.8.13, <0.9.0","artifacts":{"Script":{"0.8.24":{"default":{"path":"Script.sol/Script.json","build_id":"e1ad478dd7df8507"}}}},"seenByCompiler":true},"foundry/lib/forge-std/src/StdChains.sol":{"lastModificationDate":1784550884757,"contentHash":"0c1989d5064f8ddf","interfaceReprHash":null,"sourceName":"foundry/lib/forge-std/src/StdChains.sol","imports":["foundry/lib/forge-std/src/Vm.sol"],"versionRequirement":">=0.8.13, <0.9.0","artifacts":{"StdChains":{"0.8.24":{"default":{"path":"StdChains.sol/StdChains.json","build_id":"e1ad478dd7df8507"}}}},"seenByCompiler":true},"foundry/lib/forge-std/src/StdCheats.sol":{"lastModificationDate":1784550884757,"contentHash":"c1a8a8aaa0d07a9b","interfaceReprHash":null,"sourceName":"foundry/lib/forge-std/src/StdCheats.sol","imports":["foundry/lib/forge-std/src/StdStorage.sol","foundry/lib/forge-std/src/Vm.sol","foundry/lib/forge-std/src/console.sol","foundry/lib/forge-std/src/console2.sol"],"versionRequirement":">=0.8.13, <0.9.0","artifacts":{"StdCheats":{"0.8.24":{"default":{"path":"StdCheats.sol/StdCheats.json","build_id":"e1ad478dd7df8507"}}},"StdCheatsSafe":{"0.8.24":{"default":{"path":"StdCheats.sol/StdCheatsSafe.json","build_id":"e1ad478dd7df8507"}}}},"seenByCompiler":true},"foundry/lib/forge-std/src/StdConstants.sol":{"lastModificationDate":1784550884758,"contentHash":"6e64e3e0f1e270b1","interfaceReprHash":null,"sourceName":"foundry/lib/forge-std/src/StdConstants.sol","imports":["foundry/lib/forge-std/src/Vm.sol","foundry/lib/forge-std/src/interfaces/IMulticall3.sol"],"versionRequirement":">=0.8.13, <0.9.0","artifacts":{"StdConstants":{"0.8.24":{"default":{"path":"StdConstants.sol/StdConstants.json","build_id":"e1ad478dd7df8507"}}}},"seenByCompiler":true},"foundry/lib/forge-std/src/StdJson.sol":{"lastModificationDate":1784550884759,"contentHash":"f5a3ad0946d95283","interfaceReprHash":null,"sourceName":"foundry/lib/forge-std/src/StdJson.sol","imports":["foundry/lib/forge-std/src/Vm.sol"],"versionRequirement":">=0.8.13, <0.9.0","artifacts":{"stdJson":{"0.8.24":{"default":{"path":"StdJson.sol/stdJson.json","build_id":"e1ad478dd7df8507"}}}},"seenByCompiler":true},"foundry/lib/forge-std/src/StdMath.sol":{"lastModificationDate":1784550884759,"contentHash":"a1c513020c710db6","interfaceReprHash":null,"sourceName":"foundry/lib/forge-std/src/StdMath.sol","imports":[],"versionRequirement":">=0.8.13, <0.9.0","artifacts":{"stdMath":{"0.8.24":{"default":{"path":"StdMath.sol/stdMath.json","build_id":"e1ad478dd7df8507"}}}},"seenByCompiler":true},"foundry/lib/forge-std/src/StdStorage.sol":{"lastModificationDate":1784550884759,"contentHash":"847d6efe5e5f0088","interfaceReprHash":null,"sourceName":"foundry/lib/forge-std/src/StdStorage.sol","imports":["foundry/lib/forge-std/src/Vm.sol"],"versionRequirement":">=0.8.13, <0.9.0","artifacts":{"stdStorage":{"0.8.24":{"default":{"path":"StdStorage.sol/stdStorage.json","build_id":"e1ad478dd7df8507"}}},"stdStorageSafe":{"0.8.24":{"default":{"path":"StdStorage.sol/stdStorageSafe.json","build_id":"e1ad478dd7df8507"}}}},"seenByCompiler":true},"foundry/lib/forge-std/src/StdStyle.sol":{"lastModificationDate":1784550884760,"contentHash":"c527571c73ed6f30","interfaceReprHash":null,"sourceName":"foundry/lib/forge-std/src/StdStyle.sol","imports":["foundry/lib/forge-std/src/Vm.sol"],"versionRequirement":">=0.8.13, <0.9.0","artifacts":{"StdStyle":{"0.8.24":{"default":{"path":"StdStyle.sol/StdStyle.json","build_id":"e1ad478dd7df8507"}}}},"seenByCompiler":true},"foundry/lib/forge-std/src/StdUtils.sol":{"lastModificationDate":1784550884761,"contentHash":"2b3875c15dc0cae3","interfaceReprHash":null,"sourceName":"foundry/lib/forge-std/src/StdUtils.sol","imports":["foundry/lib/forge-std/src/StdConstants.sol","foundry/lib/forge-std/src/Vm.sol","foundry/lib/forge-std/src/interfaces/IMulticall3.sol"],"versionRequirement":">=0.8.13, <0.9.0","artifacts":{"StdUtils":{"0.8.24":{"default":{"path":"StdUtils.sol/StdUtils.json","build_id":"e1ad478dd7df8507"}}}},"seenByCompiler":true},"foundry/lib/forge-std/src/Vm.sol":{"lastModificationDate":1784550884762,"contentHash":"a341198d10bcae5d","interfaceReprHash":null,"sourceName":"foundry/lib/forge-std/src/Vm.sol","imports":[],"versionRequirement":">=0.8.13, <0.9.0","artifacts":{"Vm":{"0.8.24":{"default":{"path":"Vm.sol/Vm.json","build_id":"e1ad478dd7df8507"}}},"VmSafe":{"0.8.24":{"default":{"path":"Vm.sol/VmSafe.json","build_id":"e1ad478dd7df8507"}}}},"seenByCompiler":true},"foundry/lib/forge-std/src/console.sol":{"lastModificationDate":1784550884764,"contentHash":"cbc8a541417333ad","interfaceReprHash":null,"sourceName":"foundry/lib/forge-std/src/console.sol","imports":[],"versionRequirement":">=0.8.13, <0.9.0","artifacts":{"console":{"0.8.24":{"default":{"path":"console.sol/console.json","build_id":"e1ad478dd7df8507"}}}},"seenByCompiler":true},"foundry/lib/forge-std/src/console2.sol":{"lastModificationDate":1784550884764,"contentHash":"fb84555cebe27360","interfaceReprHash":null,"sourceName":"foundry/lib/forge-std/src/console2.sol","imports":["foundry/lib/forge-std/src/console.sol"],"versionRequirement":">=0.8.13, <0.9.0","artifacts":{},"seenByCompiler":true},"foundry/lib/forge-std/src/interfaces/IMulticall3.sol":{"lastModificationDate":1784550884767,"contentHash":"731463c8fd01e759","interfaceReprHash":null,"sourceName":"foundry/lib/forge-std/src/interfaces/IMulticall3.sol","imports":[],"versionRequirement":">=0.8.13, <0.9.0","artifacts":{"IMulticall3":{"0.8.24":{"default":{"path":"IMulticall3.sol/IMulticall3.json","build_id":"e1ad478dd7df8507"}}}},"seenByCompiler":true},"foundry/lib/forge-std/src/safeconsole.sol":{"lastModificationDate":1784550884770,"contentHash":"075ad54247fa474a","interfaceReprHash":null,"sourceName":"foundry/lib/forge-std/src/safeconsole.sol","imports":[],"versionRequirement":">=0.8.13, <0.9.0","artifacts":{"safeconsole":{"0.8.24":{"default":{"path":"safeconsole.sol/safeconsole.json","build_id":"e1ad478dd7df8507"}}}},"seenByCompiler":true},"foundry/lib/openzeppelin-contracts/contracts/access/Ownable.sol":{"lastModificationDate":1784550529591,"contentHash":"aeede215495e3727","interfaceReprHash":null,"sourceName":"foundry/lib/openzeppelin-contracts/contracts/access/Ownable.sol","imports":["foundry/lib/openzeppelin-contracts/contracts/utils/Context.sol"],"versionRequirement":"^0.8.20","artifacts":{"Ownable":{"0.8.24":{"default":{"path":"Ownable.sol/Ownable.json","build_id":"e1ad478dd7df8507"}}}},"seenByCompiler":true},"foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC1363.sol":{"lastModificationDate":1784550529623,"contentHash":"1822a75bab6fed91","interfaceReprHash":null,"sourceName":"foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC1363.sol","imports":["foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC165.sol","foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC20.sol","foundry/lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol","foundry/lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol"],"versionRequirement":">=0.6.2","artifacts":{"IERC1363":{"0.8.24":{"default":{"path":"IERC1363.sol/IERC1363.json","build_id":"e1ad478dd7df8507"}}}},"seenByCompiler":true},"foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC165.sol":{"lastModificationDate":1784550529624,"contentHash":"1a826f6d4b769022","interfaceReprHash":null,"sourceName":"foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC165.sol","imports":["foundry/lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol"],"versionRequirement":">=0.4.16","artifacts":{},"seenByCompiler":true},"foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC20.sol":{"lastModificationDate":1784550529626,"contentHash":"e318fc72a6d9cc43","interfaceReprHash":null,"sourceName":"foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC20.sol","imports":["foundry/lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol"],"versionRequirement":">=0.4.16","artifacts":{},"seenByCompiler":true},"foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC20Metadata.sol":{"lastModificationDate":1784550529626,"contentHash":"48af7be074c277ef","interfaceReprHash":null,"sourceName":"foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC20Metadata.sol","imports":["foundry/lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol","foundry/lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol"],"versionRequirement":">=0.6.2","artifacts":{},"seenByCompiler":true},"foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC4626.sol":{"lastModificationDate":1784550529629,"contentHash":"d8c5b5d357c2952b","interfaceReprHash":null,"sourceName":"foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC4626.sol","imports":["foundry/lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol","foundry/lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol"],"versionRequirement":">=0.6.2","artifacts":{"IERC4626":{"0.8.24":{"default":{"path":"IERC4626.sol/IERC4626.json","build_id":"e1ad478dd7df8507"}}}},"seenByCompiler":true},"foundry/lib/openzeppelin-contracts/contracts/interfaces/draft-IERC6093.sol":{"lastModificationDate":1784550529635,"contentHash":"3902bd8df0571165","interfaceReprHash":null,"sourceName":"foundry/lib/openzeppelin-contracts/contracts/interfaces/draft-IERC6093.sol","imports":[],"versionRequirement":">=0.8.4","artifacts":{"IERC1155Errors":{"0.8.24":{"default":{"path":"draft-IERC6093.sol/IERC1155Errors.json","build_id":"e1ad478dd7df8507"}}},"IERC20Errors":{"0.8.24":{"default":{"path":"draft-IERC6093.sol/IERC20Errors.json","build_id":"e1ad478dd7df8507"}}},"IERC721Errors":{"0.8.24":{"default":{"path":"draft-IERC6093.sol/IERC721Errors.json","build_id":"e1ad478dd7df8507"}}}},"seenByCompiler":true},"foundry/lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol":{"lastModificationDate":1784550529709,"contentHash":"bdb8cc1da86cf7dd","interfaceReprHash":null,"sourceName":"foundry/lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol","imports":["foundry/lib/openzeppelin-contracts/contracts/interfaces/draft-IERC6093.sol","foundry/lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol","foundry/lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol","foundry/lib/openzeppelin-contracts/contracts/utils/Context.sol"],"versionRequirement":"^0.8.20","artifacts":{"ERC20":{"0.8.24":{"default":{"path":"ERC20.sol/ERC20.json","build_id":"e1ad478dd7df8507"}}}},"seenByCompiler":true},"foundry/lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol":{"lastModificationDate":1784550529709,"contentHash":"1dcd768972ff31b3","interfaceReprHash":null,"sourceName":"foundry/lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol","imports":[],"versionRequirement":">=0.4.16","artifacts":{"IERC20":{"0.8.24":{"default":{"path":"IERC20.sol/IERC20.json","build_id":"e1ad478dd7df8507"}}}},"seenByCompiler":true},"foundry/lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol":{"lastModificationDate":1784550529717,"contentHash":"7357b0a7ee7c5466","interfaceReprHash":null,"sourceName":"foundry/lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol","imports":["foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC1363.sol","foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC165.sol","foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC20.sol","foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC20Metadata.sol","foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC4626.sol","foundry/lib/openzeppelin-contracts/contracts/interfaces/draft-IERC6093.sol","foundry/lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol","foundry/lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol","foundry/lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol","foundry/lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol","foundry/lib/openzeppelin-contracts/contracts/utils/Context.sol","foundry/lib/openzeppelin-contracts/contracts/utils/Panic.sol","foundry/lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol","foundry/lib/openzeppelin-contracts/contracts/utils/math/Math.sol","foundry/lib/openzeppelin-contracts/contracts/utils/math/SafeCast.sol"],"versionRequirement":"^0.8.24","artifacts":{"ERC4626":{"0.8.24":{"default":{"path":"ERC4626.sol/ERC4626.json","build_id":"e1ad478dd7df8507"}}}},"seenByCompiler":true},"foundry/lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol":{"lastModificationDate":1784550529718,"contentHash":"c0fde354a75fbdc6","interfaceReprHash":null,"sourceName":"foundry/lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol","imports":["foundry/lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol"],"versionRequirement":">=0.6.2","artifacts":{"IERC20Metadata":{"0.8.24":{"default":{"path":"IERC20Metadata.sol/IERC20Metadata.json","build_id":"e1ad478dd7df8507"}}}},"seenByCompiler":true},"foundry/lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol":{"lastModificationDate":1784550529720,"contentHash":"429ad2d053f25350","interfaceReprHash":null,"sourceName":"foundry/lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol","imports":["foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC1363.sol","foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC165.sol","foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC20.sol","foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC20Metadata.sol","foundry/lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol","foundry/lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol","foundry/lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol"],"versionRequirement":"^0.8.20","artifacts":{"SafeERC20":{"0.8.24":{"default":{"path":"SafeERC20.sol/SafeERC20.json","build_id":"e1ad478dd7df8507"}}}},"seenByCompiler":true},"foundry/lib/openzeppelin-contracts/contracts/utils/Context.sol":{"lastModificationDate":1784550529737,"contentHash":"16db1f8b2f7183f5","interfaceReprHash":null,"sourceName":"foundry/lib/openzeppelin-contracts/contracts/utils/Context.sol","imports":[],"versionRequirement":"^0.8.20","artifacts":{"Context":{"0.8.24":{"default":{"path":"Context.sol/Context.json","build_id":"e1ad478dd7df8507"}}}},"seenByCompiler":true},"foundry/lib/openzeppelin-contracts/contracts/utils/Panic.sol":{"lastModificationDate":1784550529741,"contentHash":"cfb5098ef78673ff","interfaceReprHash":null,"sourceName":"foundry/lib/openzeppelin-contracts/contracts/utils/Panic.sol","imports":[],"versionRequirement":"^0.8.20","artifacts":{"Panic":{"0.8.24":{"default":{"path":"Panic.sol/Panic.json","build_id":"e1ad478dd7df8507"}}}},"seenByCompiler":true},"foundry/lib/openzeppelin-contracts/contracts/utils/ReentrancyGuard.sol":{"lastModificationDate":1784550529744,"contentHash":"a70644ba3ffaf8d5","interfaceReprHash":null,"sourceName":"foundry/lib/openzeppelin-contracts/contracts/utils/ReentrancyGuard.sol","imports":["foundry/lib/openzeppelin-contracts/contracts/utils/StorageSlot.sol"],"versionRequirement":"^0.8.20","artifacts":{"ReentrancyGuard":{"0.8.24":{"default":{"path":"ReentrancyGuard.sol/ReentrancyGuard.json","build_id":"e1ad478dd7df8507"}}}},"seenByCompiler":true},"foundry/lib/openzeppelin-contracts/contracts/utils/StorageSlot.sol":{"lastModificationDate":1784550529746,"contentHash":"261e9fcb6515866e","interfaceReprHash":null,"sourceName":"foundry/lib/openzeppelin-contracts/contracts/utils/StorageSlot.sol","imports":[],"versionRequirement":"^0.8.20","artifacts":{"StorageSlot":{"0.8.24":{"default":{"path":"StorageSlot.sol/StorageSlot.json","build_id":"e1ad478dd7df8507"}}}},"seenByCompiler":true},"foundry/lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol":{"lastModificationDate":1784550529762,"contentHash":"021ac46c8076d0ee","interfaceReprHash":null,"sourceName":"foundry/lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol","imports":[],"versionRequirement":">=0.4.16","artifacts":{"IERC165":{"0.8.24":{"default":{"path":"IERC165.sol/IERC165.json","build_id":"e1ad478dd7df8507"}}}},"seenByCompiler":true},"foundry/lib/openzeppelin-contracts/contracts/utils/math/Math.sol":{"lastModificationDate":1784550529763,"contentHash":"5168acf036b9f448","interfaceReprHash":null,"sourceName":"foundry/lib/openzeppelin-contracts/contracts/utils/math/Math.sol","imports":["foundry/lib/openzeppelin-contracts/contracts/utils/Panic.sol","foundry/lib/openzeppelin-contracts/contracts/utils/math/SafeCast.sol"],"versionRequirement":"^0.8.20","artifacts":{"Math":{"0.8.24":{"default":{"path":"Math.sol/Math.json","build_id":"e1ad478dd7df8507"}}}},"seenByCompiler":true},"foundry/lib/openzeppelin-contracts/contracts/utils/math/SafeCast.sol":{"lastModificationDate":1784550529763,"contentHash":"a7f6d9b06e362c01","interfaceReprHash":null,"sourceName":"foundry/lib/openzeppelin-contracts/contracts/utils/math/SafeCast.sol","imports":[],"versionRequirement":"^0.8.20","artifacts":{"SafeCast":{"0.8.24":{"default":{"path":"SafeCast.sol/SafeCast.json","build_id":"e1ad478dd7df8507"}}}},"seenByCompiler":true},"foundry/src/DeployNoxLending.s.sol":{"lastModificationDate":1784551118465,"contentHash":"cd07bc25141aa750","interfaceReprHash":null,"sourceName":"foundry/src/DeployNoxLending.s.sol","imports":["foundry/lib/forge-std/src/Base.sol","foundry/lib/forge-std/src/Script.sol","foundry/lib/forge-std/src/StdChains.sol","foundry/lib/forge-std/src/StdCheats.sol","foundry/lib/forge-std/src/StdConstants.sol","foundry/lib/forge-std/src/StdJson.sol","foundry/lib/forge-std/src/StdMath.sol","foundry/lib/forge-std/src/StdStorage.sol","foundry/lib/forge-std/src/StdStyle.sol","foundry/lib/forge-std/src/StdUtils.sol","foundry/lib/forge-std/src/Vm.sol","foundry/lib/forge-std/src/console.sol","foundry/lib/forge-std/src/console2.sol","foundry/lib/forge-std/src/interfaces/IMulticall3.sol","foundry/lib/forge-std/src/safeconsole.sol","foundry/lib/openzeppelin-contracts/contracts/access/Ownable.sol","foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC1363.sol","foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC165.sol","foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC20.sol","foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC20Metadata.sol","foundry/lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol","foundry/lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol","foundry/lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol","foundry/lib/openzeppelin-contracts/contracts/utils/Context.sol","foundry/lib/openzeppelin-contracts/contracts/utils/ReentrancyGuard.sol","foundry/lib/openzeppelin-contracts/contracts/utils/StorageSlot.sol","foundry/lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol","foundry/src/MockAavePool.sol","foundry/src/NoxLendingPool.sol","foundry/src/interfaces/IAaveV3.sol","foundry/src/interfaces/IConfidentialERC20.sol","foundry/src/interfaces/INoxCompute.sol"],"versionRequirement":"^0.8.24","artifacts":{"DeployNoxLending":{"0.8.24":{"default":{"path":"DeployNoxLending.s.sol/DeployNoxLending.json","build_id":"4e181423d07f84e5"}}}},"seenByCompiler":true},"foundry/src/DeployNoxSepoliaL1.s.sol":{"lastModificationDate":1784964683981,"contentHash":"9db4605bc3f0d9db","interfaceReprHash":null,"sourceName":"foundry/src/DeployNoxSepoliaL1.s.sol","imports":["foundry/lib/forge-std/src/Base.sol","foundry/lib/forge-std/src/Script.sol","foundry/lib/forge-std/src/StdChains.sol","foundry/lib/forge-std/src/StdCheats.sol","foundry/lib/forge-std/src/StdConstants.sol","foundry/lib/forge-std/src/StdJson.sol","foundry/lib/forge-std/src/StdMath.sol","foundry/lib/forge-std/src/StdStorage.sol","foundry/lib/forge-std/src/StdStyle.sol","foundry/lib/forge-std/src/StdUtils.sol","foundry/lib/forge-std/src/Vm.sol","foundry/lib/forge-std/src/console.sol","foundry/lib/forge-std/src/console2.sol","foundry/lib/forge-std/src/interfaces/IMulticall3.sol","foundry/lib/forge-std/src/safeconsole.sol","foundry/lib/openzeppelin-contracts/contracts/access/Ownable.sol","foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC1363.sol","foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC165.sol","foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC20.sol","foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC20Metadata.sol","foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC4626.sol","foundry/lib/openzeppelin-contracts/contracts/interfaces/draft-IERC6093.sol","foundry/lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol","foundry/lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol","foundry/lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol","foundry/lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol","foundry/lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol","foundry/lib/openzeppelin-contracts/contracts/utils/Context.sol","foundry/lib/openzeppelin-contracts/contracts/utils/Panic.sol","foundry/lib/openzeppelin-contracts/contracts/utils/ReentrancyGuard.sol","foundry/lib/openzeppelin-contracts/contracts/utils/StorageSlot.sol","foundry/lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol","foundry/lib/openzeppelin-contracts/contracts/utils/math/Math.sol","foundry/lib/openzeppelin-contracts/contracts/utils/math/SafeCast.sol","foundry/src/MockConfidentialERC20.sol","foundry/src/MockDEXRouter.sol","foundry/src/MockERC20.sol","foundry/src/MockNoxCompute.sol","foundry/src/NoxSwapRouter.sol","foundry/src/NoxYieldVault.sol","foundry/src/interfaces/IConfidentialERC20.sol","foundry/src/interfaces/INoxCompute.sol","foundry/src/interfaces/ISwapRouter.sol"],"versionRequirement":"^0.8.24","artifacts":{"DeployNoxSepoliaL1":{"0.8.24":{"default":{"path":"DeployNoxSepoliaL1.s.sol/DeployNoxSepoliaL1.json","build_id":"e5024813b99db66f"}}}},"seenByCompiler":true},"foundry/src/DeployNoxSwapRouter.s.sol":{"lastModificationDate":1784550399376,"contentHash":"95f5c03871fc74c2","interfaceReprHash":null,"sourceName":"foundry/src/DeployNoxSwapRouter.s.sol","imports":["foundry/lib/forge-std/src/Base.sol","foundry/lib/forge-std/src/Script.sol","foundry/lib/forge-std/src/StdChains.sol","foundry/lib/forge-std/src/StdCheats.sol","foundry/lib/forge-std/src/StdConstants.sol","foundry/lib/forge-std/src/StdJson.sol","foundry/lib/forge-std/src/StdMath.sol","foundry/lib/forge-std/src/StdStorage.sol","foundry/lib/forge-std/src/StdStyle.sol","foundry/lib/forge-std/src/StdUtils.sol","foundry/lib/forge-std/src/Vm.sol","foundry/lib/forge-std/src/console.sol","foundry/lib/forge-std/src/console2.sol","foundry/lib/forge-std/src/interfaces/IMulticall3.sol","foundry/lib/forge-std/src/safeconsole.sol","foundry/lib/openzeppelin-contracts/contracts/access/Ownable.sol","foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC1363.sol","foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC165.sol","foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC20.sol","foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC20Metadata.sol","foundry/lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol","foundry/lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol","foundry/lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol","foundry/lib/openzeppelin-contracts/contracts/utils/Context.sol","foundry/lib/openzeppelin-contracts/contracts/utils/ReentrancyGuard.sol","foundry/lib/openzeppelin-contracts/contracts/utils/StorageSlot.sol","foundry/lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol","foundry/src/NoxSwapRouter.sol","foundry/src/interfaces/IConfidentialERC20.sol","foundry/src/interfaces/INoxCompute.sol","foundry/src/interfaces/ISwapRouter.sol"],"versionRequirement":"^0.8.24","artifacts":{"DeployNoxSwapRouter":{"0.8.24":{"default":{"path":"DeployNoxSwapRouter.s.sol/DeployNoxSwapRouter.json","build_id":"e1ad478dd7df8507"}}}},"seenByCompiler":true},"foundry/src/DeployNoxVaults.s.sol":{"lastModificationDate":1777666340000,"contentHash":"260b5e0353d60b1c","interfaceReprHash":null,"sourceName":"foundry/src/DeployNoxVaults.s.sol","imports":["foundry/lib/forge-std/src/Base.sol","foundry/lib/forge-std/src/Script.sol","foundry/lib/forge-std/src/StdChains.sol","foundry/lib/forge-std/src/StdCheats.sol","foundry/lib/forge-std/src/StdConstants.sol","foundry/lib/forge-std/src/StdJson.sol","foundry/lib/forge-std/src/StdMath.sol","foundry/lib/forge-std/src/StdStorage.sol","foundry/lib/forge-std/src/StdStyle.sol","foundry/lib/forge-std/src/StdUtils.sol","foundry/lib/forge-std/src/Vm.sol","foundry/lib/forge-std/src/console.sol","foundry/lib/forge-std/src/console2.sol","foundry/lib/forge-std/src/interfaces/IMulticall3.sol","foundry/lib/forge-std/src/safeconsole.sol","foundry/lib/openzeppelin-contracts/contracts/access/Ownable.sol","foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC1363.sol","foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC165.sol","foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC20.sol","foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC20Metadata.sol","foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC4626.sol","foundry/lib/openzeppelin-contracts/contracts/interfaces/draft-IERC6093.sol","foundry/lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol","foundry/lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol","foundry/lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol","foundry/lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol","foundry/lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol","foundry/lib/openzeppelin-contracts/contracts/utils/Context.sol","foundry/lib/openzeppelin-contracts/contracts/utils/Panic.sol","foundry/lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol","foundry/lib/openzeppelin-contracts/contracts/utils/math/Math.sol","foundry/lib/openzeppelin-contracts/contracts/utils/math/SafeCast.sol","foundry/src/NoxYieldVault.sol"],"versionRequirement":"^0.8.24","artifacts":{"DeployNoxVaults":{"0.8.24":{"default":{"path":"DeployNoxVaults.s.sol/DeployNoxVaults.json","build_id":"e1ad478dd7df8507"}}}},"seenByCompiler":true},"foundry/src/DeployWETHVault.s.sol":{"lastModificationDate":1785487945546,"contentHash":"f2ac90ec8e026b93","interfaceReprHash":null,"sourceName":"foundry/src/DeployWETHVault.s.sol","imports":["foundry/lib/forge-std/src/Base.sol","foundry/lib/forge-std/src/Script.sol","foundry/lib/forge-std/src/StdChains.sol","foundry/lib/forge-std/src/StdCheats.sol","foundry/lib/forge-std/src/StdConstants.sol","foundry/lib/forge-std/src/StdJson.sol","foundry/lib/forge-std/src/StdMath.sol","foundry/lib/forge-std/src/StdStorage.sol","foundry/lib/forge-std/src/StdStyle.sol","foundry/lib/forge-std/src/StdUtils.sol","foundry/lib/forge-std/src/Vm.sol","foundry/lib/forge-std/src/console.sol","foundry/lib/forge-std/src/console2.sol","foundry/lib/forge-std/src/interfaces/IMulticall3.sol","foundry/lib/forge-std/src/safeconsole.sol","foundry/lib/openzeppelin-contracts/contracts/access/Ownable.sol","foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC1363.sol","foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC165.sol","foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC20.sol","foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC20Metadata.sol","foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC4626.sol","foundry/lib/openzeppelin-contracts/contracts/interfaces/draft-IERC6093.sol","foundry/lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol","foundry/lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol","foundry/lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol","foundry/lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol","foundry/lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol","foundry/lib/openzeppelin-contracts/contracts/utils/Context.sol","foundry/lib/openzeppelin-contracts/contracts/utils/Panic.sol","foundry/lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol","foundry/lib/openzeppelin-contracts/contracts/utils/math/Math.sol","foundry/lib/openzeppelin-contracts/contracts/utils/math/SafeCast.sol","foundry/src/MockConfidentialERC20.sol","foundry/src/MockERC20.sol","foundry/src/NoxYieldVault.sol","foundry/src/interfaces/IConfidentialERC20.sol"],"versionRequirement":"^0.8.24","artifacts":{"DeployWETHVault":{"0.8.24":{"default":{"path":"DeployWETHVault.s.sol/DeployWETHVault.json","build_id":"26e5f3a0ef30bd38"}}}},"seenByCompiler":true},"foundry/src/MockAavePool.sol":{"lastModificationDate":1784551118410,"contentHash":"3f6d4bb1231a68d9","interfaceReprHash":null,"sourceName":"foundry/src/MockAavePool.sol","imports":["foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC1363.sol","foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC165.sol","foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC20.sol","foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC20Metadata.sol","foundry/lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol","foundry/lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol","foundry/lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol","foundry/lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol","foundry/src/interfaces/IAaveV3.sol"],"versionRequirement":"^0.8.24","artifacts":{"MockAaveDataProvider":{"0.8.24":{"default":{"path":"MockAavePool.sol/MockAaveDataProvider.json","build_id":"4e181423d07f84e5"}}},"MockAavePool":{"0.8.24":{"default":{"path":"MockAavePool.sol/MockAavePool.json","build_id":"4e181423d07f84e5"}}}},"seenByCompiler":true},"foundry/src/MockConfidentialERC20.sol":{"lastModificationDate":1784964676468,"contentHash":"2f546e88aa7c417c","interfaceReprHash":null,"sourceName":"foundry/src/MockConfidentialERC20.sol","imports":["foundry/lib/openzeppelin-contracts/contracts/interfaces/draft-IERC6093.sol","foundry/lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol","foundry/lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol","foundry/lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol","foundry/lib/openzeppelin-contracts/contracts/utils/Context.sol","foundry/src/interfaces/IConfidentialERC20.sol"],"versionRequirement":"^0.8.24","artifacts":{"MockConfidentialERC20":{"0.8.24":{"default":{"path":"MockConfidentialERC20.sol/MockConfidentialERC20.json","build_id":"e5024813b99db66f"}}}},"seenByCompiler":true},"foundry/src/MockDEXRouter.sol":{"lastModificationDate":1784550399421,"contentHash":"fc074e733c97d1be","interfaceReprHash":null,"sourceName":"foundry/src/MockDEXRouter.sol","imports":["foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC1363.sol","foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC165.sol","foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC20.sol","foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC20Metadata.sol","foundry/lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol","foundry/lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol","foundry/lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol","foundry/lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol","foundry/src/interfaces/ISwapRouter.sol"],"versionRequirement":"^0.8.24","artifacts":{"MockDEXRouter":{"0.8.24":{"default":{"path":"MockDEXRouter.sol/MockDEXRouter.json","build_id":"e1ad478dd7df8507"}}}},"seenByCompiler":true},"foundry/src/MockERC20.sol":{"lastModificationDate":1784964679727,"contentHash":"d5d93aef199042c3","interfaceReprHash":null,"sourceName":"foundry/src/MockERC20.sol","imports":["foundry/lib/openzeppelin-contracts/contracts/interfaces/draft-IERC6093.sol","foundry/lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol","foundry/lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol","foundry/lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol","foundry/lib/openzeppelin-contracts/contracts/utils/Context.sol"],"versionRequirement":"^0.8.24","artifacts":{"MockERC20":{"0.8.24":{"default":{"path":"MockERC20.sol/MockERC20.json","build_id":"e5024813b99db66f"}}}},"seenByCompiler":true},"foundry/src/MockNoxCompute.sol":{"lastModificationDate":1784964669774,"contentHash":"374f953680c800d3","interfaceReprHash":null,"sourceName":"foundry/src/MockNoxCompute.sol","imports":["foundry/src/interfaces/INoxCompute.sol"],"versionRequirement":"^0.8.24","artifacts":{"MockNoxCompute":{"0.8.24":{"default":{"path":"MockNoxCompute.sol/MockNoxCompute.json","build_id":"e5024813b99db66f"}}}},"seenByCompiler":true},"foundry/src/NoxLendingPool.sol":{"lastModificationDate":1784551072453,"contentHash":"2cd2044a73230a43","interfaceReprHash":null,"sourceName":"foundry/src/NoxLendingPool.sol","imports":["foundry/lib/openzeppelin-contracts/contracts/access/Ownable.sol","foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC1363.sol","foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC165.sol","foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC20.sol","foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC20Metadata.sol","foundry/lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol","foundry/lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol","foundry/lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol","foundry/lib/openzeppelin-contracts/contracts/utils/Context.sol","foundry/lib/openzeppelin-contracts/contracts/utils/ReentrancyGuard.sol","foundry/lib/openzeppelin-contracts/contracts/utils/StorageSlot.sol","foundry/lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol","foundry/src/interfaces/IAaveV3.sol","foundry/src/interfaces/IConfidentialERC20.sol","foundry/src/interfaces/INoxCompute.sol"],"versionRequirement":"^0.8.24","artifacts":{"NoxLendingPool":{"0.8.24":{"default":{"path":"NoxLendingPool.sol/NoxLendingPool.json","build_id":"4e181423d07f84e5"}}}},"seenByCompiler":true},"foundry/src/NoxSwapRouter.sol":{"lastModificationDate":1784550369365,"contentHash":"29180db523f233ba","interfaceReprHash":null,"sourceName":"foundry/src/NoxSwapRouter.sol","imports":["foundry/lib/openzeppelin-contracts/contracts/access/Ownable.sol","foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC1363.sol","foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC165.sol","foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC20.sol","foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC20Metadata.sol","foundry/lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol","foundry/lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol","foundry/lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol","foundry/lib/openzeppelin-contracts/contracts/utils/Context.sol","foundry/lib/openzeppelin-contracts/contracts/utils/ReentrancyGuard.sol","foundry/lib/openzeppelin-contracts/contracts/utils/StorageSlot.sol","foundry/lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol","foundry/src/interfaces/IConfidentialERC20.sol","foundry/src/interfaces/INoxCompute.sol","foundry/src/interfaces/ISwapRouter.sol"],"versionRequirement":"^0.8.24","artifacts":{"NoxSwapRouter":{"0.8.24":{"default":{"path":"NoxSwapRouter.sol/NoxSwapRouter.json","build_id":"e1ad478dd7df8507"}}}},"seenByCompiler":true},"foundry/src/NoxYieldVault.sol":{"lastModificationDate":1777666340000,"contentHash":"6c1451334045abee","interfaceReprHash":null,"sourceName":"foundry/src/NoxYieldVault.sol","imports":["foundry/lib/openzeppelin-contracts/contracts/access/Ownable.sol","foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC1363.sol","foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC165.sol","foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC20.sol","foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC20Metadata.sol","foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC4626.sol","foundry/lib/openzeppelin-contracts/contracts/interfaces/draft-IERC6093.sol","foundry/lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol","foundry/lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol","foundry/lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol","foundry/lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol","foundry/lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol","foundry/lib/openzeppelin-contracts/contracts/utils/Context.sol","foundry/lib/openzeppelin-contracts/contracts/utils/Panic.sol","foundry/lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol","foundry/lib/openzeppelin-contracts/contracts/utils/math/Math.sol","foundry/lib/openzeppelin-contracts/contracts/utils/math/SafeCast.sol"],"versionRequirement":"^0.8.24","artifacts":{"NoxYieldVault":{"0.8.24":{"default":{"path":"NoxYieldVault.sol/NoxYieldVault.json","build_id":"e1ad478dd7df8507"}}}},"seenByCompiler":true},"foundry/src/interfaces/IAaveV3.sol":{"lastModificationDate":1784551030635,"contentHash":"b955c64502a45d9a","interfaceReprHash":null,"sourceName":"foundry/src/interfaces/IAaveV3.sol","imports":[],"versionRequirement":"^0.8.24","artifacts":{"IPool":{"0.8.24":{"default":{"path":"IAaveV3.sol/IPool.json","build_id":"4e181423d07f84e5"}}},"IPoolDataProvider":{"0.8.24":{"default":{"path":"IAaveV3.sol/IPoolDataProvider.json","build_id":"4e181423d07f84e5"}}}},"seenByCompiler":true},"foundry/src/interfaces/IConfidentialERC20.sol":{"lastModificationDate":1784550340601,"contentHash":"279c59e31a7da15b","interfaceReprHash":null,"sourceName":"foundry/src/interfaces/IConfidentialERC20.sol","imports":["foundry/lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol"],"versionRequirement":"^0.8.24","artifacts":{"IConfidentialERC20":{"0.8.24":{"default":{"path":"IConfidentialERC20.sol/IConfidentialERC20.json","build_id":"e1ad478dd7df8507"}}}},"seenByCompiler":true},"foundry/src/interfaces/INoxCompute.sol":{"lastModificationDate":1784550340545,"contentHash":"7869f0c69e97604c","interfaceReprHash":null,"sourceName":"foundry/src/interfaces/INoxCompute.sol","imports":[],"versionRequirement":"^0.8.24","artifacts":{"INoxCompute":{"0.8.24":{"default":{"path":"INoxCompute.sol/INoxCompute.json","build_id":"e1ad478dd7df8507"}}}},"seenByCompiler":true},"foundry/src/interfaces/ISwapRouter.sol":{"lastModificationDate":1784550340648,"contentHash":"f9d9b96111fc2faa","interfaceReprHash":null,"sourceName":"foundry/src/interfaces/ISwapRouter.sol","imports":[],"versionRequirement":"^0.8.24","artifacts":{"ICurvePool":{"0.8.24":{"default":{"path":"ISwapRouter.sol/ICurvePool.json","build_id":"e1ad478dd7df8507"}}},"ISwapRouter":{"0.8.24":{"default":{"path":"ISwapRouter.sol/ISwapRouter.json","build_id":"e1ad478dd7df8507"}}}},"seenByCompiler":true}},"builds":["26e5f3a0ef30bd38","4e181423d07f84e5","e1ad478dd7df8507","e5024813b99db66f"],"profiles":{"default":{"solc":{"optimizer":{"enabled":true,"runs":200},"metadata":{"useLiteralContent":false,"bytecodeHash":"ipfs","appendCBOR":true},"outputSelection":{"*":{"*":["abi","evm.bytecode.object","evm.bytecode.sourceMap","evm.bytecode.linkReferences","evm.deployedBytecode.object","evm.deployedBytecode.sourceMap","evm.deployedBytecode.linkReferences","evm.deployedBytecode.immutableReferences","evm.methodIdentifiers","metadata"]}},"evmVersion":"cancun","viaIR":false,"libraries":{}},"vyper":{"evmVersion":"cancun","outputSelection":{"*":{"*":["abi","evm.bytecode","evm.deployedBytecode"]}}}}},"preprocessed":false,"mocks":[]}
+{
+  "_format": "",
+  "paths": {
+    "artifacts": "foundry/out",
+    "build_infos": "foundry/out/build-info",
+    "sources": "foundry/src",
+    "tests": "foundry/test",
+    "scripts": "foundry/src",
+    "libraries": ["foundry/lib"]
+  },
+  "files": {
+    "foundry/lib/forge-std/src/Base.sol": {
+      "lastModificationDate": 1784550884755,
+      "contentHash": "057da15af4544b7a",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/lib/forge-std/src/Base.sol",
+      "imports": [
+        "foundry/lib/forge-std/src/StdStorage.sol",
+        "foundry/lib/forge-std/src/Vm.sol"
+      ],
+      "versionRequirement": ">=0.8.13, <0.9.0",
+      "artifacts": {
+        "CommonBase": {
+          "0.8.24": {
+            "default": {
+              "path": "Base.sol/CommonBase.json",
+              "build_id": "e1ad478dd7df8507"
+            }
+          }
+        },
+        "ScriptBase": {
+          "0.8.24": {
+            "default": {
+              "path": "Base.sol/ScriptBase.json",
+              "build_id": "e1ad478dd7df8507"
+            }
+          }
+        },
+        "TestBase": {
+          "0.8.24": {
+            "default": {
+              "path": "Base.sol/TestBase.json",
+              "build_id": "e1ad478dd7df8507"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/lib/forge-std/src/Script.sol": {
+      "lastModificationDate": 1784550884756,
+      "contentHash": "f2808a0770d1b6a2",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/lib/forge-std/src/Script.sol",
+      "imports": [
+        "foundry/lib/forge-std/src/Base.sol",
+        "foundry/lib/forge-std/src/StdChains.sol",
+        "foundry/lib/forge-std/src/StdCheats.sol",
+        "foundry/lib/forge-std/src/StdConstants.sol",
+        "foundry/lib/forge-std/src/StdJson.sol",
+        "foundry/lib/forge-std/src/StdMath.sol",
+        "foundry/lib/forge-std/src/StdStorage.sol",
+        "foundry/lib/forge-std/src/StdStyle.sol",
+        "foundry/lib/forge-std/src/StdUtils.sol",
+        "foundry/lib/forge-std/src/Vm.sol",
+        "foundry/lib/forge-std/src/console.sol",
+        "foundry/lib/forge-std/src/console2.sol",
+        "foundry/lib/forge-std/src/interfaces/IMulticall3.sol",
+        "foundry/lib/forge-std/src/safeconsole.sol"
+      ],
+      "versionRequirement": ">=0.8.13, <0.9.0",
+      "artifacts": {
+        "Script": {
+          "0.8.24": {
+            "default": {
+              "path": "Script.sol/Script.json",
+              "build_id": "e1ad478dd7df8507"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/lib/forge-std/src/StdChains.sol": {
+      "lastModificationDate": 1784550884757,
+      "contentHash": "0c1989d5064f8ddf",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/lib/forge-std/src/StdChains.sol",
+      "imports": ["foundry/lib/forge-std/src/Vm.sol"],
+      "versionRequirement": ">=0.8.13, <0.9.0",
+      "artifacts": {
+        "StdChains": {
+          "0.8.24": {
+            "default": {
+              "path": "StdChains.sol/StdChains.json",
+              "build_id": "e1ad478dd7df8507"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/lib/forge-std/src/StdCheats.sol": {
+      "lastModificationDate": 1784550884757,
+      "contentHash": "c1a8a8aaa0d07a9b",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/lib/forge-std/src/StdCheats.sol",
+      "imports": [
+        "foundry/lib/forge-std/src/StdStorage.sol",
+        "foundry/lib/forge-std/src/Vm.sol",
+        "foundry/lib/forge-std/src/console.sol",
+        "foundry/lib/forge-std/src/console2.sol"
+      ],
+      "versionRequirement": ">=0.8.13, <0.9.0",
+      "artifacts": {
+        "StdCheats": {
+          "0.8.24": {
+            "default": {
+              "path": "StdCheats.sol/StdCheats.json",
+              "build_id": "e1ad478dd7df8507"
+            }
+          }
+        },
+        "StdCheatsSafe": {
+          "0.8.24": {
+            "default": {
+              "path": "StdCheats.sol/StdCheatsSafe.json",
+              "build_id": "e1ad478dd7df8507"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/lib/forge-std/src/StdConstants.sol": {
+      "lastModificationDate": 1784550884758,
+      "contentHash": "6e64e3e0f1e270b1",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/lib/forge-std/src/StdConstants.sol",
+      "imports": [
+        "foundry/lib/forge-std/src/Vm.sol",
+        "foundry/lib/forge-std/src/interfaces/IMulticall3.sol"
+      ],
+      "versionRequirement": ">=0.8.13, <0.9.0",
+      "artifacts": {
+        "StdConstants": {
+          "0.8.24": {
+            "default": {
+              "path": "StdConstants.sol/StdConstants.json",
+              "build_id": "e1ad478dd7df8507"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/lib/forge-std/src/StdJson.sol": {
+      "lastModificationDate": 1784550884759,
+      "contentHash": "f5a3ad0946d95283",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/lib/forge-std/src/StdJson.sol",
+      "imports": ["foundry/lib/forge-std/src/Vm.sol"],
+      "versionRequirement": ">=0.8.13, <0.9.0",
+      "artifacts": {
+        "stdJson": {
+          "0.8.24": {
+            "default": {
+              "path": "StdJson.sol/stdJson.json",
+              "build_id": "e1ad478dd7df8507"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/lib/forge-std/src/StdMath.sol": {
+      "lastModificationDate": 1784550884759,
+      "contentHash": "a1c513020c710db6",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/lib/forge-std/src/StdMath.sol",
+      "imports": [],
+      "versionRequirement": ">=0.8.13, <0.9.0",
+      "artifacts": {
+        "stdMath": {
+          "0.8.24": {
+            "default": {
+              "path": "StdMath.sol/stdMath.json",
+              "build_id": "e1ad478dd7df8507"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/lib/forge-std/src/StdStorage.sol": {
+      "lastModificationDate": 1784550884759,
+      "contentHash": "847d6efe5e5f0088",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/lib/forge-std/src/StdStorage.sol",
+      "imports": ["foundry/lib/forge-std/src/Vm.sol"],
+      "versionRequirement": ">=0.8.13, <0.9.0",
+      "artifacts": {
+        "stdStorage": {
+          "0.8.24": {
+            "default": {
+              "path": "StdStorage.sol/stdStorage.json",
+              "build_id": "e1ad478dd7df8507"
+            }
+          }
+        },
+        "stdStorageSafe": {
+          "0.8.24": {
+            "default": {
+              "path": "StdStorage.sol/stdStorageSafe.json",
+              "build_id": "e1ad478dd7df8507"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/lib/forge-std/src/StdStyle.sol": {
+      "lastModificationDate": 1784550884760,
+      "contentHash": "c527571c73ed6f30",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/lib/forge-std/src/StdStyle.sol",
+      "imports": ["foundry/lib/forge-std/src/Vm.sol"],
+      "versionRequirement": ">=0.8.13, <0.9.0",
+      "artifacts": {
+        "StdStyle": {
+          "0.8.24": {
+            "default": {
+              "path": "StdStyle.sol/StdStyle.json",
+              "build_id": "e1ad478dd7df8507"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/lib/forge-std/src/StdUtils.sol": {
+      "lastModificationDate": 1784550884761,
+      "contentHash": "2b3875c15dc0cae3",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/lib/forge-std/src/StdUtils.sol",
+      "imports": [
+        "foundry/lib/forge-std/src/StdConstants.sol",
+        "foundry/lib/forge-std/src/Vm.sol",
+        "foundry/lib/forge-std/src/interfaces/IMulticall3.sol"
+      ],
+      "versionRequirement": ">=0.8.13, <0.9.0",
+      "artifacts": {
+        "StdUtils": {
+          "0.8.24": {
+            "default": {
+              "path": "StdUtils.sol/StdUtils.json",
+              "build_id": "e1ad478dd7df8507"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/lib/forge-std/src/Vm.sol": {
+      "lastModificationDate": 1784550884762,
+      "contentHash": "a341198d10bcae5d",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/lib/forge-std/src/Vm.sol",
+      "imports": [],
+      "versionRequirement": ">=0.8.13, <0.9.0",
+      "artifacts": {
+        "Vm": {
+          "0.8.24": {
+            "default": {
+              "path": "Vm.sol/Vm.json",
+              "build_id": "e1ad478dd7df8507"
+            }
+          }
+        },
+        "VmSafe": {
+          "0.8.24": {
+            "default": {
+              "path": "Vm.sol/VmSafe.json",
+              "build_id": "e1ad478dd7df8507"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/lib/forge-std/src/console.sol": {
+      "lastModificationDate": 1784550884764,
+      "contentHash": "cbc8a541417333ad",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/lib/forge-std/src/console.sol",
+      "imports": [],
+      "versionRequirement": ">=0.8.13, <0.9.0",
+      "artifacts": {
+        "console": {
+          "0.8.24": {
+            "default": {
+              "path": "console.sol/console.json",
+              "build_id": "e1ad478dd7df8507"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/lib/forge-std/src/console2.sol": {
+      "lastModificationDate": 1784550884764,
+      "contentHash": "fb84555cebe27360",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/lib/forge-std/src/console2.sol",
+      "imports": ["foundry/lib/forge-std/src/console.sol"],
+      "versionRequirement": ">=0.8.13, <0.9.0",
+      "artifacts": {},
+      "seenByCompiler": true
+    },
+    "foundry/lib/forge-std/src/interfaces/IMulticall3.sol": {
+      "lastModificationDate": 1784550884767,
+      "contentHash": "731463c8fd01e759",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/lib/forge-std/src/interfaces/IMulticall3.sol",
+      "imports": [],
+      "versionRequirement": ">=0.8.13, <0.9.0",
+      "artifacts": {
+        "IMulticall3": {
+          "0.8.24": {
+            "default": {
+              "path": "IMulticall3.sol/IMulticall3.json",
+              "build_id": "e1ad478dd7df8507"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/lib/forge-std/src/safeconsole.sol": {
+      "lastModificationDate": 1784550884770,
+      "contentHash": "075ad54247fa474a",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/lib/forge-std/src/safeconsole.sol",
+      "imports": [],
+      "versionRequirement": ">=0.8.13, <0.9.0",
+      "artifacts": {
+        "safeconsole": {
+          "0.8.24": {
+            "default": {
+              "path": "safeconsole.sol/safeconsole.json",
+              "build_id": "e1ad478dd7df8507"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/lib/openzeppelin-contracts/contracts/access/Ownable.sol": {
+      "lastModificationDate": 1784550529591,
+      "contentHash": "aeede215495e3727",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/lib/openzeppelin-contracts/contracts/access/Ownable.sol",
+      "imports": [
+        "foundry/lib/openzeppelin-contracts/contracts/utils/Context.sol"
+      ],
+      "versionRequirement": "^0.8.20",
+      "artifacts": {
+        "Ownable": {
+          "0.8.24": {
+            "default": {
+              "path": "Ownable.sol/Ownable.json",
+              "build_id": "e1ad478dd7df8507"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC1363.sol": {
+      "lastModificationDate": 1784550529623,
+      "contentHash": "1822a75bab6fed91",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC1363.sol",
+      "imports": [
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC165.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC20.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol"
+      ],
+      "versionRequirement": ">=0.6.2",
+      "artifacts": {
+        "IERC1363": {
+          "0.8.24": {
+            "default": {
+              "path": "IERC1363.sol/IERC1363.json",
+              "build_id": "e1ad478dd7df8507"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC165.sol": {
+      "lastModificationDate": 1784550529624,
+      "contentHash": "1a826f6d4b769022",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC165.sol",
+      "imports": [
+        "foundry/lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol"
+      ],
+      "versionRequirement": ">=0.4.16",
+      "artifacts": {},
+      "seenByCompiler": true
+    },
+    "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC20.sol": {
+      "lastModificationDate": 1784550529626,
+      "contentHash": "e318fc72a6d9cc43",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC20.sol",
+      "imports": [
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol"
+      ],
+      "versionRequirement": ">=0.4.16",
+      "artifacts": {},
+      "seenByCompiler": true
+    },
+    "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC20Metadata.sol": {
+      "lastModificationDate": 1784550529626,
+      "contentHash": "48af7be074c277ef",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC20Metadata.sol",
+      "imports": [
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol"
+      ],
+      "versionRequirement": ">=0.6.2",
+      "artifacts": {},
+      "seenByCompiler": true
+    },
+    "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC4626.sol": {
+      "lastModificationDate": 1784550529629,
+      "contentHash": "d8c5b5d357c2952b",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC4626.sol",
+      "imports": [
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol"
+      ],
+      "versionRequirement": ">=0.6.2",
+      "artifacts": {
+        "IERC4626": {
+          "0.8.24": {
+            "default": {
+              "path": "IERC4626.sol/IERC4626.json",
+              "build_id": "e1ad478dd7df8507"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/lib/openzeppelin-contracts/contracts/interfaces/draft-IERC6093.sol": {
+      "lastModificationDate": 1784550529635,
+      "contentHash": "3902bd8df0571165",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/lib/openzeppelin-contracts/contracts/interfaces/draft-IERC6093.sol",
+      "imports": [],
+      "versionRequirement": ">=0.8.4",
+      "artifacts": {
+        "IERC1155Errors": {
+          "0.8.24": {
+            "default": {
+              "path": "draft-IERC6093.sol/IERC1155Errors.json",
+              "build_id": "e1ad478dd7df8507"
+            }
+          }
+        },
+        "IERC20Errors": {
+          "0.8.24": {
+            "default": {
+              "path": "draft-IERC6093.sol/IERC20Errors.json",
+              "build_id": "e1ad478dd7df8507"
+            }
+          }
+        },
+        "IERC721Errors": {
+          "0.8.24": {
+            "default": {
+              "path": "draft-IERC6093.sol/IERC721Errors.json",
+              "build_id": "e1ad478dd7df8507"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol": {
+      "lastModificationDate": 1784550529709,
+      "contentHash": "bdb8cc1da86cf7dd",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol",
+      "imports": [
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/draft-IERC6093.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/utils/Context.sol"
+      ],
+      "versionRequirement": "^0.8.20",
+      "artifacts": {
+        "ERC20": {
+          "0.8.24": {
+            "default": {
+              "path": "ERC20.sol/ERC20.json",
+              "build_id": "e1ad478dd7df8507"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol": {
+      "lastModificationDate": 1784550529709,
+      "contentHash": "1dcd768972ff31b3",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+      "imports": [],
+      "versionRequirement": ">=0.4.16",
+      "artifacts": {
+        "IERC20": {
+          "0.8.24": {
+            "default": {
+              "path": "IERC20.sol/IERC20.json",
+              "build_id": "e1ad478dd7df8507"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol": {
+      "lastModificationDate": 1784550529717,
+      "contentHash": "7357b0a7ee7c5466",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol",
+      "imports": [
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC1363.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC165.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC20.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC20Metadata.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC4626.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/draft-IERC6093.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/utils/Context.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/utils/Panic.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/utils/math/Math.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/utils/math/SafeCast.sol"
+      ],
+      "versionRequirement": "^0.8.24",
+      "artifacts": {
+        "ERC4626": {
+          "0.8.24": {
+            "default": {
+              "path": "ERC4626.sol/ERC4626.json",
+              "build_id": "e1ad478dd7df8507"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol": {
+      "lastModificationDate": 1784550529718,
+      "contentHash": "c0fde354a75fbdc6",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+      "imports": [
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol"
+      ],
+      "versionRequirement": ">=0.6.2",
+      "artifacts": {
+        "IERC20Metadata": {
+          "0.8.24": {
+            "default": {
+              "path": "IERC20Metadata.sol/IERC20Metadata.json",
+              "build_id": "e1ad478dd7df8507"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol": {
+      "lastModificationDate": 1784550529720,
+      "contentHash": "429ad2d053f25350",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol",
+      "imports": [
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC1363.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC165.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC20.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC20Metadata.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol"
+      ],
+      "versionRequirement": "^0.8.20",
+      "artifacts": {
+        "SafeERC20": {
+          "0.8.24": {
+            "default": {
+              "path": "SafeERC20.sol/SafeERC20.json",
+              "build_id": "e1ad478dd7df8507"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/lib/openzeppelin-contracts/contracts/utils/Context.sol": {
+      "lastModificationDate": 1784550529737,
+      "contentHash": "16db1f8b2f7183f5",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/lib/openzeppelin-contracts/contracts/utils/Context.sol",
+      "imports": [],
+      "versionRequirement": "^0.8.20",
+      "artifacts": {
+        "Context": {
+          "0.8.24": {
+            "default": {
+              "path": "Context.sol/Context.json",
+              "build_id": "e1ad478dd7df8507"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/lib/openzeppelin-contracts/contracts/utils/Panic.sol": {
+      "lastModificationDate": 1784550529741,
+      "contentHash": "cfb5098ef78673ff",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/lib/openzeppelin-contracts/contracts/utils/Panic.sol",
+      "imports": [],
+      "versionRequirement": "^0.8.20",
+      "artifacts": {
+        "Panic": {
+          "0.8.24": {
+            "default": {
+              "path": "Panic.sol/Panic.json",
+              "build_id": "e1ad478dd7df8507"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/lib/openzeppelin-contracts/contracts/utils/ReentrancyGuard.sol": {
+      "lastModificationDate": 1784550529744,
+      "contentHash": "a70644ba3ffaf8d5",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/lib/openzeppelin-contracts/contracts/utils/ReentrancyGuard.sol",
+      "imports": [
+        "foundry/lib/openzeppelin-contracts/contracts/utils/StorageSlot.sol"
+      ],
+      "versionRequirement": "^0.8.20",
+      "artifacts": {
+        "ReentrancyGuard": {
+          "0.8.24": {
+            "default": {
+              "path": "ReentrancyGuard.sol/ReentrancyGuard.json",
+              "build_id": "e1ad478dd7df8507"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/lib/openzeppelin-contracts/contracts/utils/StorageSlot.sol": {
+      "lastModificationDate": 1784550529746,
+      "contentHash": "261e9fcb6515866e",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/lib/openzeppelin-contracts/contracts/utils/StorageSlot.sol",
+      "imports": [],
+      "versionRequirement": "^0.8.20",
+      "artifacts": {
+        "StorageSlot": {
+          "0.8.24": {
+            "default": {
+              "path": "StorageSlot.sol/StorageSlot.json",
+              "build_id": "e1ad478dd7df8507"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol": {
+      "lastModificationDate": 1784550529762,
+      "contentHash": "021ac46c8076d0ee",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol",
+      "imports": [],
+      "versionRequirement": ">=0.4.16",
+      "artifacts": {
+        "IERC165": {
+          "0.8.24": {
+            "default": {
+              "path": "IERC165.sol/IERC165.json",
+              "build_id": "e1ad478dd7df8507"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/lib/openzeppelin-contracts/contracts/utils/math/Math.sol": {
+      "lastModificationDate": 1784550529763,
+      "contentHash": "5168acf036b9f448",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/lib/openzeppelin-contracts/contracts/utils/math/Math.sol",
+      "imports": [
+        "foundry/lib/openzeppelin-contracts/contracts/utils/Panic.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/utils/math/SafeCast.sol"
+      ],
+      "versionRequirement": "^0.8.20",
+      "artifacts": {
+        "Math": {
+          "0.8.24": {
+            "default": {
+              "path": "Math.sol/Math.json",
+              "build_id": "e1ad478dd7df8507"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/lib/openzeppelin-contracts/contracts/utils/math/SafeCast.sol": {
+      "lastModificationDate": 1784550529763,
+      "contentHash": "a7f6d9b06e362c01",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/lib/openzeppelin-contracts/contracts/utils/math/SafeCast.sol",
+      "imports": [],
+      "versionRequirement": "^0.8.20",
+      "artifacts": {
+        "SafeCast": {
+          "0.8.24": {
+            "default": {
+              "path": "SafeCast.sol/SafeCast.json",
+              "build_id": "e1ad478dd7df8507"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/src/DeployNoxLending.s.sol": {
+      "lastModificationDate": 1784551118465,
+      "contentHash": "cd07bc25141aa750",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/src/DeployNoxLending.s.sol",
+      "imports": [
+        "foundry/lib/forge-std/src/Base.sol",
+        "foundry/lib/forge-std/src/Script.sol",
+        "foundry/lib/forge-std/src/StdChains.sol",
+        "foundry/lib/forge-std/src/StdCheats.sol",
+        "foundry/lib/forge-std/src/StdConstants.sol",
+        "foundry/lib/forge-std/src/StdJson.sol",
+        "foundry/lib/forge-std/src/StdMath.sol",
+        "foundry/lib/forge-std/src/StdStorage.sol",
+        "foundry/lib/forge-std/src/StdStyle.sol",
+        "foundry/lib/forge-std/src/StdUtils.sol",
+        "foundry/lib/forge-std/src/Vm.sol",
+        "foundry/lib/forge-std/src/console.sol",
+        "foundry/lib/forge-std/src/console2.sol",
+        "foundry/lib/forge-std/src/interfaces/IMulticall3.sol",
+        "foundry/lib/forge-std/src/safeconsole.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/access/Ownable.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC1363.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC165.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC20.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC20Metadata.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/utils/Context.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/utils/ReentrancyGuard.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/utils/StorageSlot.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol",
+        "foundry/src/MockAavePool.sol",
+        "foundry/src/NoxLendingPool.sol",
+        "foundry/src/interfaces/IAaveV3.sol",
+        "foundry/src/interfaces/IConfidentialERC20.sol",
+        "foundry/src/interfaces/INoxCompute.sol"
+      ],
+      "versionRequirement": "^0.8.24",
+      "artifacts": {
+        "DeployNoxLending": {
+          "0.8.24": {
+            "default": {
+              "path": "DeployNoxLending.s.sol/DeployNoxLending.json",
+              "build_id": "4e181423d07f84e5"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/src/DeployNoxSepoliaL1.s.sol": {
+      "lastModificationDate": 1784964683981,
+      "contentHash": "9db4605bc3f0d9db",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/src/DeployNoxSepoliaL1.s.sol",
+      "imports": [
+        "foundry/lib/forge-std/src/Base.sol",
+        "foundry/lib/forge-std/src/Script.sol",
+        "foundry/lib/forge-std/src/StdChains.sol",
+        "foundry/lib/forge-std/src/StdCheats.sol",
+        "foundry/lib/forge-std/src/StdConstants.sol",
+        "foundry/lib/forge-std/src/StdJson.sol",
+        "foundry/lib/forge-std/src/StdMath.sol",
+        "foundry/lib/forge-std/src/StdStorage.sol",
+        "foundry/lib/forge-std/src/StdStyle.sol",
+        "foundry/lib/forge-std/src/StdUtils.sol",
+        "foundry/lib/forge-std/src/Vm.sol",
+        "foundry/lib/forge-std/src/console.sol",
+        "foundry/lib/forge-std/src/console2.sol",
+        "foundry/lib/forge-std/src/interfaces/IMulticall3.sol",
+        "foundry/lib/forge-std/src/safeconsole.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/access/Ownable.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC1363.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC165.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC20.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC20Metadata.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC4626.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/draft-IERC6093.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/utils/Context.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/utils/Panic.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/utils/ReentrancyGuard.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/utils/StorageSlot.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/utils/math/Math.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/utils/math/SafeCast.sol",
+        "foundry/src/MockConfidentialERC20.sol",
+        "foundry/src/MockDEXRouter.sol",
+        "foundry/src/MockERC20.sol",
+        "foundry/src/MockNoxCompute.sol",
+        "foundry/src/NoxSwapRouter.sol",
+        "foundry/src/NoxYieldVault.sol",
+        "foundry/src/interfaces/IConfidentialERC20.sol",
+        "foundry/src/interfaces/INoxCompute.sol",
+        "foundry/src/interfaces/ISwapRouter.sol"
+      ],
+      "versionRequirement": "^0.8.24",
+      "artifacts": {
+        "DeployNoxSepoliaL1": {
+          "0.8.24": {
+            "default": {
+              "path": "DeployNoxSepoliaL1.s.sol/DeployNoxSepoliaL1.json",
+              "build_id": "e5024813b99db66f"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/src/DeployNoxSwapRouter.s.sol": {
+      "lastModificationDate": 1784550399376,
+      "contentHash": "95f5c03871fc74c2",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/src/DeployNoxSwapRouter.s.sol",
+      "imports": [
+        "foundry/lib/forge-std/src/Base.sol",
+        "foundry/lib/forge-std/src/Script.sol",
+        "foundry/lib/forge-std/src/StdChains.sol",
+        "foundry/lib/forge-std/src/StdCheats.sol",
+        "foundry/lib/forge-std/src/StdConstants.sol",
+        "foundry/lib/forge-std/src/StdJson.sol",
+        "foundry/lib/forge-std/src/StdMath.sol",
+        "foundry/lib/forge-std/src/StdStorage.sol",
+        "foundry/lib/forge-std/src/StdStyle.sol",
+        "foundry/lib/forge-std/src/StdUtils.sol",
+        "foundry/lib/forge-std/src/Vm.sol",
+        "foundry/lib/forge-std/src/console.sol",
+        "foundry/lib/forge-std/src/console2.sol",
+        "foundry/lib/forge-std/src/interfaces/IMulticall3.sol",
+        "foundry/lib/forge-std/src/safeconsole.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/access/Ownable.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC1363.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC165.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC20.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC20Metadata.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/utils/Context.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/utils/ReentrancyGuard.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/utils/StorageSlot.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol",
+        "foundry/src/NoxSwapRouter.sol",
+        "foundry/src/interfaces/IConfidentialERC20.sol",
+        "foundry/src/interfaces/INoxCompute.sol",
+        "foundry/src/interfaces/ISwapRouter.sol"
+      ],
+      "versionRequirement": "^0.8.24",
+      "artifacts": {
+        "DeployNoxSwapRouter": {
+          "0.8.24": {
+            "default": {
+              "path": "DeployNoxSwapRouter.s.sol/DeployNoxSwapRouter.json",
+              "build_id": "e1ad478dd7df8507"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/src/DeployNoxVaults.s.sol": {
+      "lastModificationDate": 1777666340000,
+      "contentHash": "260b5e0353d60b1c",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/src/DeployNoxVaults.s.sol",
+      "imports": [
+        "foundry/lib/forge-std/src/Base.sol",
+        "foundry/lib/forge-std/src/Script.sol",
+        "foundry/lib/forge-std/src/StdChains.sol",
+        "foundry/lib/forge-std/src/StdCheats.sol",
+        "foundry/lib/forge-std/src/StdConstants.sol",
+        "foundry/lib/forge-std/src/StdJson.sol",
+        "foundry/lib/forge-std/src/StdMath.sol",
+        "foundry/lib/forge-std/src/StdStorage.sol",
+        "foundry/lib/forge-std/src/StdStyle.sol",
+        "foundry/lib/forge-std/src/StdUtils.sol",
+        "foundry/lib/forge-std/src/Vm.sol",
+        "foundry/lib/forge-std/src/console.sol",
+        "foundry/lib/forge-std/src/console2.sol",
+        "foundry/lib/forge-std/src/interfaces/IMulticall3.sol",
+        "foundry/lib/forge-std/src/safeconsole.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/access/Ownable.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC1363.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC165.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC20.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC20Metadata.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC4626.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/draft-IERC6093.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/utils/Context.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/utils/Panic.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/utils/math/Math.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/utils/math/SafeCast.sol",
+        "foundry/src/NoxYieldVault.sol"
+      ],
+      "versionRequirement": "^0.8.24",
+      "artifacts": {
+        "DeployNoxVaults": {
+          "0.8.24": {
+            "default": {
+              "path": "DeployNoxVaults.s.sol/DeployNoxVaults.json",
+              "build_id": "e1ad478dd7df8507"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/src/DeployWETHVault.s.sol": {
+      "lastModificationDate": 1785487945546,
+      "contentHash": "f2ac90ec8e026b93",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/src/DeployWETHVault.s.sol",
+      "imports": [
+        "foundry/lib/forge-std/src/Base.sol",
+        "foundry/lib/forge-std/src/Script.sol",
+        "foundry/lib/forge-std/src/StdChains.sol",
+        "foundry/lib/forge-std/src/StdCheats.sol",
+        "foundry/lib/forge-std/src/StdConstants.sol",
+        "foundry/lib/forge-std/src/StdJson.sol",
+        "foundry/lib/forge-std/src/StdMath.sol",
+        "foundry/lib/forge-std/src/StdStorage.sol",
+        "foundry/lib/forge-std/src/StdStyle.sol",
+        "foundry/lib/forge-std/src/StdUtils.sol",
+        "foundry/lib/forge-std/src/Vm.sol",
+        "foundry/lib/forge-std/src/console.sol",
+        "foundry/lib/forge-std/src/console2.sol",
+        "foundry/lib/forge-std/src/interfaces/IMulticall3.sol",
+        "foundry/lib/forge-std/src/safeconsole.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/access/Ownable.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC1363.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC165.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC20.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC20Metadata.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC4626.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/draft-IERC6093.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/utils/Context.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/utils/Panic.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/utils/math/Math.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/utils/math/SafeCast.sol",
+        "foundry/src/MockConfidentialERC20.sol",
+        "foundry/src/MockERC20.sol",
+        "foundry/src/NoxYieldVault.sol",
+        "foundry/src/interfaces/IConfidentialERC20.sol"
+      ],
+      "versionRequirement": "^0.8.24",
+      "artifacts": {
+        "DeployWETHVault": {
+          "0.8.24": {
+            "default": {
+              "path": "DeployWETHVault.s.sol/DeployWETHVault.json",
+              "build_id": "26e5f3a0ef30bd38"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/src/MockAavePool.sol": {
+      "lastModificationDate": 1784551118410,
+      "contentHash": "3f6d4bb1231a68d9",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/src/MockAavePool.sol",
+      "imports": [
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC1363.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC165.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC20.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC20Metadata.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol",
+        "foundry/src/interfaces/IAaveV3.sol"
+      ],
+      "versionRequirement": "^0.8.24",
+      "artifacts": {
+        "MockAaveDataProvider": {
+          "0.8.24": {
+            "default": {
+              "path": "MockAavePool.sol/MockAaveDataProvider.json",
+              "build_id": "4e181423d07f84e5"
+            }
+          }
+        },
+        "MockAavePool": {
+          "0.8.24": {
+            "default": {
+              "path": "MockAavePool.sol/MockAavePool.json",
+              "build_id": "4e181423d07f84e5"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/src/MockConfidentialERC20.sol": {
+      "lastModificationDate": 1784964676468,
+      "contentHash": "2f546e88aa7c417c",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/src/MockConfidentialERC20.sol",
+      "imports": [
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/draft-IERC6093.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/utils/Context.sol",
+        "foundry/src/interfaces/IConfidentialERC20.sol"
+      ],
+      "versionRequirement": "^0.8.24",
+      "artifacts": {
+        "MockConfidentialERC20": {
+          "0.8.24": {
+            "default": {
+              "path": "MockConfidentialERC20.sol/MockConfidentialERC20.json",
+              "build_id": "e5024813b99db66f"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/src/MockDEXRouter.sol": {
+      "lastModificationDate": 1784550399421,
+      "contentHash": "fc074e733c97d1be",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/src/MockDEXRouter.sol",
+      "imports": [
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC1363.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC165.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC20.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC20Metadata.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol",
+        "foundry/src/interfaces/ISwapRouter.sol"
+      ],
+      "versionRequirement": "^0.8.24",
+      "artifacts": {
+        "MockDEXRouter": {
+          "0.8.24": {
+            "default": {
+              "path": "MockDEXRouter.sol/MockDEXRouter.json",
+              "build_id": "e1ad478dd7df8507"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/src/MockERC20.sol": {
+      "lastModificationDate": 1784964679727,
+      "contentHash": "d5d93aef199042c3",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/src/MockERC20.sol",
+      "imports": [
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/draft-IERC6093.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/utils/Context.sol"
+      ],
+      "versionRequirement": "^0.8.24",
+      "artifacts": {
+        "MockERC20": {
+          "0.8.24": {
+            "default": {
+              "path": "MockERC20.sol/MockERC20.json",
+              "build_id": "e5024813b99db66f"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/src/MockNoxCompute.sol": {
+      "lastModificationDate": 1784964669774,
+      "contentHash": "374f953680c800d3",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/src/MockNoxCompute.sol",
+      "imports": ["foundry/src/interfaces/INoxCompute.sol"],
+      "versionRequirement": "^0.8.24",
+      "artifacts": {
+        "MockNoxCompute": {
+          "0.8.24": {
+            "default": {
+              "path": "MockNoxCompute.sol/MockNoxCompute.json",
+              "build_id": "e5024813b99db66f"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/src/NoxLendingPool.sol": {
+      "lastModificationDate": 1784551072453,
+      "contentHash": "2cd2044a73230a43",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/src/NoxLendingPool.sol",
+      "imports": [
+        "foundry/lib/openzeppelin-contracts/contracts/access/Ownable.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC1363.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC165.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC20.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC20Metadata.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/utils/Context.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/utils/ReentrancyGuard.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/utils/StorageSlot.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol",
+        "foundry/src/interfaces/IAaveV3.sol",
+        "foundry/src/interfaces/IConfidentialERC20.sol",
+        "foundry/src/interfaces/INoxCompute.sol"
+      ],
+      "versionRequirement": "^0.8.24",
+      "artifacts": {
+        "NoxLendingPool": {
+          "0.8.24": {
+            "default": {
+              "path": "NoxLendingPool.sol/NoxLendingPool.json",
+              "build_id": "4e181423d07f84e5"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/src/NoxSwapRouter.sol": {
+      "lastModificationDate": 1784550369365,
+      "contentHash": "29180db523f233ba",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/src/NoxSwapRouter.sol",
+      "imports": [
+        "foundry/lib/openzeppelin-contracts/contracts/access/Ownable.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC1363.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC165.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC20.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC20Metadata.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/utils/Context.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/utils/ReentrancyGuard.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/utils/StorageSlot.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol",
+        "foundry/src/interfaces/IConfidentialERC20.sol",
+        "foundry/src/interfaces/INoxCompute.sol",
+        "foundry/src/interfaces/ISwapRouter.sol"
+      ],
+      "versionRequirement": "^0.8.24",
+      "artifacts": {
+        "NoxSwapRouter": {
+          "0.8.24": {
+            "default": {
+              "path": "NoxSwapRouter.sol/NoxSwapRouter.json",
+              "build_id": "e1ad478dd7df8507"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/src/NoxYieldVault.sol": {
+      "lastModificationDate": 1777666340000,
+      "contentHash": "6c1451334045abee",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/src/NoxYieldVault.sol",
+      "imports": [
+        "foundry/lib/openzeppelin-contracts/contracts/access/Ownable.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC1363.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC165.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC20.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC20Metadata.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/IERC4626.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/interfaces/draft-IERC6093.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC4626.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/utils/Context.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/utils/Panic.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/utils/math/Math.sol",
+        "foundry/lib/openzeppelin-contracts/contracts/utils/math/SafeCast.sol"
+      ],
+      "versionRequirement": "^0.8.24",
+      "artifacts": {
+        "NoxYieldVault": {
+          "0.8.24": {
+            "default": {
+              "path": "NoxYieldVault.sol/NoxYieldVault.json",
+              "build_id": "e1ad478dd7df8507"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/src/interfaces/IAaveV3.sol": {
+      "lastModificationDate": 1784551030635,
+      "contentHash": "b955c64502a45d9a",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/src/interfaces/IAaveV3.sol",
+      "imports": [],
+      "versionRequirement": "^0.8.24",
+      "artifacts": {
+        "IPool": {
+          "0.8.24": {
+            "default": {
+              "path": "IAaveV3.sol/IPool.json",
+              "build_id": "4e181423d07f84e5"
+            }
+          }
+        },
+        "IPoolDataProvider": {
+          "0.8.24": {
+            "default": {
+              "path": "IAaveV3.sol/IPoolDataProvider.json",
+              "build_id": "4e181423d07f84e5"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/src/interfaces/IConfidentialERC20.sol": {
+      "lastModificationDate": 1784550340601,
+      "contentHash": "279c59e31a7da15b",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/src/interfaces/IConfidentialERC20.sol",
+      "imports": [
+        "foundry/lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol"
+      ],
+      "versionRequirement": "^0.8.24",
+      "artifacts": {
+        "IConfidentialERC20": {
+          "0.8.24": {
+            "default": {
+              "path": "IConfidentialERC20.sol/IConfidentialERC20.json",
+              "build_id": "e1ad478dd7df8507"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/src/interfaces/INoxCompute.sol": {
+      "lastModificationDate": 1784550340545,
+      "contentHash": "7869f0c69e97604c",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/src/interfaces/INoxCompute.sol",
+      "imports": [],
+      "versionRequirement": "^0.8.24",
+      "artifacts": {
+        "INoxCompute": {
+          "0.8.24": {
+            "default": {
+              "path": "INoxCompute.sol/INoxCompute.json",
+              "build_id": "e1ad478dd7df8507"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/src/interfaces/ISwapRouter.sol": {
+      "lastModificationDate": 1784550340648,
+      "contentHash": "f9d9b96111fc2faa",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/src/interfaces/ISwapRouter.sol",
+      "imports": [],
+      "versionRequirement": "^0.8.24",
+      "artifacts": {
+        "ICurvePool": {
+          "0.8.24": {
+            "default": {
+              "path": "ISwapRouter.sol/ICurvePool.json",
+              "build_id": "e1ad478dd7df8507"
+            }
+          }
+        },
+        "ISwapRouter": {
+          "0.8.24": {
+            "default": {
+              "path": "ISwapRouter.sol/ISwapRouter.json",
+              "build_id": "e1ad478dd7df8507"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    }
+  },
+  "builds": [
+    "26e5f3a0ef30bd38",
+    "4e181423d07f84e5",
+    "e1ad478dd7df8507",
+    "e5024813b99db66f"
+  ],
+  "profiles": {
+    "default": {
+      "solc": {
+        "optimizer": { "enabled": true, "runs": 200 },
+        "metadata": {
+          "useLiteralContent": false,
+          "bytecodeHash": "ipfs",
+          "appendCBOR": true
+        },
+        "outputSelection": {
+          "*": {
+            "*": [
+              "abi",
+              "evm.bytecode.object",
+              "evm.bytecode.sourceMap",
+              "evm.bytecode.linkReferences",
+              "evm.deployedBytecode.object",
+              "evm.deployedBytecode.sourceMap",
+              "evm.deployedBytecode.linkReferences",
+              "evm.deployedBytecode.immutableReferences",
+              "evm.methodIdentifiers",
+              "metadata"
+            ]
+          }
+        },
+        "evmVersion": "cancun",
+        "viaIR": false,
+        "libraries": {}
+      },
+      "vyper": {
+        "evmVersion": "cancun",
+        "outputSelection": {
+          "*": { "*": ["abi", "evm.bytecode", "evm.deployedBytecode"] }
+        }
+      }
+    }
+  },
+  "preprocessed": false,
+  "mocks": []
+}
