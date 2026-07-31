@@ -140,12 +140,15 @@ export const NOX_CONTRACTS = {
   cUSDC: "0x1ccec6bc60db15e4055d43dc2531bb7d4e5b808e",
   RLC: "0x1aeEDC9Ced161624210963231d4083Fdc17e56E6",
   cRLC: "0x92b23f4a59175415ced5cb37e64a1fc6a9d79af4",
+  WETH: "0x0256137E4262Ac007463067BC5Dd15A9de4CfAa8",
+  cWETH: "0x051eb756A880908a37147aE4d564A1977F700de1",
   NOX_COMPUTE: "0xd464B198f06756a1d00be223634b85E0a731c229",
 } as const;
 
 export const NOX_VAULTS = {
   cUSDC_VAULT: "0x75ef70Ea33994a16751ff0b4f7DCF0F94DF1351F",
   cRLC_VAULT: "0x1955eF9145cCAa643a8Ee61aE3206F0acb632Adf",
+  cWETH_VAULT: "0x53B18389Aa9c4Bf6FA9b3E065a2c142b77C88b82",
 } as const;
 
 export function getVaultForToken(tokenAddress: string): `0x${string}` {
@@ -153,6 +156,8 @@ export function getVaultForToken(tokenAddress: string): `0x${string}` {
   if (lower === NOX_CONTRACTS.cUSDC.toLowerCase())
     return NOX_VAULTS.cUSDC_VAULT;
   if (lower === NOX_CONTRACTS.cRLC.toLowerCase()) return NOX_VAULTS.cRLC_VAULT;
+  if (lower === NOX_CONTRACTS.cWETH.toLowerCase())
+    return NOX_VAULTS.cWETH_VAULT;
   return "0x0000000000000000000000000000000000000000";
 }
 
@@ -160,6 +165,7 @@ export function getUnderlyingForToken(tokenAddress: string): `0x${string}` {
   const lower = tokenAddress.toLowerCase();
   if (lower === NOX_CONTRACTS.cUSDC.toLowerCase()) return NOX_CONTRACTS.USDC;
   if (lower === NOX_CONTRACTS.cRLC.toLowerCase()) return NOX_CONTRACTS.RLC;
+  if (lower === NOX_CONTRACTS.cWETH.toLowerCase()) return NOX_CONTRACTS.WETH;
   return "0x0000000000000000000000000000000000000000";
 }
 
@@ -182,6 +188,16 @@ export const CONFIDENTIAL_TOKENS: Record<number, NoxToken[]> = {
       decimals: 9,
       logoURI: "/Assets/Images/Logo-Coin/rlc-logo.svg",
       priceUSD: "3.5",
+      isConfidential: true,
+    },
+    {
+      address: NOX_CONTRACTS.cWETH,
+      symbol: "cWETH",
+      name: "Confidential WETH",
+      decimals: 18,
+      logoURI:
+        "https://tokens.1inch.io/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2.png",
+      priceUSD: "3500",
       isConfidential: true,
     },
   ],
