@@ -125,7 +125,7 @@ export function FaucetView() {
             Tokens are sourced from official external faucets. Claim ETH for
             gas, then USDC and RLC from the links below. After claiming, head to{" "}
             <span className="font-semibold text-brand">/swap</span> to wrap into
-            confidential tokens (cUSDC/cRLC), then deposit at{" "}
+            confidential tokens (cUSDC/cRLC/cWETH), then deposit at{" "}
             <span className="font-semibold text-brand">/earn</span>.
           </p>
         </div>
@@ -138,7 +138,7 @@ export function FaucetView() {
               className="flex flex-col rounded-3xl border border-main bg-surface p-6 shadow-xs relative overflow-hidden transition-all hover:border-strong"
             >
               <div className="flex items-center justify-between mb-4">
-                <div className="flex h-10 w-10 items-center justify-center rounded-2xl border border-brand/20 bg-brand-soft text-brand shadow-[0_0_15px_-3px_var(--color-brand)]">
+                <div className="flex h-10 w-10 items-center justify-center rounded-2xl border border-brand/20 bg-brand-soft text-brand">
                   {getAssetIcon(asset.symbol)}
                 </div>
                 <span className="rounded-full bg-surface-muted px-3 py-1 text-xs font-bold text-main border border-main">
@@ -236,7 +236,7 @@ export function FaucetView() {
               <h3 className="text-xs font-bold text-main">Wrap Tokens</h3>
               <p className="text-[11px] leading-relaxed text-muted">
                 Go to <span className="font-semibold text-brand">/swap</span> to
-                wrap USDC/RLC to confidential cUSDC/cRLC.
+                wrap USDC/RLC/WETH to confidential cUSDC/cRLC/cWETH.
               </p>
             </div>
 
