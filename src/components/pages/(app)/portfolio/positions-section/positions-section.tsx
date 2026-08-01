@@ -192,9 +192,31 @@ export function PositionsSection({
                               ?.toLowerCase()
                               .includes("nox");
                             if (isConfidential) {
-                              openNoxWithdrawSheet(
-                                position as unknown as import("@/lib/nox-types").NoxPortfolio,
-                              );
+                              openNoxWithdrawSheet({
+                                chainId: position.chainId,
+                                vaultAddress:
+                                  position.vaultAddress ??
+                                  position.asset.address,
+                                vaultName:
+                                  position.vaultName ??
+                                  `Confidential ${position.asset.symbol} Vault`,
+                                protocol: position.protocolName,
+                                token: {
+                                  address: position.asset.address,
+                                  symbol: position.asset.symbol,
+                                  name:
+                                    position.asset.name ??
+                                    position.asset.symbol,
+                                  decimals: position.asset.decimals,
+                                  logoURI: position.asset.logoURI,
+                                  priceUSD: "0",
+                                  isConfidential: true,
+                                },
+                                balance: position.balanceNative,
+                                balanceUSD: position.balanceUsd,
+                                apy: position.apy ?? 0,
+                                isConfidential: true,
+                              });
                               return;
                             }
                             openWithdrawSheet(position);
