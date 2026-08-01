@@ -80,7 +80,7 @@ export function FooterSection() {
                 className="size-12 select-none"
               />
               <span className="text-sm font-bold uppercase tracking-widest text-main">
-                Zknull
+                Wen-Ox
               </span>
             </div>
 
@@ -155,7 +155,7 @@ export function FooterSection() {
             opacity: 0.05,
           }}
         >
-          Zknull
+          Wen-Ox
         </p>
       </div>
 
