@@ -178,9 +178,9 @@ function DepositHero() {
         Confidential deposits
       </h1>
       <p className="mt-2 max-w-lg text-sm text-muted leading-relaxed">
-        Deposit USDC or RLC into encrypted vaults. Your balance is wrapped into
-        ERC-7984 confidential tokens — only you can decrypt it. The aggregate
-        TVL stays publicly verifiable.
+        Deposit USDC, RLC, or WETH into encrypted vaults. Your balance is
+        wrapped into ERC-7984 confidential tokens — only you can decrypt it. The
+        aggregate TVL stays publicly verifiable.
       </p>
 
       {/* Stats row */}
@@ -223,8 +223,8 @@ const DEPOSIT_FEATURES = [
   },
   {
     icon: <FiAlertTriangle className="h-4 w-4" />,
-    title: "Testnet only",
-    desc: "These are testnet tokens with no real value. Use freely for testing and demos.",
+    title: "Need USDC or RLC first",
+    desc: "Get them from Circle or iExec faucets. If you just want to test, claim WETH from our faucet and deposit that instead.",
     highlight: true,
   },
 ] as const;
