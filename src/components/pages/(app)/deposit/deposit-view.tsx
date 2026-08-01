@@ -84,11 +84,11 @@ export function DepositView() {
   return (
     <>
       <BackgroundDecor />
-      <main className="mx-auto flex w-full max-w-310 flex-1 flex-col px-4 py-4 sm:px-6 sm:py-6 lg:h-[calc(100dvh-4rem)] lg:flex-none lg:overflow-hidden">
-        <div className="grid flex-1 gap-4 lg:min-h-0 lg:grid-cols-[1fr_1fr] lg:gap-5 lg:items-stretch">
+      <main className="mx-auto flex w-full max-w-5xl flex-1 flex-col px-4 py-4 sm:px-6 sm:py-6">
+        <div className="grid flex-1 gap-5 lg:grid-cols-[1.1fr_0.9fr] items-start">
           {/* Left: Deposit / Withdraw card */}
-          <div className="flex min-h-0 flex-col">
-            <div className="rounded-3xl border border-main bg-surface p-2.5 h-full">
+          <div className="flex flex-col">
+            <div className="rounded-3xl border border-main bg-surface p-3 sticky top-4">
               {/* Tab switcher */}
               <div className="flex items-center gap-1 rounded-full bg-surface-muted p-1 mb-3">
                 <TabButton
@@ -106,14 +106,14 @@ export function DepositView() {
               </div>
 
               {/* Content */}
-              <div className="px-2 pb-2">
+              <div className="px-1 pb-1">
                 {activeTab === "deposit" ? <DepositFlow /> : <WithdrawFlow />}
               </div>
             </div>
           </div>
 
           {/* Right: Info & features */}
-          <div className="flex min-h-0 flex-col gap-4">
+          <div className="flex flex-col gap-4">
             <DepositHero />
             <DepositFeatures />
           </div>
@@ -210,7 +210,7 @@ const DEPOSIT_FEATURES = [
 
 function DepositFeatures() {
   return (
-    <div className="grid gap-3 sm:grid-cols-3">
+    <div className="grid gap-3 sm:grid-cols-2">
       {DEPOSIT_FEATURES.map((f) => (
         <motion.div
           key={f.title}
