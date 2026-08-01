@@ -1,10 +1,10 @@
 "use client";
 
 import { AnimatePresence, motion } from "motion/react";
-import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
+import { Logo } from "@/components/ui/logo";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 const NAV_LINKS = [
@@ -32,17 +32,10 @@ export function LandingNavbar() {
               whileHover={{ rotate: 10 }}
               transition={{ duration: 0.3 }}
             >
-              <Image
-                src="/Assets/Images/Logo-Brand/logo-transparent.png"
-                alt="Wen-Ox"
-                fill
-                priority
-                sizes="36px"
-                className="object-contain"
-              />
+              <Logo width={36} height={36} priority />
             </motion.div>
             <span className="hidden text-base font-semibold tracking-tight text-main sm:inline">
-              Wen-Ox
+              Zknull
             </span>
           </Link>
         </div>
