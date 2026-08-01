@@ -35,7 +35,7 @@ export function LandingNavbar() {
               <Logo width={36} height={36} priority />
             </motion.div>
             <span className="hidden text-base font-semibold tracking-tight text-main sm:inline">
-              Zknull
+              Wen-Ox
             </span>
           </Link>
         </div>
