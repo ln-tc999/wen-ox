@@ -252,9 +252,9 @@ export function VaultList() {
             {hasData ? (
               <>
                 <span>
-                  {sorted.length} route{sorted.length === 1 ? "" : "s"} via
+                  {sorted.length} vault{sorted.length === 1 ? "" : "s"} via
                 </span>
-                <span className="font-semibold text-main">LI.FI</span>
+                <span className="font-semibold text-main">Nox Protocol</span>
               </>
             ) : (
               <span>Discovering vault routes</span>
@@ -509,7 +509,7 @@ export function VaultList() {
       <div className="mt-3 flex items-center justify-center gap-2 pb-1">
         <span className="text-[11px] font-medium text-faint">Powered by</span>
         <span className="text-[11px] font-semibold tracking-tight text-muted">
-          LI.FI
+          Nox Protocol
         </span>
       </div>
     </section>
