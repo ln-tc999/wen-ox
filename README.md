@@ -556,7 +556,7 @@ pnpm dev
 
 ## License
 
-MIT © 2026 Zknull contributors. See [LICENSE](LICENSE).
+MIT © 2026 Wen-Ox contributors. See [LICENSE](LICENSE).
 
 ---
 
