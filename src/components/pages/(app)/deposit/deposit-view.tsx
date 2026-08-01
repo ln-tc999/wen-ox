@@ -195,16 +195,25 @@ const DEPOSIT_FEATURES = [
     icon: <FiLock className="h-4 w-4" />,
     title: "Encrypted balances",
     desc: "Amounts are hidden on-chain via Nox TEE — only you can decrypt.",
+    highlight: false,
   },
   {
     icon: <HiLockClosed className="h-4 w-4" />,
     title: "Confidential tokens",
     desc: "USDC → cUSDC, RLC → cRLC, WETH → cWETH. 1:1 wrapped via ERC-7984.",
+    highlight: false,
   },
   {
     icon: <FiCheck className="h-4 w-4" />,
     title: "Public TVL verification",
     desc: "Aggregate vault TVL is publicly visible while individual deposits stay private.",
+    highlight: false,
+  },
+  {
+    icon: <FiAlertTriangle className="h-4 w-4" />,
+    title: "Testnet only",
+    desc: "These are testnet tokens with no real value. Use freely for testing and demos.",
+    highlight: true,
   },
 ] as const;
 
@@ -217,13 +226,25 @@ function DepositFeatures() {
           initial={{ opacity: 0, y: 6 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, delay: 0.1 }}
-          className="rounded-3xl border border-main bg-surface p-4"
+          className={`rounded-3xl border p-4 ${
+            f.highlight
+              ? "border-yellow-400 bg-yellow-400 text-black"
+              : "border-main bg-surface"
+          }`}
         >
-          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-soft text-brand">
+          <div
+            className={`flex h-8 w-8 items-center justify-center rounded-full ${
+              f.highlight
+                ? "bg-yellow-500/30 text-black"
+                : "bg-brand-soft text-brand"
+            }`}
+          >
             {f.icon}
           </div>
-          <h3 className="mt-2.5 text-sm font-semibold text-main">{f.title}</h3>
-          <p className="mt-1 text-[11px] leading-relaxed text-muted">
+          <h3 className="mt-2.5 text-sm font-semibold">{f.title}</h3>
+          <p
+            className={`mt-1 text-[11px] leading-relaxed ${f.highlight ? "text-black/70" : "text-muted"}`}
+          >
             {f.desc}
           </p>
         </motion.div>
