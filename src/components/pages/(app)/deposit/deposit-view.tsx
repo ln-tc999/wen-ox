@@ -55,6 +55,18 @@ const DEPOSIT_TOKENS = [
     vaultAddress: NOX_VAULTS.cRLC_VAULT,
     chainId: 421614,
   },
+  {
+    symbol: "WETH",
+    name: "Wrapped Ether",
+    address: NOX_CONTRACTS.WETH,
+    cTokenAddress: NOX_CONTRACTS.cWETH,
+    decimals: 18,
+    logoURI:
+      "https://tokens.1inch.io/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2.png",
+    priceUSD: 3500,
+    vaultAddress: NOX_VAULTS.cWETH_VAULT,
+    chainId: 421614,
+  },
 ] as const;
 
 type TabKey = "deposit" | "withdraw";
