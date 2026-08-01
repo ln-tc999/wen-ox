@@ -253,7 +253,7 @@ export function LandingPage() {
                 className="h-9 w-auto"
               />
               <span className="font-sans text-base font-semibold tracking-tight text-[#efe9dc]">
-                zknull
+                wen-ox
               </span>
             </Link>
             <nav className="flex items-center gap-6 font-mono text-[11px] uppercase tracking-[0.18em]">
@@ -489,7 +489,7 @@ export function LandingPage() {
                 <p
                   className={`text-[13px] leading-relaxed ${dark ? "text-[#efe9dc]/70" : "text-[#211b12]/70"}`}
                 >
-                  Zknull is a privacy-first aggregator utilizing TEE technology.
+                  Wen-Ox is a privacy-first aggregator utilizing TEE technology.
                   Learn more from iExec Nox documentation.
                 </p>
               </div>
