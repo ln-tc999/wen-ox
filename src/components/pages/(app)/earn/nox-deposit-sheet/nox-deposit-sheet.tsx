@@ -3,7 +3,16 @@
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect } from "react";
-import { FiAlertTriangle, FiCheck, FiLoader, FiX } from "react-icons/fi";
+import {
+  FiAlertTriangle,
+  FiCheck,
+  FiExternalLink,
+  FiLoader,
+  FiX,
+  FiDollarSign,
+  FiZap,
+  FiShield,
+} from "react-icons/fi";
 import { HiLockClosed } from "react-icons/hi2";
 import { useAccount, useChainId, useConfig, useSwitchChain } from "wagmi";
 import { addTrackedVault } from "@/lib/tracked-vaults";
@@ -65,6 +74,79 @@ export function NoxDepositSheet() {
       ) : null}
     </AnimatePresence>
   );
+}
+
+type ErrorGuide = {
+  icon: typeof FiAlertTriangle;
+  title: string;
+  message: string;
+  action?: { label: string; href: string };
+};
+
+function getErrorGuide(error: string): ErrorGuide {
+  const lower = error.toLowerCase();
+
+  if (
+    lower.includes("insufficient") ||
+    lower.includes("transfer amount exceeds")
+  ) {
+    return {
+      icon: FiDollarSign,
+      title: "Insufficient Balance",
+      message:
+        "You don't have enough tokens to complete this deposit. Please claim tokens from the faucet or reduce your deposit amount.",
+      action: { label: "Go to Faucet", href: "/faucet" },
+    };
+  }
+
+  if (lower.includes("user rejected") || lower.includes("rejected in wallet")) {
+    return {
+      icon: FiShield,
+      title: "Transaction Cancelled",
+      message:
+        "You rejected the transaction in your wallet. No worries — nothing was changed. Try again when you're ready.",
+    };
+  }
+
+  if (lower.includes("allowance") || lower.includes("approve")) {
+    return {
+      icon: FiShield,
+      title: "Approval Required",
+      message:
+        "The token approval didn't go through. Please try again and approve the transaction in your wallet.",
+    };
+  }
+
+  if (lower.includes("reverted") || lower.includes("vault")) {
+    return {
+      icon: FiAlertTriangle,
+      title: "Transaction Failed",
+      message:
+        "The transaction was rejected by the blockchain. This can happen if the vault is paused or at capacity. Please try again later.",
+    };
+  }
+
+  if (
+    lower.includes("network") ||
+    lower.includes("rpc") ||
+    lower.includes("fetch")
+  ) {
+    return {
+      icon: FiZap,
+      title: "Network Error",
+      message:
+        "We couldn't reach the blockchain. Please check your connection and try again.",
+    };
+  }
+
+  return {
+    icon: FiAlertTriangle,
+    title: "Something Went Wrong",
+    message:
+      error.length > 120
+        ? `${error.slice(0, 120)}...`
+        : error || "An unexpected error occurred. Please try again.",
+  };
 }
 
 function LoadingState() {
@@ -170,20 +252,40 @@ function NoxDepositFlow({ walletAddress }: { walletAddress: `0x${string}` }) {
   }
 
   if (step === "error") {
+    const errorGuide = getErrorGuide(error ?? "");
     return (
-      <div className="flex flex-col items-center gap-3 py-8 text-center">
-        <FiAlertTriangle className="h-6 w-6 text-(--color-negative)" />
-        <p className="text-sm font-semibold text-main">Deposit failed</p>
-        <p className="mx-auto max-w-xs text-xs text-muted">{error}</p>
-        <button
-          type="button"
-          onClick={() =>
-            useNoxDepositStore.setState({ step: "idle", error: null })
-          }
-          className="mt-2 rounded-full bg-brand px-4 py-2 text-xs font-semibold text-white cursor-pointer transition-colors hover-brand"
-        >
-          Try again
-        </button>
+      <div className="flex flex-col items-center gap-5 py-8 text-center">
+        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-amber-500/10">
+          <errorGuide.icon className="h-8 w-8 text-amber-500" />
+        </div>
+        <div>
+          <p className="text-lg font-semibold text-main">{errorGuide.title}</p>
+          <p className="mt-2 max-w-xs text-sm text-muted leading-relaxed">
+            {errorGuide.message}
+          </p>
+        </div>
+        <div className="flex w-full flex-col gap-2">
+          {errorGuide.action && (
+            <a
+              href={errorGuide.action.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex w-full items-center justify-center gap-2 rounded-2xl bg-brand px-5 py-3 text-sm font-semibold text-white cursor-pointer transition-colors hover-brand"
+            >
+              {errorGuide.action.label}
+              <FiExternalLink className="h-3.5 w-3.5" />
+            </a>
+          )}
+          <button
+            type="button"
+            onClick={() =>
+              useNoxDepositStore.setState({ step: "idle", error: null })
+            }
+            className="w-full rounded-2xl border border-main bg-surface px-5 py-3 text-sm font-semibold text-main cursor-pointer transition-colors hover:bg-surface-raised"
+          >
+            Try again
+          </button>
+        </div>
       </div>
     );
   }
