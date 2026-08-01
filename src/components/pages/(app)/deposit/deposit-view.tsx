@@ -85,16 +85,10 @@ export function DepositView() {
     <>
       <BackgroundDecor />
       <main className="mx-auto flex w-full max-w-310 flex-1 flex-col px-4 py-4 sm:px-6 sm:py-6 lg:h-[calc(100dvh-4rem)] lg:flex-none lg:overflow-hidden">
-        <div className="grid flex-1 gap-4 lg:min-h-0 lg:grid-cols-[1fr_420px] lg:gap-5 lg:items-stretch">
-          {/* Left: Info & features */}
-          <div className="flex min-h-0 flex-col gap-4">
-            <DepositHero />
-            <DepositFeatures />
-          </div>
-
-          {/* Right: Deposit / Withdraw card */}
+        <div className="grid flex-1 gap-4 lg:min-h-0 lg:grid-cols-[1fr_1fr] lg:gap-5 lg:items-stretch">
+          {/* Left: Deposit / Withdraw card */}
           <div className="flex min-h-0 flex-col">
-            <div className="rounded-3xl border border-main bg-surface p-2.5">
+            <div className="rounded-3xl border border-main bg-surface p-2.5 h-full">
               {/* Tab switcher */}
               <div className="flex items-center gap-1 rounded-full bg-surface-muted p-1 mb-3">
                 <TabButton
@@ -116,6 +110,12 @@ export function DepositView() {
                 {activeTab === "deposit" ? <DepositFlow /> : <WithdrawFlow />}
               </div>
             </div>
+          </div>
+
+          {/* Right: Info & features */}
+          <div className="flex min-h-0 flex-col gap-4">
+            <DepositHero />
+            <DepositFeatures />
           </div>
         </div>
       </main>
