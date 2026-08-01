@@ -5,10 +5,6 @@ import {
 } from "@wagmi/core";
 import type { Config } from "wagmi";
 import { create } from "zustand";
-import {
-  createNoxHandleClientFromWindow,
-  encryptAmountWithHandle,
-} from "@/lib/nox-handle";
 import type { NoxPortfolio } from "@/lib/nox-types";
 import { NOX_YIELD_VAULT_ABI } from "@/lib/nox-vault-contract";
 
@@ -26,9 +22,8 @@ const ERC7984_UNWRAPPER_ABI = [
     type: "function",
     stateMutability: "nonpayable",
     inputs: [
+      { name: "from", type: "address" },
       { name: "amount", type: "uint256" },
-      { name: "handle", type: "bytes32" },
-      { name: "handleProof", type: "bytes" },
     ],
     outputs: [],
   },
@@ -144,23 +139,11 @@ export const useNoxWithdrawStore = create<WithdrawState>((set, get) => ({
 
       set({ step: "unwrapping" });
 
-      const handleClient = await createNoxHandleClientFromWindow(account);
-      const { handle, handleProof } = await encryptAmountWithHandle(
-        handleClient,
-        previewAssets,
-        "uint256",
-        cTokenAddress,
-      );
-
       const unwrapHash = await writeContract(config, {
         address: cTokenAddress,
         abi: ERC7984_UNWRAPPER_ABI,
         functionName: "unwrap",
-        args: [
-          previewAssets,
-          handle as `0x${string}`,
-          handleProof as `0x${string}`,
-        ],
+        args: [account, previewAssets],
         chainId: position.chainId,
       });
       const unwrapReceipt = await waitForTransactionReceipt(config, {
