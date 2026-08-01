@@ -246,14 +246,14 @@ export function LandingPage() {
           <div className="flex items-center justify-between px-8 py-5">
             <Link href="/" className="flex items-center gap-3">
               <Image
-                src="/Assets/Images/Logo-Brand/logo-transparent.png"
-                alt="Wen-Ox"
+                src="/Assets/Images/Logo-Brand/logo-light.png"
+                alt="Zknull"
                 width={36}
                 height={36}
-                className="h-9 w-auto invert dark:invert-0"
+                className="h-9 w-auto"
               />
               <span className="font-sans text-base font-semibold tracking-tight text-[#efe9dc]">
-                wen-ox
+                zknull
               </span>
             </Link>
             <nav className="flex items-center gap-6 font-mono text-[11px] uppercase tracking-[0.18em]">
@@ -345,8 +345,8 @@ export function LandingPage() {
           </p>
           <div className="relative h-24 w-44 opacity-85 select-none pointer-events-none">
             <Image
-              src="/Assets/Images/Logo-Brand/logo-transparent.png"
-              alt="Wen-Ox"
+              src="/Assets/Images/Logo-Brand/logo-light.png"
+              alt="Zknull"
               fill
               sizes="176px"
               className="object-contain"
@@ -489,7 +489,7 @@ export function LandingPage() {
                 <p
                   className={`text-[13px] leading-relaxed ${dark ? "text-[#efe9dc]/70" : "text-[#211b12]/70"}`}
                 >
-                  Wen-Ox is a privacy-first aggregator utilizing TEE technology.
+                  Zknull is a privacy-first aggregator utilizing TEE technology.
                   Learn more from iExec Nox documentation.
                 </p>
               </div>
