@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FiArrowLeft } from "react-icons/fi";
+import { Logo } from "@/components/ui/logo";
 import type { FeatureSections } from "@/components/ui";
 
 export function IdleAggregatorCard() {
@@ -9,13 +10,7 @@ export function IdleAggregatorCard() {
       <div className="flex flex-col gap-2">
         <div className="flex items-center justify-between">
           <span className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-faint">
-            <Image
-              src="/Assets/Images/Logo-Brand/logo-transparent.png"
-              alt="Wen-Ox"
-              width={18}
-              height={18}
-              className="h-4 w-4 object-contain"
-            />
+            <Logo width={18} height={18} className="h-4 w-4 object-contain" />
             Wen-Ox Aggregator · Arbitrum-first
           </span>
           <Link
@@ -39,7 +34,7 @@ export function IdleAggregatorCard() {
       <div className="mt-6 flex flex-1 items-center justify-center">
         <div className="relative aspect-video w-full max-w-sm overflow-hidden rounded-lg border border-white/10">
           <Image
-            src="/Assets/Images/Logo-Brand/logo-transparent.png"
+            src="/Assets/Images/Logo-Brand/logo-light.png"
             alt="Wen-Ox"
             fill
             className="object-contain p-2"
