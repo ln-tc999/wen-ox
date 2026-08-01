@@ -1,18 +1,17 @@
 <div align="center">
 
-<img src="./public/Assets/Images/Logo-Brand/logo-transparent.png" alt="Wen-Ox" width="120" height="120" />
+<img src="./public/Assets/Images/Logo-Brand/logo-light.png" alt="Zknull" width="120" height="120" />
 
-# Wen-Ox — Confidential Yield Vault Aggregator
+# Zknull — Confidential Yield Vault Aggregator
 
 *Confidential yield farming powered by iExec Nox & ERC-7984 Confidential Tokens, with AI-assisted vault routing.*
 
-[![Live App](https://img.shields.io/badge/Live%20App-iex--ai.vercel.app-10B981?style=for-the-badge&logo=vercel&logoColor=white)](https://iex-ai.vercel.app)
+[![Live App](https://img.shields.io/badge/Live%20App-wen--ox.vercel.app-10B981?style=for-the-badge&logo=vercel&logoColor=white)](https://wen-ox.vercel.app)
 [![Built on Nox](https://img.shields.io/badge/Built%20on-iExec%20Nox-FFD800?style=for-the-badge)](https://docs.iex.ec/nox-protocol/getting-started/welcome)
-[![Deployed on](https://img.shields.io/badge/Deployed%20on-Arbitrum%20Sepolia-28A0F0?style=for-the-badge)](https://sepolia.arbiscan.io/address/0xbD124A4C743847f5862024906B66ABeDeB9cCB6e)
-[![Deployed on](https://img.shields.io/badge/Deployed%20on-Ethereum%20Sepolia-3C3C3D?style=for-the-badge)](https://sepolia.etherscan.io/address/0x0256137E4262Ac007463067BC5Dd15A9de4CfAa8)
+[![Deployed on](https://img.shields.io/badge/Deployed%20on-Arbitrum%20Sepolia-28A0F0?style=for-the-badge)](https://sepolia.arbiscan.io)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](LICENSE)
 
-[Try the dApp ↗](https://iex-ai.vercel.app/) · [Demo Video (2 min)](https://canva.link/7p7v7cse45n4ecs) · [Arbiscan — Vault Factory](#)
+[Try the dApp ↗](https://wen-ox.vercel.app/) · [Demo Video (2 min)](https://canva.link/7p7v7cse45n4ecs)
 
 </div>
 
@@ -58,7 +57,7 @@ Existing solutions ( Tornado Cash, Railgun) are for transfers — not yield gene
 
 ## The Solution
 
-**Wen-Ox** is a confidential yield vault aggregator where:
+**Zknull** is a confidential yield vault aggregator where:
 
 - ✅ **Anyone can deposit** USDC or RLC into confidential vaults.
 - ✅ **Depositors receive cUSDC/cRLC** — ERC-7984 confidential tokens wrapped from public tokens.
@@ -444,7 +443,7 @@ pnpm dev
 | On-chain analytics / Etherscan observers | Read public transactions and balances. | ❌ Cannot view user balances in vaults (stored in `euint64` / encrypted). |
 | MEV searchers & copy-traders | Monitor mempool for large yield deposits. | ❌ Cannot observe deposit amount (client-side encrypted before broadcast). |
 | iExec Nox node operator (TEE host) | Runs SGX/TDX enclave. | ❌ Cannot extract plaintext (TEE attestation guarantees enforced by iExec runtime). |
-| Wen-Ox developers | Operate the frontend. | ❌ Cannot decrypt private balances. No backend stores sensitive data. |
+| Zknull developers | Operate the frontend. | ❌ Cannot decrypt private balances. No backend stores sensitive data. |
 
 **Honestly out of scope:**
 
@@ -557,7 +556,7 @@ pnpm dev
 
 ## License
 
-MIT © 2026 Wen-Ox contributors. See [LICENSE](LICENSE).
+MIT © 2026 Zknull contributors. See [LICENSE](LICENSE).
 
 ---
 
