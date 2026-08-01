@@ -2,9 +2,11 @@
 
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { AnimatePresence, motion } from "motion/react";
+import { useEffect } from "react";
 import { FiAlertTriangle, FiCheck, FiLoader, FiX } from "react-icons/fi";
 import { HiLockClosed } from "react-icons/hi2";
 import { useAccount, useChainId, useConfig, useSwitchChain } from "wagmi";
+import { addTrackedVault } from "@/lib/tracked-vaults";
 import { useWalletReady } from "@/lib/wallet-ready";
 import { useNoxDepositStore } from "@/stores";
 
@@ -112,6 +114,20 @@ function NoxDepositFlow({ walletAddress }: { walletAddress: `0x${string}` }) {
   const underlyingSymbol = vault.tokenSymbol.startsWith("c")
     ? vault.tokenSymbol.slice(1)
     : vault.tokenSymbol;
+
+  useEffect(() => {
+    if (step === "success" && vault) {
+      addTrackedVault({
+        chainId: vault.chainId,
+        vaultAddress: vault.vaultAddress,
+        protocolName: vault.protocolKey,
+        tokenSymbol: vault.tokenSymbol,
+        tokenDecimals: vault.tokenDecimals,
+        tokenAddress: vault.tokenAddress,
+        vaultName: vault.vaultName,
+      });
+    }
+  }, [step, vault]);
 
   if (step === "success") {
     return (
