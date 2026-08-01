@@ -2,7 +2,7 @@
 
 <img src="./public/Assets/Images/Logo-Brand/logo-light.png" alt="Zknull" width="120" height="120" />
 
-# Zknull — Confidential Yield Vault Aggregator
+# Wen-Ox — Confidential Yield Vault Aggregator
 
 *Confidential yield farming powered by iExec Nox & ERC-7984 Confidential Tokens, with AI-assisted vault routing.*
 
@@ -57,7 +57,7 @@ Existing solutions ( Tornado Cash, Railgun) are for transfers — not yield gene
 
 ## The Solution
 
-**Zknull** is a confidential yield vault aggregator where:
+**Wen-Ox** is a confidential yield vault aggregator where:
 
 - ✅ **Anyone can deposit** USDC or RLC into confidential vaults.
 - ✅ **Depositors receive cUSDC/cRLC** — ERC-7984 confidential tokens wrapped from public tokens.
@@ -443,7 +443,7 @@ pnpm dev
 | On-chain analytics / Etherscan observers | Read public transactions and balances. | ❌ Cannot view user balances in vaults (stored in `euint64` / encrypted). |
 | MEV searchers & copy-traders | Monitor mempool for large yield deposits. | ❌ Cannot observe deposit amount (client-side encrypted before broadcast). |
 | iExec Nox node operator (TEE host) | Runs SGX/TDX enclave. | ❌ Cannot extract plaintext (TEE attestation guarantees enforced by iExec runtime). |
-| Zknull developers | Operate the frontend. | ❌ Cannot decrypt private balances. No backend stores sensitive data. |
+| Wen-Ox developers | Operate the frontend. | ❌ Cannot decrypt private balances. No backend stores sensitive data. |
 
 **Honestly out of scope:**
 
