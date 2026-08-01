@@ -92,9 +92,14 @@ export const useNoxWithdrawStore = create<WithdrawState>((set, get) => ({
       set({ step: "error", error: "No position selected" });
       return;
     }
+    if (!position.token || position.token.decimals === undefined) {
+      set({ step: "error", error: "Token metadata missing" });
+      return;
+    }
 
     const vaultAddress = position.vaultAddress as `0x${string}`;
     const cTokenAddress = position.token.address as `0x${string}`;
+    const tokenDecimals = position.token.decimals;
     const isZeroVault =
       vaultAddress === "0x0000000000000000000000000000000000000000";
 
@@ -117,7 +122,6 @@ export const useNoxWithdrawStore = create<WithdrawState>((set, get) => ({
         args: [sharesBigInt],
         chainId: position.chainId,
       })) as bigint;
-
       const redeemHash = await writeContract(config, {
         address: vaultAddress,
         abi: NOX_YIELD_VAULT_ABI,
