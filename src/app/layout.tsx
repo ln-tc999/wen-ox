@@ -11,7 +11,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Wen-Ox — Find the best yield route",
+  title: "Wen-Ox",
   description:
     "Wen-Ox discovers the best confidential vault opportunities using Nox Protocol and deposits in one click.",
 };
