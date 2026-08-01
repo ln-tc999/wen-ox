@@ -22,10 +22,6 @@ import {
   useSwitchChain,
 } from "wagmi";
 import { BackgroundDecor } from "@/components/layout";
-import {
-  createNoxHandleClientFromWindow,
-  encryptAmountWithHandle,
-} from "@/lib/nox-handle";
 import { NOX_CONTRACTS, NOX_VAULTS } from "@/lib/nox-types";
 import { NOX_YIELD_VAULT_ABI } from "@/lib/nox-vault-contract";
 import { useWalletReady } from "@/lib/wallet-ready";
@@ -836,18 +832,8 @@ function WithdrawConnected({ address }: { address: `0x${string}` }) {
         chainId: token.chainId,
       });
 
-      // Step 2: Unwrap cToken → underlying via Nox Handle SDK
+      // Step 2: Unwrap cToken → underlying
       setStep("unwrapping");
-
-      const handleClient = await createNoxHandleClientFromWindow(address);
-      const previewAssets = withdrawAmount; // Approximate
-
-      const { handle, handleProof } = await encryptAmountWithHandle(
-        handleClient,
-        previewAssets,
-        "uint256",
-        token.cTokenAddress,
-      );
 
       const unwrapAbi = [
         {
@@ -855,9 +841,8 @@ function WithdrawConnected({ address }: { address: `0x${string}` }) {
           type: "function",
           stateMutability: "nonpayable",
           inputs: [
+            { name: "from", type: "address" },
             { name: "amount", type: "uint256" },
-            { name: "handle", type: "bytes32" },
-            { name: "handleProof", type: "bytes" },
           ],
           outputs: [],
         },
@@ -867,11 +852,7 @@ function WithdrawConnected({ address }: { address: `0x${string}` }) {
         address: token.cTokenAddress as `0x${string}`,
         abi: unwrapAbi,
         functionName: "unwrap",
-        args: [
-          previewAssets,
-          handle as `0x${string}`,
-          handleProof as `0x${string}`,
-        ],
+        args: [address, withdrawAmount],
         chainId: token.chainId,
       });
       await waitForTransactionReceipt(config, {
