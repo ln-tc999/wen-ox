@@ -381,16 +381,23 @@ export function ActiveFlow({
 
   if (step === "error" && !quote) {
     return (
-      <div className="flex flex-col items-center gap-3 py-10 text-center">
-        <FiAlertTriangle className="h-6 w-6 text-(--color-negative)" />
-        <p className="text-sm font-semibold text-main">
-          Couldn&apos;t fetch a route
-        </p>
-        <p className="mx-auto max-w-xs text-xs text-muted">{error}</p>
+      <div className="flex flex-col items-center gap-5 py-10 text-center">
+        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-amber-500/10">
+          <FiAlertTriangle className="h-8 w-8 text-amber-500" />
+        </div>
+        <div>
+          <p className="text-lg font-semibold text-main">
+            Couldn&apos;t Fetch a Route
+          </p>
+          <p className="mt-2 max-w-xs text-sm text-muted leading-relaxed">
+            {error ||
+              "We couldn't find a deposit route for this vault. Please try a different amount or token."}
+          </p>
+        </div>
         <button
           type="button"
           onClick={() => fetchQuote(walletAddress, wagmiConfig)}
-          className="mt-2 cursor-pointer rounded-full bg-brand px-4 py-2 text-xs font-semibold text-white transition-colors hover-brand"
+          className="w-full cursor-pointer rounded-2xl bg-brand px-5 py-3 text-sm font-semibold text-white transition-colors hover-brand"
         >
           Try again
         </button>
@@ -637,8 +644,16 @@ export function ActiveFlow({
       </div>
 
       {error ? (
-        <div className="rounded-xl border border-[rgba(250,43,57,0.35)] bg-[rgba(250,43,57,0.12)] px-3 py-2 text-[11px] text-(--color-negative)">
-          {error}
+        <div className="flex items-start gap-3 rounded-2xl border border-amber-500/30 bg-amber-500/10 px-4 py-3">
+          <FiAlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-amber-500" />
+          <div>
+            <p className="text-xs font-semibold text-amber-600 dark:text-amber-400">
+              Action needed
+            </p>
+            <p className="mt-0.5 text-[11px] text-muted leading-relaxed">
+              {error}
+            </p>
+          </div>
         </div>
       ) : null}
 
