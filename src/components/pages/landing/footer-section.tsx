@@ -73,14 +73,14 @@ export function FooterSection() {
             {/* Brand */}
             <div className="flex items-center gap-3">
               <Image
-                src="/Assets/Images/Logo-Brand/logo-transparent.png"
-                alt="Wen-Ox"
+                src="/Assets/Images/Logo-Brand/logo-light.png"
+                alt="Zknull"
                 width={48}
                 height={48}
-                className="size-12 select-none rounded-full"
+                className="size-12 select-none"
               />
               <span className="text-sm font-bold uppercase tracking-widest text-main">
-                Wen-Ox
+                Zknull
               </span>
             </div>
 
@@ -138,11 +138,11 @@ export function FooterSection() {
       {/* Giant watermark */}
       <div className="pointer-events-none mt-10 flex select-none items-center justify-center gap-4 overflow-hidden">
         <Image
-          src="/Assets/Images/Logo-Brand/logo-transparent.png"
-          alt="Wen-Ox"
+          src="/Assets/Images/Logo-Brand/logo-light.png"
+          alt="Zknull"
           width={200}
           height={200}
-          className="select-none rounded-full opacity-5"
+          className="select-none opacity-5"
           style={{
             width: "clamp(100px, 12vw, 200px)",
             height: "auto",
@@ -155,7 +155,7 @@ export function FooterSection() {
             opacity: 0.05,
           }}
         >
-          Wen-Ox
+          Zknull
         </p>
       </div>
 
