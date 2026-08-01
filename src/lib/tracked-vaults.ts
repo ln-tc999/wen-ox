@@ -10,6 +10,33 @@ const KNOWN_VAULTS: Omit<TrackedVault, "depositedAt">[] = [
     tokenAddress: "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
     vaultName: "yoVaultUSD",
   },
+  {
+    chainId: 421614,
+    vaultAddress: "0x75ef70Ea33994a16751ff0b4f7DCF0F94DF1351F",
+    protocolName: "nox-protocol",
+    tokenSymbol: "cUSDC",
+    tokenDecimals: 6,
+    tokenAddress: "0x1ccec6bc60db15e4055d43dc2531bb7d4e5b808e",
+    vaultName: "Nox cUSDC Vault",
+  },
+  {
+    chainId: 421614,
+    vaultAddress: "0x1955eF9145cCAa643a8Ee61aE3206F0acb632Adf",
+    protocolName: "nox-protocol",
+    tokenSymbol: "cRLC",
+    tokenDecimals: 9,
+    tokenAddress: "0x92b23f4a59175415ced5cb37e64a1fc6a9d79af4",
+    vaultName: "Nox cRLC Vault",
+  },
+  {
+    chainId: 421614,
+    vaultAddress: "0x53B18389Aa9c4Bf6FA9b3E065a2c142b77C88b82",
+    protocolName: "nox-protocol",
+    tokenSymbol: "cWETH",
+    tokenDecimals: 18,
+    tokenAddress: "0x051eb756A880908a37147aE4d564A1977F700de1",
+    vaultName: "Nox cWETH Vault",
+  },
 ];
 
 export type TrackedVault = {
